@@ -521,3 +521,49 @@ export const getWhatsAppUrl = (
 ): string => {
   return `https://wa.me/${numberClean}?text=${encodeURIComponent(message)}`;
 };
+
+export interface QuoteFormData {
+  name: string;
+  phone: string;
+  email?: string;
+  category: string;
+  area?: string;
+  location?: string;
+  notes?: string;
+}
+
+export const createQuoteInquiryLinks = (data: QuoteFormData) => {
+  const messageBody =
+`*NEW STRUCTURAL SPECIFICATION INQUIRY*
+━━━━━━━━━━━━━━━━━━━━━━
+👤 *Client Name:* ${data.name}
+📱 *Phone / WhatsApp:* ${data.phone}
+📧 *Email:* ${data.email || 'N/A'}
+🏗️ *Category:* ${data.category}
+${data.area ? `📐 *Estimated Area:* ${data.area}\n` : ''}${data.location ? `📍 *Location:* ${data.location}\n` : ''}${data.notes ? `📝 *Notes/Specs:* ${data.notes}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━
+Sent via Crescent Engineering Web Portal`;
+
+  const emailSubject = `Structural RFP Specification: ${data.name} - ${data.category}`;
+  const emailBody =
+`NEW STRUCTURAL SPECIFICATION INQUIRY / RFP
+
+Client / Company: ${data.name}
+Contact Phone: ${data.phone}
+Email Address: ${data.email || 'Not provided'}
+Structural Category: ${data.category}
+${data.area ? `Estimated Area: ${data.area}\n` : ''}${data.location ? `Project Site Location: ${data.location}\n` : ''}${data.notes ? `Requirements & Tolerances: ${data.notes}\n` : ''}
+----------------------------------------
+Transmitted via Crescent Engineering Industries Web Portal
+Melapalayam, Tirunelveli - 627005`;
+
+  const whatsappUrl1 = `https://wa.me/${COMPANY_CONTACT.whatsapp1Clean}?text=${encodeURIComponent(messageBody)}`;
+  const whatsappUrl2 = `https://wa.me/${COMPANY_CONTACT.whatsapp2Clean}?text=${encodeURIComponent(messageBody)}`;
+  const mailtoUrl = `mailto:${COMPANY_CONTACT.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  return {
+    messageBody,
+    whatsappUrl1,
+    whatsappUrl2,
+    mailtoUrl,
+  };
+};

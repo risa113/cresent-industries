@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { COMPANY_CONTACT } from '../data/mockData';
+import { COMPANY_CONTACT, createQuoteInquiryLinks } from '../data/mockData';
 
 export interface QuoteModalProps {
   readonly isOpen: boolean;
@@ -8,6 +8,12 @@ export interface QuoteModalProps {
 
 export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [dispatchedLinks, setDispatchedLinks] = useState<{
+    whatsappUrl1: string;
+    whatsappUrl2: string;
+    mailtoUrl: string;
+  } | null>(null);
+
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -21,7 +27,25 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.phone) return;
+
+    const links = createQuoteInquiryLinks({
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      category: form.category,
+      notes: form.details,
+    });
+
+    setDispatchedLinks(links);
     setSubmitted(true);
+
+    // 1. Direct to WhatsApp in a new tab/window
+    window.open(links.whatsappUrl1, '_blank', 'noopener,noreferrer');
+
+    // 2. Direct to Email client via mailto:
+    setTimeout(() => {
+      window.location.href = links.mailtoUrl;
+    }, 350);
   };
 
   return (
@@ -48,20 +72,67 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {submitted ? (
-          <div className="py-6 text-center space-y-3">
-            <span className="material-symbols-outlined text-4xl text-primary">
-              check_circle
-            </span>
-            <h4 className="text-lg font-bold text-on-surface">Request Dispatched</h4>
+          <div className="py-4 space-y-4 text-center">
+            <div className="w-12 h-12 bg-emerald-100 border border-emerald-500 text-emerald-700 flex items-center justify-center mx-auto">
+              <span className="material-symbols-outlined text-3xl">check_circle</span>
+            </div>
+            <div>
+              <h4 className="text-lg font-bold text-on-surface">Estimate Request Dispatched!</h4>
+              <p className="text-xs text-emerald-700 font-mono font-medium mt-0.5">
+                Directly routed to WhatsApp &amp; Email
+              </p>
+            </div>
             <p className="text-xs text-tertiary">
-              Our engineering office at Melapalayam will review your requirements and reach out via phone or email shortly.
+              Your inquiry for <strong className="text-on-surface">{form.name}</strong> has been transmitted. If your browser blocked the automatic redirect, use the instant buttons below:
             </p>
+
+            {dispatchedLinks && (
+              <div className="flex flex-col gap-2 pt-2 text-left">
+                <a
+                  href={dispatchedLinks.whatsappUrl1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-3 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-mono text-xs font-semibold"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping" />
+                    <span>WhatsApp Desk 1 ({COMPANY_CONTACT.mobile1})</span>
+                  </span>
+                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+
+                <a
+                  href={dispatchedLinks.whatsappUrl2}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-3 py-2.5 bg-emerald-800 hover:bg-emerald-700 text-white font-mono text-xs font-semibold"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span>WhatsApp Desk 2 ({COMPANY_CONTACT.mobile2})</span>
+                  </span>
+                  <span className="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+
+                <a
+                  href={dispatchedLinks.mailtoUrl}
+                  className="flex items-center justify-between px-3 py-2.5 bg-primary-container hover:bg-primary text-on-primary font-mono text-xs font-semibold"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-[16px]">mail</span>
+                    <span>Open Email ({COMPANY_CONTACT.email})</span>
+                  </span>
+                  <span className="material-symbols-outlined text-sm">send</span>
+                </a>
+              </div>
+            )}
+
             <button
               type="button"
               onClick={onClose}
-              className="mt-3 px-5 py-2 bg-on-background text-on-primary text-xs font-mono uppercase"
+              className="w-full mt-3 px-5 py-2.5 border border-outline-variant hover:bg-surface-container-low text-on-surface text-xs font-mono uppercase"
             >
-              Done
+              Close Window
             </button>
           </div>
         ) : (

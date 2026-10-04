@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { COMPANY_CONTACT, getWhatsAppUrl } from '../data/mockData';
+import { COMPANY_CONTACT, getWhatsAppUrl, createQuoteInquiryLinks } from '../data/mockData';
 
 export interface ContactCTAProps {
   readonly onOpenQuoteModal?: () => void;
@@ -17,10 +17,36 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
     notes: '',
   });
 
+  const [dispatchedLinks, setDispatchedLinks] = useState<{
+    whatsappUrl1: string;
+    whatsappUrl2: string;
+    mailtoUrl: string;
+  } | null>(null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
+
+    const links = createQuoteInquiryLinks({
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      category: formData.projectType,
+      area: formData.estimatedArea,
+      location: formData.location,
+      notes: formData.notes,
+    });
+
+    setDispatchedLinks(links);
     setFormSubmitted(true);
+
+    // 1. Direct to WhatsApp in a new tab/window
+    window.open(links.whatsappUrl1, '_blank', 'noopener,noreferrer');
+
+    // 2. Direct to Email client via mailto:
+    setTimeout(() => {
+      window.location.href = links.mailtoUrl;
+    }, 350);
   };
 
   return (
@@ -128,20 +154,84 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
               </div>
 
               {formSubmitted ? (
-                <div className="py-8 text-center space-y-4">
-                  <div className="w-12 h-12 bg-primary-container/20 border border-primary-container text-primary-container flex items-center justify-center mx-auto">
-                    <span className="material-symbols-outlined text-3xl">check_circle</span>
+                <div className="py-6 space-y-5">
+                  <div className="flex items-center gap-3 border-b border-tertiary pb-4">
+                    <div className="w-10 h-10 bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-2xl">check_circle</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-on-primary">
+                        Specification Dispatched!
+                      </h3>
+                      <p className="text-xs text-emerald-400 font-mono">
+                        Directly directed to WhatsApp &amp; Email
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-on-primary">
-                    Specification Transmitted
-                  </h3>
-                  <p className="text-sm text-outline-variant max-w-sm mx-auto leading-relaxed">
-                    Thank you. Our Chief Structural Engineer will review your requirements and provide CAD calculation estimates within 24 business hours.
+
+                  <p className="text-xs text-outline-variant font-mono leading-relaxed">
+                    Your project details for <strong className="text-on-primary">{formData.name}</strong> ({formData.projectType}) have been pre-filled and sent to our executive structural desk.
                   </p>
+
+                  {/* Immediate Direct Action Triggers */}
+                  <div className="space-y-2 pt-1">
+                    <span className="text-[10px] font-mono text-outline uppercase tracking-wider block">
+                      DIRECT DESK CHANNELS (CLICK TO RE-OPEN ANYTIME):
+                    </span>
+
+                    {dispatchedLinks && (
+                      <div className="flex flex-col gap-2">
+                        <a
+                          href={dispatchedLinks.whatsappUrl1}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between px-3.5 py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-mono text-xs font-semibold transition-colors"
+                        >
+                          <span className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-emerald-300 animate-ping" />
+                            <span>Open WhatsApp Desk 1 ({COMPANY_CONTACT.mobile1})</span>
+                          </span>
+                          <span className="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+
+                        <a
+                          href={dispatchedLinks.whatsappUrl2}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between px-3.5 py-2.5 bg-emerald-800/90 hover:bg-emerald-700 text-white font-mono text-xs font-semibold transition-colors"
+                        >
+                          <span className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                            <span>Open WhatsApp Desk 2 ({COMPANY_CONTACT.mobile2})</span>
+                          </span>
+                          <span className="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+
+                        <a
+                          href={dispatchedLinks.mailtoUrl}
+                          className="flex items-center justify-between px-3.5 py-2.5 bg-primary-container hover:bg-primary text-on-primary font-mono text-xs font-semibold transition-colors"
+                        >
+                          <span className="flex items-center gap-2">
+                            <span className="material-symbols-outlined text-[16px]">mail</span>
+                            <span>Open in Email ({COMPANY_CONTACT.email})</span>
+                          </span>
+                          <span className="material-symbols-outlined text-sm">send</span>
+                        </a>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="border border-tertiary bg-on-background/60 p-3 text-[11px] font-mono space-y-1 text-outline-variant">
+                    <div><span className="text-outline">CLIENT:</span> {formData.name} ({formData.phone})</div>
+                    <div><span className="text-outline">CATEGORY:</span> {formData.projectType}</div>
+                    {formData.estimatedArea && <div><span className="text-outline">AREA:</span> {formData.estimatedArea}</div>}
+                    {formData.location && <div><span className="text-outline">LOCATION:</span> {formData.location}</div>}
+                  </div>
+
                   <button
                     type="button"
                     onClick={() => setFormSubmitted(false)}
-                    className="mt-4 px-4 py-2 border border-outline text-xs font-mono uppercase text-on-primary hover:bg-tertiary/40"
+                    className="w-full py-2.5 border border-outline text-xs font-mono uppercase text-on-primary hover:bg-tertiary/40 transition-colors"
                   >
                     Submit Another Specification
                   </button>
