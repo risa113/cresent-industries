@@ -76,6 +76,8 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { label: 'Credentials', href: '#credentials' },
 ];
 
+const BASE = import.meta.env.BASE_URL || '/';
+
 export const HERO_DATA = {
   eyebrow: 'ENGINEERED FOR STRENGTH // CAD-SPEC: IS 800:2007 // PEB MATRIX v4.2',
   division: 'STRUCTURAL DIVISION: CRESCENT ROOFING & PEB',
@@ -83,7 +85,7 @@ export const HERO_DATA = {
   headlineHighlight: 'Building Tomorrow.',
   description:
     'Premium steel structural fabrication, pre-engineered buildings, industrial roofing matrices, and heavy infrastructure frameworks engineered for zero-tolerance performance, seismic compliance, and severe load durability.',
-  bgImage: '/images/project-real-3.webp',
+  bgImage: `${BASE}images/project-real-3.webp`,
   metrics: [
     { label: 'ANNUAL FABRICATION', value: '12,000+ MT' },
     { label: 'MAX CLEAR SPAN', value: '65 METERS' },
@@ -106,7 +108,7 @@ export const COMPANY_DATA = {
     { label: 'CHIEF EXECUTIVE LEADERSHIP', value: 'Er. K. Mohamed | Er. Mohamed Asseesul Islam, D.C.E.' },
     { label: 'STRUCTURAL SPECIFICATIONS', value: 'IS 800:2007 // ASTM A653 // IS 2062 E350' },
   ],
-  image: '/images/project-real-1.webp',
+  image: `${BASE}images/project-real-1.webp`,
   gps: 'LAT 8.7139° N, LONG 77.7567° E',
   datum: 'IS 2062 E250 / E350',
   facilityCode: 'FACILITY CODE: CEI-PLANT-01',
@@ -232,7 +234,7 @@ export const BLUEPRINT_DATA = {
   headline: 'Structures Designed for Performance.',
   scale: 'SCALE: 1:100 AUTOCAD REV 2026.4',
   tag: 'CLEAR SPAN ARCHITECTURE SYSTEM',
-  image: '/images/project-real-2.webp',
+  image: `${BASE}images/project-real-2.webp`,
   callouts: [
     {
       id: 'point-a',
@@ -379,7 +381,7 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
       'Tirunelveli High-Tech Industrial Corridor. Complete turnkey clear-span manufacturing bay engineered with heavy structural columns, precision roof trusses, and crane rail foundations.',
     area: '145,000 SQ. FT.',
     steel: '680 METRIC TONS',
-    image: '/images/project-real-1.webp',
+    image: `${BASE}images/project-real-1.webp`,
     alt: 'Real site project - Heavy industrial steel PEB truss structure and column grid in Tirunelveli',
     isRealSite: true,
   },
@@ -394,7 +396,7 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
       'High-clearance factory warehouse development engineered with rigid structural steel trusses, purlin grids, perimeter masonry integration, and crane-lift erection.',
     area: '220,000 SQ. FT.',
     steel: '1,150 METRIC TONS',
-    image: '/images/project-real-2.webp',
+    image: `${BASE}images/project-real-2.webp`,
     alt: 'Real site project - Warehouse roof truss framing and factory shed under construction',
     isRealSite: true,
   },
@@ -409,7 +411,7 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
       'Multi-level heavy structural steel skeleton building engineered for maximum moment resistance, seismic stability, and custom industrial manufacturing configurations.',
     area: '85,000 SQ. FT.',
     steel: '495 METRIC TONS',
-    image: '/images/project-real-3.webp',
+    image: `${BASE}images/project-real-3.webp`,
     alt: 'Real site project - Multi-tier steel structural building frame against twilight sky',
     isRealSite: true,
   },
@@ -424,7 +426,7 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
       'High-bay structural steel envelope with automated submerged arc welded trusses, continuous purlin overlaps, and reinforced wind-moment knee braces.',
     area: '110,000 SQ. FT.',
     steel: '540 METRIC TONS',
-    image: '/images/project-real-1.webp',
+    image: `${BASE}images/project-real-1.webp`,
     alt: 'Real site project - Wide clear span heavy structural steel warehouse trusses',
     isRealSite: true,
   },
@@ -439,7 +441,7 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
       'Port vicinity heavy structural steel framework engineered for high-salinity marine winds, dynamic dead-and-live load tolerances, and rapid turnkey crane erection.',
     area: '95,000 SQ. FT.',
     steel: '510 METRIC TONS',
-    image: '/images/project-real-3.webp',
+    image: `${BASE}images/project-real-3.webp`,
     alt: 'Real site project - Port logistics high-clearance structural steel facility',
     isRealSite: true,
   },
