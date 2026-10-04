@@ -8,7 +8,7 @@ export interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ onRequestQuote }) => {
   return (
     <footer className="bg-surface-container-low border-t border-outline-variant transition-colors duration-150">
-      <div className="w-full px-4 sm:px-6 lg:px-16 py-12 sm:py-16 max-w-[1440px] mx-auto">
+      <div className="w-full px-4 sm:px-6 lg:px-16 pt-12 pb-24 sm:py-16 max-w-[1440px] mx-auto">
         {/* Top Grid: Brand, Links, SEO Directory & Complete Business Details */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-outline-variant">
           {/* Column 1: Brand & Identity (5 Cols) */}

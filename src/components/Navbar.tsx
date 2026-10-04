@@ -44,20 +44,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
     >
       <div className="flex justify-between items-center w-full px-4 sm:px-6 lg:px-16 h-20 max-w-[1440px] mx-auto">
         {/* Brand Logo Cluster */}
-        <a href="#hero" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary">
-          <div className="w-10 h-10 border border-outline-variant p-1 flex items-center justify-center bg-surface-container-lowest group-hover:border-primary-container transition-colors shrink-0">
+        <a href="#hero" className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary flex-1 min-w-0 mr-2">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 border border-outline-variant p-1 flex items-center justify-center bg-surface-container-lowest group-hover:border-primary-container transition-colors shrink-0">
             <img
               alt="Crescent Engineering Industries Master Logo"
               className="w-full h-full object-contain"
               src={COMPANY_CONTACT.logoUrl}
             />
           </div>
-          <div className="flex flex-col min-w-0">
-            <span className="text-sm sm:text-base lg:text-lg font-bold tracking-tight text-on-surface uppercase truncate font-headline-sm">
+          <div className="flex flex-col min-w-0 flex-1">
+            <span className="text-xs sm:text-base lg:text-lg font-bold tracking-tight text-on-surface uppercase truncate font-headline-sm">
               CRESCENT // INFRASTRUCTURE
             </span>
-            <span className="text-[9px] sm:text-[10px] text-outline tracking-wider sm:tracking-widest font-mono uppercase truncate">
-              DIVISION: CRESCENT ROOFING // PEB & STRUCTURAL STEEL
+            <span className="text-[9px] sm:text-[10px] text-outline tracking-wider font-mono uppercase truncate">
+              <span className="sm:hidden">ROOFING &amp; PEB DIVISION</span>
+              <span className="hidden sm:inline">DIVISION: CRESCENT ROOFING // PEB &amp; STRUCTURAL STEEL</span>
             </span>
           </div>
         </a>
@@ -110,11 +111,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
         </div>
 
         {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
           <button
             type="button"
             onClick={onRequestQuote}
-            className="sm:hidden px-2.5 py-1.5 bg-primary-container text-on-primary text-[11px] font-mono uppercase font-bold"
+            className="sm:hidden px-2.5 py-1.5 bg-primary-container text-on-primary text-[11px] font-mono uppercase font-bold shrink-0 shadow-sm"
           >
             RFP
           </button>
@@ -123,7 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-on-surface hover:text-primary border border-outline-variant rounded-none bg-surface-container-lowest focus:outline-none"
+            className="p-1.5 sm:p-2 text-on-surface hover:text-primary border border-outline-variant rounded-none bg-surface-container-lowest focus:outline-none shrink-0"
           >
             <span className="material-symbols-outlined text-2xl">
               {mobileMenuOpen ? 'close' : 'menu'}

@@ -11,15 +11,19 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onRequest
 
   const filteredProjects = PORTFOLIO_PROJECTS.filter((p) => {
     if (activeFilter === 'ALL') return true;
+    if (activeFilter === 'PEB') return p.category.includes('PEB');
+    if (activeFilter === 'STEEL') return p.category.includes('STEEL');
+    if (activeFilter === 'COLD') return p.category.includes('COLD');
+    if (activeFilter === 'INFRA') return p.category.includes('INFRASTRUCTURE') || p.category.includes('PORT');
     return p.category === activeFilter;
   });
 
   const categories = [
     { label: 'ALL (500+)', value: 'ALL' },
-    { label: 'PEB BUILDINGS', value: 'PEB BUILDINGS' },
-    { label: 'STRUCTURAL STEEL', value: 'STRUCTURAL STEEL' },
-    { label: 'TENSILE', value: 'TENSILE' },
-    { label: 'COLD STORAGE', value: 'COLD STORAGE' },
+    { label: 'PEB & WAREHOUSING', value: 'PEB' },
+    { label: 'STRUCTURAL STEEL', value: 'STEEL' },
+    { label: 'COLD STORAGE & PUFF', value: 'COLD' },
+    { label: 'INFRASTRUCTURE', value: 'INFRA' },
   ];
 
   return (

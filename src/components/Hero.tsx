@@ -39,28 +39,28 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote, onOpenCad }) => {
         </div>
 
         {/* Main Headline Block */}
-        <div className="my-8 sm:my-10 max-w-4xl space-y-4 sm:space-y-6">
+        <div className="my-6 sm:my-10 max-w-4xl space-y-3.5 sm:space-y-6">
           <div className="inline-block border-l-2 border-primary-container pl-3 sm:pl-4">
-            <p className="font-mono text-outline-variant tracking-wider uppercase text-[11px] sm:text-xs">
+            <p className="font-mono text-outline-variant tracking-wider uppercase text-[10px] sm:text-xs">
               {HERO_DATA.division}
             </p>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-on-primary font-display">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.12] text-on-primary font-display break-words">
             {HERO_DATA.headline} <br />
             <span className="text-primary-container">{HERO_DATA.headlineHighlight}</span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-outline-variant max-w-2xl font-light leading-relaxed">
+          <p className="text-xs sm:text-base md:text-lg text-outline-variant max-w-2xl font-light leading-relaxed">
             {HERO_DATA.description}
           </p>
 
           {/* Action CTAs */}
-          <div className="pt-4 sm:pt-6 flex flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+          <div className="pt-3 sm:pt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
             <button
               type="button"
               onClick={onRequestQuote}
-              className="flex items-center justify-center gap-2.5 bg-primary-container hover:bg-primary text-on-primary px-6 sm:px-8 py-3.5 sm:py-4 transition-colors font-semibold text-xs sm:text-sm font-label-caps uppercase tracking-wider shadow-lg"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary-container hover:bg-primary text-on-primary px-5 sm:px-8 py-3.5 sm:py-4 transition-colors font-semibold text-xs sm:text-sm font-label-caps uppercase tracking-wider shadow-lg active:scale-[0.98]"
             >
               <span>Request Engineering Specification</span>
               <span className="material-symbols-outlined text-sm sm:text-base">arrow_forward</span>
@@ -70,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote, onOpenCad }) => {
               href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hello Crescent Engineering, I would like to consult with an engineer regarding our structural PEB project.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-5 sm:px-7 py-3.5 sm:py-4 transition-colors font-semibold text-xs sm:text-sm font-label-caps uppercase tracking-wider shadow-md"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-5 sm:px-7 py-3.5 sm:py-4 transition-colors font-semibold text-xs sm:text-sm font-label-caps uppercase tracking-wider shadow-md active:scale-[0.98]"
             >
               <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.02.79.81-2.94-.19-.3a8.21 8.21 0 01-1.26-4.37c0-4.54 3.7-8.24 8.24-8.24h-.02zm-3.55 4.39c-.19 0-.41.07-.63.31-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.66 2.54 4.03 3.56.56.24 1 .39 1.34.5.57.18 1.08.15 1.49.09.45-.07 1.39-.57 1.59-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28s-1.39-.69-1.61-.77c-.22-.08-.37-.12-.53.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.53-1.28-.73-1.75c-.19-.46-.39-.4-.53-.41l-.45-.01z"/>
@@ -81,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote, onOpenCad }) => {
             <button
               type="button"
               onClick={onOpenCad}
-              className="flex items-center justify-center gap-2 border border-outline hover:border-surface-container-lowest text-on-primary px-6 sm:px-8 py-3.5 sm:py-4 transition-colors text-xs sm:text-sm font-label-caps uppercase tracking-wider bg-inverse-surface/60 backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 border border-outline hover:border-surface-container-lowest text-on-primary px-5 sm:px-8 py-3.5 sm:py-4 transition-colors text-xs sm:text-sm font-label-caps uppercase tracking-wider bg-inverse-surface/60 backdrop-blur-sm active:scale-[0.98]"
             >
               <span className="material-symbols-outlined text-sm sm:text-base">architecture</span>
               <span>Explore CAD Repository</span>
@@ -90,13 +90,13 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote, onOpenCad }) => {
         </div>
 
         {/* Responsive Structural Metrics Grid */}
-        <div className="pt-6 sm:pt-8 border-t border-tertiary/70 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div className="pt-6 sm:pt-8 border-t border-tertiary/70 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           {HERO_DATA.metrics.map((m, idx) => (
-            <div key={idx} className="border-l border-primary-container/60 pl-3 sm:pl-4 space-y-0.5">
-              <div className="text-lg sm:text-xl lg:text-2xl font-bold font-mono text-on-primary">
+            <div key={idx} className="border-l border-primary-container/60 pl-2.5 sm:pl-4 space-y-0.5">
+              <div className="text-base sm:text-xl lg:text-2xl font-bold font-mono text-on-primary truncate">
                 {m.value}
               </div>
-              <div className="text-[10px] sm:text-xs font-mono text-outline-variant uppercase">
+              <div className="text-[9px] sm:text-xs font-mono text-outline-variant uppercase">
                 {m.label}
               </div>
             </div>
