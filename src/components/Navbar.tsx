@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NAV_ITEMS, COMPANY_CONTACT } from '../data/mockData';
+import { NAV_ITEMS, COMPANY_CONTACT, getWhatsAppUrl } from '../data/mockData';
 
 export interface NavbarProps {
   readonly onRequestQuote: () => void;
@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
               CRESCENT // INFRASTRUCTURE
             </span>
             <span className="text-[9px] sm:text-[10px] text-outline tracking-wider sm:tracking-widest font-mono uppercase truncate">
-              DIVISION: CRESCENT ROOFING // ISO 9001:2015
+              DIVISION: CRESCENT ROOFING // PEB & STRUCTURAL STEEL
             </span>
           </div>
         </a>
@@ -76,7 +76,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
         </nav>
 
         {/* Trailing Action Cluster */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-2.5">
+          <a
+            href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hello Crescent Engineering, I would like to inquire about PEB & Steel Structure services.')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-2 border border-emerald-600/30 text-emerald-700 hover:bg-emerald-50 transition-colors text-xs font-mono font-medium"
+            title="Chat directly on WhatsApp (+91 98430 60976)"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>WhatsApp</span>
+          </a>
           <button
             type="button"
             onClick={onOpenCad}
@@ -174,7 +184,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </button>
 
-              <div className="pt-4 border-t border-outline-variant flex flex-col gap-2 text-xs font-mono text-tertiary">
+              <div className="pt-3 border-t border-outline-variant flex flex-col gap-2">
+                <span className="text-[10px] font-mono text-outline uppercase tracking-wider">DIRECT WHATSAPP DESKS</span>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    <span>WhatsApp 1</span>
+                  </a>
+                  <a
+                    href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp2Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    <span>WhatsApp 2</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-outline-variant flex flex-col gap-2 text-xs font-mono text-tertiary">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-sm text-primary">call</span>
                   <a href={`tel:${COMPANY_CONTACT.mobile1}`} className="hover:text-primary">{COMPANY_CONTACT.mobile1}</a>

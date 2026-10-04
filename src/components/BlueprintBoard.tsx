@@ -58,10 +58,11 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
           {/* Central Structural Image */}
           <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] w-full border border-tertiary/60 bg-black">
             <img
-              className="w-full h-full object-cover opacity-65"
-              alt="Tensile roof structure and heavy aerodynamic steel truss blueprint view"
+              className="w-full h-full object-cover opacity-75"
+              alt="Authentic structural factory warehouse steel trusses and shed framing by Crescent Engineering"
               src={BLUEPRINT_DATA.image}
               loading="lazy"
+              decoding="async"
             />
 
             {/* Desktop / Tablet Interactive Callout Pins */}

@@ -87,9 +87,10 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
               <div className="relative overflow-hidden aspect-[4/5] bg-surface-dim">
                 <img
                   className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                  alt="Modern architectural facility with curved tensile roof and steel truss"
+                  alt="Authentic structural PEB truss framework and column grid fabricated by Crescent Engineering"
                   src={COMPANY_DATA.image}
                   loading="lazy"
+                  decoding="async"
                 />
 
                 {/* Blueprint Coordinate Tag Overlay */}

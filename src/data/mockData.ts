@@ -48,6 +48,7 @@ export interface PortfolioProject {
   readonly steel: string;
   readonly image: string;
   readonly alt: string;
+  readonly isRealSite?: boolean;
 }
 
 export interface LeaderProfile {
@@ -76,14 +77,13 @@ export const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 export const HERO_DATA = {
-  eyebrow: 'ENGINEERED FOR STRENGTH // CAD-SPEC: ISO 9001:2015 // PEB MATRIX v4.2',
+  eyebrow: 'ENGINEERED FOR STRENGTH // CAD-SPEC: IS 800:2007 // PEB MATRIX v4.2',
   division: 'STRUCTURAL DIVISION: CRESCENT ROOFING & PEB',
   headline: 'Engineering Strength.',
   headlineHighlight: 'Building Tomorrow.',
   description:
     'Premium steel structural fabrication, pre-engineered buildings, industrial roofing matrices, and heavy infrastructure frameworks engineered for zero-tolerance performance, seismic compliance, and severe load durability.',
-  bgImage:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuA45fB05J6skwsLEzEH5IaDzzeP4HqqdzE9e-N7NJdm_MfjNCCsw3P5yPPbT3abBnO7WQxcheXDv7B1t3skpDjZtnh6Blmg3HiogjtQkZoEmGN66EAGuevejTBGWUwjV6ikDhQq6pISDUFjeqzZFcxQ9h5lETXgicpyrpDJQT20Im5_XevptLgS5LvyM_8MOa7HdnuPGFARQpumCWu6m54G1W2Ny3F5zJutRRCkfjzkbfgJqIaTq4c',
+  bgImage: '/images/project-real-3.webp',
   metrics: [
     { label: 'ANNUAL FABRICATION', value: '12,000+ MT' },
     { label: 'MAX CLEAR SPAN', value: '65 METERS' },
@@ -98,16 +98,15 @@ export const COMPANY_DATA = {
   founded: 'FOUNDED 1999 // TIRUNELVELI, TN',
   eyebrow: 'PRECISION CIVIL ENGINEERING',
   headline: 'Built on Precision. Delivered with Strength.',
-  p1: 'For over a quarter of a century, Crescent Engineering Industries has pioneered the vanguard of civil and structural engineering across Southern India. Operating with strict adherence to ISO 9001:2015 quality frameworks, we manufacture and erect high-tolerance Pre-Engineered Steel Buildings, structural canopies, and specialized industrial envelopes.',
+  p1: 'For over a quarter of a century, Crescent Engineering Industries has pioneered the vanguard of civil and structural engineering across Southern India. Operating with strict adherence to IS 800:2007 and MBMA quality frameworks, we manufacture and erect high-tolerance Pre-Engineered Steel Buildings, structural canopies, and specialized industrial envelopes.',
   p2: 'Our fabrication yard in Melapalayam, Tirunelveli integrates heavy CNC beam lines, automated submerged arc welding, and multi-axis plasma plate profiling. From colossal manufacturing hangars to heavy rail overbridge structures, our work bridges architectural intent with unyielding structural physics.',
   specBox: [
     { label: 'LEGAL ENTITY', value: 'CRESCENT ENGINEERING INDUSTRIES' },
     { label: 'OPERATIONAL DIVISION', value: 'CRESCENT ROOFING SYSTEMS' },
     { label: 'CHIEF EXECUTIVE LEADERSHIP', value: 'Er. K. Mohamed | Er. Mohamed Asseesul Islam, D.C.E.' },
-    { label: 'STRUCTURAL CERTIFICATIONS', value: 'ISO 9001:2015 // ASTM A653 // IS 800:2007' },
+    { label: 'STRUCTURAL SPECIFICATIONS', value: 'IS 800:2007 // ASTM A653 // IS 2062 E350' },
   ],
-  image:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuB1qhsZGWNlDXBwpGzw6LkHr8zfw6cSD7kZn6fk0Pd6hmWGVIJVd22Mm6CRuD2tBQNo1ljqXtB8Opj-Bl369nnld7rLDKOY4HcHNp0bd7ptRFQBRYCp8hoOHTV1ZM1N4NkosDkHYBCeY4f_Ga-Btc9ovMe_dix_vIOXOR0yd8LPrzoAe-R7mi8O22uBlydLHkeuFa6HjH4v6YGAlhSA3Mw1qFzb4xk7czzCyhXSuCfB42SDS4oqWkw',
+  image: '/images/project-real-1.webp',
   gps: 'LAT 8.7139° N, LONG 77.7567° E',
   datum: 'IS 2062 E250 / E350',
   facilityCode: 'FACILITY CODE: CEI-PLANT-01',
@@ -233,8 +232,7 @@ export const BLUEPRINT_DATA = {
   headline: 'Structures Designed for Performance.',
   scale: 'SCALE: 1:100 AUTOCAD REV 2026.4',
   tag: 'CLEAR SPAN ARCHITECTURE SYSTEM',
-  image:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuBNzfE3KhiVswpLst3855ipCrJfZ4gxYjU6W6Exg9EjXBWiM12E9W9J5grY_ixwnQh-nAxiQKZehR4Z5Qz610t_nOLsLSnB_7dQaLmLdYaJrRw3sSdObr04ztiEI1CozzDFmmgxsrWJYMOIQBM1FH9SjXaGgvo2Ie0GliwWUNppBY3NIIwY8uedEPR4D26PkVbtqZcHjfx9AweMqtg59fpR2VTu3dym8KtijUizWEg8BblIWveOn0g',
+  image: '/images/project-real-2.webp',
   callouts: [
     {
       id: 'point-a',
@@ -375,75 +373,75 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
     code: 'PROJECT: PEB-TNV-204',
     year: 'COMPLETED 2025',
     location: 'TIRUNELVELI',
-    title: 'Heavy Industrial Engineering Plant',
+    title: 'Wide-Span Industrial PEB Manufacturing Plant',
     category: 'PEB BUILDINGS',
     description:
-      'Tirunelveli High-Tech Corridor. Complete turnkey clear-span manufacturing bay with integrated 25 MT double-girder EOT crane rail system.',
+      'Tirunelveli High-Tech Industrial Corridor. Complete turnkey clear-span manufacturing bay engineered with heavy structural columns, precision roof trusses, and crane rail foundations.',
     area: '145,000 SQ. FT.',
     steel: '680 METRIC TONS',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDDzAARqz4TP6eXEbPAUwnpHiI7UgDWBSpYJrLqbQbok95IokNeknndfmQNxZ4M5ZnuRaTrupUQzKy6-V0GHlxoYbh5l5aPuhQ9ADzV_wJPLQlMn5LYVdhnsRD6-9J-rzw2d0Ec8CvTDSxLxGT3Z9hhrBm5WqbNo8lrjTSb8deBnWL8SuxEzlioWbWvfCT_ftSUm1xZw8sBjDNot70zijaBRs9Io17IzSEmXe_9llVU7N00tJOAY14',
-    alt: 'High ceiling steel trusses in wide warehouse clear span',
+    image: '/images/project-real-1.webp',
+    alt: 'Real site project - Heavy industrial steel PEB truss structure and column grid in Tirunelveli',
+    isRealSite: true,
   },
   {
     id: 'log-chn-882',
     code: 'PROJECT: LOG-CHN-882',
     year: 'COMPLETED 2024',
-    location: 'CHENNAI',
-    title: 'Regional Multi-Bay Logistics Hub',
+    location: 'CHENNAI REGION',
+    title: 'Factory Warehouse Steel Framing & Industrial Shed',
     category: 'PEB BUILDINGS',
     description:
-      'Sriperumbudur Industrial Estate, Chennai. Multi-span warehouse development engineered with insulated standing seam roofing and continuous roof monitoring ridge ventilators.',
+      'High-clearance factory warehouse development engineered with rigid structural steel trusses, purlin grids, perimeter masonry integration, and crane-lift erection.',
     area: '220,000 SQ. FT.',
     steel: '1,150 METRIC TONS',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBOa4DzwygW7YrtsgnWDg642DD5Bf0oYNG3JV0ezPO-TNHQRyOhN5IvLEpH4BhrlxHs8BP4vejxorrNEK9dwWlG6uRCichS7eu2yqVH7S4V3Ll_VW9CjF7sY4u-cN7VniK4XC6lj1Nges9hj4GfOhnMgSJU_9m6iS0kW-SdwvLLryjFnFXGsjvBPM6Mq4gRL0xM5KEj19nMrMZxhgwGmVAx4mkwsE0CtOXTRHYhLenrcYswDTuLLXE',
-    alt: 'Logistics distribution center with automated bays',
+    image: '/images/project-real-2.webp',
+    alt: 'Real site project - Warehouse roof truss framing and factory shed under construction',
+    isRealSite: true,
   },
   {
     id: 'ten-cbe-115',
     code: 'PROJECT: TEN-CBE-115',
     year: 'COMPLETED 2024',
-    location: 'COIMBATORE',
-    title: 'Curvilinear Tensile Campus Pavilion',
-    category: 'TENSILE',
+    location: 'COIMBATORE REGION',
+    title: 'Multi-Tier Commercial Structural PEB Facility',
+    category: 'STRUCTURAL STEEL',
     description:
-      'Premier Educational Institution, Coimbatore. Symmetrical architectural tensile membrane canopy spanning 45 meters using stainless steel 316 grade calibrated tie cables.',
-    area: '42,000 SQ. FT.',
-    steel: '195 METRIC TONS',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuCLoIZNzFJW6-eaO8zlZ1SkkXIP7pOOk9kh5_jph7aHkB37TFlLF1WMYcaOeAz5ayyhfIpv6hqTBbKL9arpO-iT3O9ntaH9WgJ_LPfHnpOkgg0ytyKlwKo3Ihbka2Q2mOJMriRX3sHiGTx5F4Ylk4_CIQuwAdK6EPL0gqB0_BbyXvfn6iLzZ1-_E8j3uZVFOuQiGhAdEDtSROTyCN5jvAhdVaNeARGuOASKTvh3tqeTZ20B5Pqz4i4',
-    alt: 'Tensile membrane canopy over architectural pavilion',
+      'Multi-level heavy structural steel skeleton building engineered for maximum moment resistance, seismic stability, and custom industrial manufacturing configurations.',
+    area: '85,000 SQ. FT.',
+    steel: '495 METRIC TONS',
+    image: '/images/project-real-3.webp',
+    alt: 'Real site project - Multi-tier steel structural building frame against twilight sky',
+    isRealSite: true,
   },
   {
     id: 'cld-mdu-412',
     code: 'PROJECT: CLD-MDU-412',
     year: 'COMPLETED 2025',
-    location: 'MADURAI',
-    title: 'Agri-Pharma Deep Cold Terminal',
-    category: 'COLD STORAGE',
+    location: 'MADURAI REGION',
+    title: 'Heavy-Duty Industrial Steel Warehouse & Shed',
+    category: 'PEB BUILDINGS',
     description:
-      'Madurai Cold Chain Corridor. 120mm thick PUFF sandwich panel thermal shell operating continuous -25°C chambers with specialized thermal-break structural base plates.',
-    area: '68,000 SQ. FT.',
-    steel: '340 METRIC TONS',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuCJVSp8dDtdD-GfKxyjSDG_MyOU5O4Ht3zALqp6sLgHlYHoV8haq05YN9Y28lcPgqv9nyhJF5r2IX4zD2DQkCJ-xgxzna8yfGSKtEcbKm_I-8v9JjTX4wZjpekcku7K2JTuIRXI_YTnsTfd1IsBEa11xOULaqOVKqo4A7L-_YnwKx7mUwrdRDqajiTpFQ8SRkulv5ptP-iZ4ij1IzdDXuexxfrqE_rGym-5xFj2NDKBczsJgb-_DZw',
-    alt: 'Temperature controlled cold storage warehouse with sandwich panels',
+      'High-bay structural steel envelope with automated submerged arc welded trusses, continuous purlin overlaps, and reinforced wind-moment knee braces.',
+    area: '110,000 SQ. FT.',
+    steel: '540 METRIC TONS',
+    image: '/images/project-real-1.webp',
+    alt: 'Real site project - Wide clear span heavy structural steel warehouse trusses',
+    isRealSite: true,
   },
   {
     id: 'prt-tut-709',
     code: 'PROJECT: PRT-TUT-709',
     year: 'COMPLETED 2023',
-    location: 'TUTICORIN',
-    title: 'Maritime Marine Cargo Transit Facility',
+    location: 'TUTICORIN PORT',
+    title: 'Heavy Logistics Structural Steel Framework',
     category: 'STRUCTURAL STEEL',
     description:
-      'VOC Port Vicinity, Tuticorin. High-salinity atmospheric exposure design using triple-layer marine polyurethane coatings and 0.60mm high-durability Aluzinc cladding.',
+      'Port vicinity heavy structural steel framework engineered for high-salinity marine winds, dynamic dead-and-live load tolerances, and rapid turnkey crane erection.',
     area: '95,000 SQ. FT.',
     steel: '510 METRIC TONS',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuADpxOkRRIWsOwnU_Mx6b0iwK_ybVbWSwdteoF12hdwUFKoAr05Ru1aK_QgaaRv7jwFMIslX2RFVpF1ubY_yCNtoZFTKxw3MMaEHjDdA11sUMI6Zwqe82-nB8G91wKxc8QtUV_JFezC68TOb6aeHjmy0N8Ov4HOc8n_wKuyeOJh-dJ_ZNcHWOt6bLBMi_5jLLzxjmfKCNHcX_aijEqoxEAfu-X2ZN8WBcwShECaGEx9Uz98qMxd8Fs',
-    alt: 'Port cargo transit building with heavy steel beams',
+    image: '/images/project-real-3.webp',
+    alt: 'Real site project - Port logistics high-clearance structural steel facility',
+    isRealSite: true,
   },
 ];
 
@@ -467,9 +465,9 @@ export const LEADERS: readonly LeaderProfile[] = [
     name: 'Er. Mohamed Asseesul Islam, D.C.E.',
     role: 'Director of Operations & Structural Engineering',
     icon: 'engineering',
-    bio: 'Specializing in modern computational structural analysis and automated CNC fabrication logistics, Er. Mohamed Asseesul Islam oversees the plant operations, ISO quality assurance, and on-site crane erection divisions across all major enterprise contracts.',
+    bio: 'Specializing in modern computational structural analysis and automated CNC fabrication logistics, Er. Mohamed Asseesul Islam oversees the plant operations, structural engineering quality assurance, and on-site crane erection divisions across all major enterprise contracts.',
     expertise: 'STAAD.Pro Modeling, Cold-Formed Steel, High-Tensile Fasteners',
-    credentials: 'ISO 9001:2015 Lead Auditor Certified // MBMA Member',
+    credentials: 'Structural PEB Consultant // MBMA Member',
   },
 ];
 
@@ -502,13 +500,22 @@ export const COMPANY_CONTACT = {
   division: 'DIVISION: CRESCENT ROOFING',
   address: '11, Ambasamudram Road, Near Bharath Petrol Bulk, Melapalayam, Tirunelveli – 627005, Tamil Nadu, India.',
   gstn: '33AAHFC8912C2ZS',
-  compliance: 'ISO 9001:2015 REGISTERED',
+  compliance: 'GOVT. REGISTERED STRUCTURAL FABRICATOR',
   mobile1: '+91 98430 60976',
   mobile2: '+91 93603 35276',
+  whatsapp1Clean: '919843060976',
+  whatsapp2Clean: '919360335276',
   landlines: '0462-290 7277 / 290 8277',
   email: 'crescentfabs@gmail.com',
   coords: 'LAT 8.7139° N, LONG 77.7567° E',
   systemTime: 'SYSTEM TIME UTC+05:30',
   logoUrl:
     'https://lh3.googleusercontent.com/aida/AEtjO1W74SFcsKUNKN9GdG2pCDQCbxoohboFuyqFiic7AqyDvnujaE76w2ldcbg9SEnefRW9WMTXxEgu2vngki5g5ECiyz9OYN5cfpFGj-Y0UyMp8_WBeD0SpRifsBG8u1GYyCf-b4FfiqD_kjazZ8ATRDrU4I5WM1pcuYuUMwilpMBPkpSNsOy51Zrcva8fZAkcQmKuvHtC1fSawVKkneefyeTt1B659rJXgrAi-5d3DwGmupnqkZk7B7hRIg',
+};
+
+export const getWhatsAppUrl = (
+  numberClean: string = COMPANY_CONTACT.whatsapp1Clean,
+  message: string = 'Hello Crescent Engineering, I am interested in your PEB and Structural Steel services.'
+): string => {
+  return `https://wa.me/${numberClean}?text=${encodeURIComponent(message)}`;
 };

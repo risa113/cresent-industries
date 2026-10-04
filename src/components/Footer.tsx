@@ -1,5 +1,5 @@
 import React from 'react';
-import { COMPANY_CONTACT } from '../data/mockData';
+import { COMPANY_CONTACT, getWhatsAppUrl } from '../data/mockData';
 
 export interface FooterProps {
   readonly onRequestQuote: () => void;
@@ -129,6 +129,30 @@ export const Footer: React.FC<FooterProps> = ({ onRequestQuote }) => {
                   {COMPANY_CONTACT.email}
                 </a>
               </div>
+
+              <div className="pt-1">
+                <span className="text-outline text-[11px] block font-mono mb-1.5">INSTANT WHATSAPP DESKS:</span>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hello Crescent Engineering, I would like to inquire about PEB structures.')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold hover:bg-emerald-100 transition-colors"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    <span>WhatsApp: {COMPANY_CONTACT.mobile1}</span>
+                  </a>
+                  <a
+                    href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp2Clean, 'Hello Crescent Engineering, I would like to inquire about PEB structures.')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold hover:bg-emerald-100 transition-colors"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    <span>WhatsApp: {COMPANY_CONTACT.mobile2}</span>
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="pt-4 border-t border-outline-variant">
@@ -150,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({ onRequestQuote }) => {
         {/* Bottom Bar: Copyright & Technical Metadata */}
         <div className="pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-[11px] sm:text-xs font-mono text-tertiary">
           <p className="text-center md:text-left">
-            © 2025 CRESCENT ENGINEERING INDUSTRIES // DIVISION: CRESCENT ROOFING. ISO 9001:2015 REGISTERED. ALL RIGHTS RESERVED.
+            © 2025 CRESCENT ENGINEERING INDUSTRIES // DIVISION: CRESCENT ROOFING. ALL RIGHTS RESERVED.
           </p>
           <div className="flex items-center gap-3 text-outline">
             <span>{COMPANY_CONTACT.coords}</span>
