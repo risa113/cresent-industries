@@ -234,7 +234,8 @@ export const BLUEPRINT_DATA = {
   headline: 'Structures Designed for Performance.',
   scale: 'SCALE: 1:100 AUTOCAD REV 2026.4',
   tag: 'CLEAR SPAN ARCHITECTURE SYSTEM',
-  image: `${BASE}images/project-real-2.webp`,
+  image: `${BASE}images/project-real-2-wide.webp`,
+  imageOriginalHd: `${BASE}images/project-real-2.webp`,
   callouts: [
     {
       id: 'point-a',
