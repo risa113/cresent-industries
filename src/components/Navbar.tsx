@@ -63,12 +63,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-on-surface-variant hover:text-primary transition-colors pb-1 text-xs font-semibold uppercase tracking-wider font-label-caps"
+              className={`transition-colors pb-1 text-xs font-semibold uppercase tracking-wider font-label-caps ${
+                item.label === 'Contact'
+                  ? 'text-primary font-bold px-2 py-0.5 border border-primary/30 bg-primary/5 hover:bg-primary/15'
+                  : 'text-on-surface-variant hover:text-primary'
+              }`}
             >
               {item.label}
             </a>
@@ -76,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
         </nav>
 
         {/* Trailing Action Cluster */}
-        <div className="hidden sm:flex items-center gap-2.5">
+        <div className="hidden md:flex items-center gap-2 xl:gap-2.5">
           <a
             href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hello Crescent Engineering, I would like to inquire about PEB & Steel Structure services.')}
             target="_blank"
@@ -98,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
           <button
             type="button"
             onClick={onRequestQuote}
-            className="flex items-center gap-2 bg-on-background hover:bg-primary-container text-on-primary px-4 py-2.5 transition-colors duration-150 text-xs font-semibold uppercase tracking-wider font-label-caps"
+            className="flex items-center gap-2 bg-on-background hover:bg-primary-container text-on-primary px-3.5 xl:px-4 py-2.5 transition-colors duration-150 text-xs font-semibold uppercase tracking-wider font-label-caps"
           >
             <span>Request Specification</span>
             <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
@@ -106,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
         </div>
 
         {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             type="button"
             onClick={onRequestQuote}
@@ -130,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
 
       {/* Mobile Drawer Backdrop & Panel */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-0 top-20 z-50 flex flex-col">
+        <div className="lg:hidden fixed inset-0 top-20 z-50 flex flex-col">
           {/* Backdrop */}
           <div
             className="fixed inset-0 top-20 bg-black/50 backdrop-blur-sm transition-opacity"
@@ -145,15 +149,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
               <span className="text-primary font-bold">100% RESPONSIVE</span>
             </div>
 
-            <nav className="flex flex-col space-y-3">
+            <nav className="flex flex-col space-y-2">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={handleLinkClick}
-                  className="flex items-center justify-between py-2 text-on-surface hover:text-primary font-medium text-base border-b border-outline-variant/40"
+                  className={`flex items-center justify-between py-2.5 px-3 font-medium text-base border-b border-outline-variant/40 transition-colors ${
+                    item.label === 'Contact'
+                      ? 'bg-primary/10 text-primary font-bold border-primary/30'
+                      : 'text-on-surface hover:text-primary'
+                  }`}
                 >
-                  <span>{item.label}</span>
+                  <span className="flex items-center gap-2.5">
+                    {item.label === 'Contact' && (
+                      <span className="material-symbols-outlined text-base text-primary">contacts</span>
+                    )}
+                    <span>{item.label}</span>
+                  </span>
                   <span className="material-symbols-outlined text-sm text-outline">arrow_forward_ios</span>
                 </a>
               ))}

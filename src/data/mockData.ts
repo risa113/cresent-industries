@@ -68,12 +68,12 @@ export interface TestimonialItem {
 }
 
 export const NAV_ITEMS: readonly NavItem[] = [
-  { label: 'Systems & PEB', href: '#capabilities' },
   { label: 'Capabilities', href: '#capabilities' },
-  { label: 'Blueprint Index', href: '#blueprint' },
+  { label: 'Blueprint Board', href: '#blueprint' },
   { label: 'Sectors', href: '#sectors' },
-  { label: 'Case Archives', href: '#portfolio' },
+  { label: 'Portfolio', href: '#portfolio' },
   { label: 'Credentials', href: '#credentials' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const BASE = import.meta.env.BASE_URL || '/';
@@ -85,7 +85,7 @@ export const HERO_DATA = {
   headlineHighlight: 'Building Tomorrow.',
   description:
     'Premium steel structural fabrication, pre-engineered buildings, industrial roofing matrices, and heavy infrastructure frameworks engineered for zero-tolerance performance, seismic compliance, and severe load durability.',
-  bgImage: `${BASE}images/project-real-3.webp`,
+  bgImage: `${BASE}images/hero-steel-hd.webp`,
   metrics: [
     { label: 'ANNUAL FABRICATION', value: '12,000+ MT' },
     { label: 'MAX CLEAR SPAN', value: '65 METERS' },
@@ -108,7 +108,7 @@ export const COMPANY_DATA = {
     { label: 'CHIEF EXECUTIVE LEADERSHIP', value: 'Er. K. Mohamed | Er. Mohamed Asseesul Islam, D.C.E.' },
     { label: 'STRUCTURAL SPECIFICATIONS', value: 'IS 800:2007 // ASTM A653 // IS 2062 E350' },
   ],
-  image: `${BASE}images/project-real-1.webp`,
+  image: `${BASE}images/editorial-steel-hd.webp`,
   gps: 'LAT 8.7139° N, LONG 77.7567° E',
   datum: 'IS 2062 E250 / E350',
   facilityCode: 'FACILITY CODE: CEI-PLANT-01',
@@ -234,8 +234,8 @@ export const BLUEPRINT_DATA = {
   headline: 'Structures Designed for Performance.',
   scale: 'SCALE: 1:100 AUTOCAD REV 2026.4',
   tag: 'CLEAR SPAN ARCHITECTURE SYSTEM',
-  image: `${BASE}images/project-real-2-wide.webp`,
-  imageOriginalHd: `${BASE}images/project-real-2.webp`,
+  image: `${BASE}images/blueprint-truss-hd.webp`,
+  imageOriginalHd: `${BASE}images/blueprint-truss-hd.webp`,
   callouts: [
     {
       id: 'point-a',
@@ -382,8 +382,8 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
       'Tirunelveli High-Tech Industrial Corridor. Complete turnkey clear-span manufacturing bay engineered with heavy structural columns, precision roof trusses, and crane rail foundations.',
     area: '145,000 SQ. FT.',
     steel: '680 METRIC TONS',
-    image: `${BASE}images/project-real-1.webp`,
-    alt: 'Real site project - Heavy industrial steel PEB truss structure and column grid in Tirunelveli',
+    image: `${BASE}images/portfolio-peb-plant.webp`,
+    alt: 'Industrial PEB turnkey manufacturing plant clear-span structural steel structure',
     isRealSite: true,
   },
   {
@@ -391,14 +391,14 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
     code: 'PROJECT: LOG-CHN-882',
     year: 'COMPLETED 2024',
     location: 'CHENNAI REGION',
-    title: 'Factory Warehouse Steel Framing & Industrial Shed',
-    category: 'PEB BUILDINGS',
+    title: 'High-Bay Logistics Hub & Warehouse Shed',
+    category: 'LOGISTICS & PEB',
     description:
       'High-clearance factory warehouse development engineered with rigid structural steel trusses, purlin grids, perimeter masonry integration, and crane-lift erection.',
     area: '220,000 SQ. FT.',
     steel: '1,150 METRIC TONS',
-    image: `${BASE}images/project-real-2.webp`,
-    alt: 'Real site project - Warehouse roof truss framing and factory shed under construction',
+    image: `${BASE}images/portfolio-logistics-hub.webp`,
+    alt: 'Modern logistics automated warehouse steel framing and high-bay distribution hub',
     isRealSite: true,
   },
   {
@@ -412,8 +412,8 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
       'Multi-level heavy structural steel skeleton building engineered for maximum moment resistance, seismic stability, and custom industrial manufacturing configurations.',
     area: '85,000 SQ. FT.',
     steel: '495 METRIC TONS',
-    image: `${BASE}images/project-real-3.webp`,
-    alt: 'Real site project - Multi-tier steel structural building frame against twilight sky',
+    image: `${BASE}images/portfolio-steel-skeleton.webp`,
+    alt: 'Multi-tier structural steel skeleton framework and high-rise industrial structure',
     isRealSite: true,
   },
   {
@@ -421,14 +421,14 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
     code: 'PROJECT: CLD-MDU-412',
     year: 'COMPLETED 2025',
     location: 'MADURAI REGION',
-    title: 'Heavy-Duty Industrial Steel Warehouse & Shed',
-    category: 'PEB BUILDINGS',
+    title: 'Cold Storage Terminal & Insulated PUFF Panel Shed',
+    category: 'COLD STORAGE & PUFF',
     description:
-      'High-bay structural steel envelope with automated submerged arc welded trusses, continuous purlin overlaps, and reinforced wind-moment knee braces.',
+      'High-bay structural steel envelope with continuous insulated sandwich panels, automated submerged arc welded trusses, and thermal-break foundations.',
     area: '110,000 SQ. FT.',
     steel: '540 METRIC TONS',
-    image: `${BASE}images/project-real-1.webp`,
-    alt: 'Real site project - Wide clear span heavy structural steel warehouse trusses',
+    image: `${BASE}images/portfolio-cold-storage.webp`,
+    alt: 'Cold storage terminal and insulated sandwich PUFF panel industrial warehouse',
     isRealSite: true,
   },
   {
@@ -436,14 +436,14 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
     code: 'PROJECT: PRT-TUT-709',
     year: 'COMPLETED 2023',
     location: 'TUTICORIN PORT',
-    title: 'Heavy Logistics Structural Steel Framework',
-    category: 'STRUCTURAL STEEL',
+    title: 'Maritime Port Cargo Terminal & Logistics Transit Shed',
+    category: 'PORT & INFRASTRUCTURE',
     description:
       'Port vicinity heavy structural steel framework engineered for high-salinity marine winds, dynamic dead-and-live load tolerances, and rapid turnkey crane erection.',
     area: '95,000 SQ. FT.',
     steel: '510 METRIC TONS',
-    image: `${BASE}images/project-real-3.webp`,
-    alt: 'Real site project - Port logistics high-clearance structural steel facility',
+    image: `${BASE}images/portfolio-port-transit.webp`,
+    alt: 'Maritime port cargo transit terminal and coastal heavy structural steel framework',
     isRealSite: true,
   },
 ];
@@ -512,8 +512,7 @@ export const COMPANY_CONTACT = {
   email: 'crescentfabs@gmail.com',
   coords: 'LAT 8.7139° N, LONG 77.7567° E',
   systemTime: 'SYSTEM TIME UTC+05:30',
-  logoUrl:
-    'https://lh3.googleusercontent.com/aida/AEtjO1W74SFcsKUNKN9GdG2pCDQCbxoohboFuyqFiic7AqyDvnujaE76w2ldcbg9SEnefRW9WMTXxEgu2vngki5g5ECiyz9OYN5cfpFGj-Y0UyMp8_WBeD0SpRifsBG8u1GYyCf-b4FfiqD_kjazZ8ATRDrU4I5WM1pcuYuUMwilpMBPkpSNsOy51Zrcva8fZAkcQmKuvHtC1fSawVKkneefyeTt1B659rJXgrAi-5d3DwGmupnqkZk7B7hRIg',
+  logoUrl: `${BASE}images/crescent-logo.svg`,
 };
 
 export const getWhatsAppUrl = (

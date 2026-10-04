@@ -41,7 +41,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
                 {BLUEPRINT_DATA.subtitle}
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 uppercase tracking-wider font-semibold">
-                ● ULTRA HD POLISHED
+                ● ULTRA HD CLARITY
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-on-primary font-display tracking-tight">
@@ -127,8 +127,8 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
               style={{ transform: `scale(${zoomLevel})` }}
             >
               <img
-                className="w-full h-full object-cover sm:object-contain md:object-cover contrast-[1.08] brightness-[1.02]"
-                alt="Polished Ultra HD structural factory warehouse steel trusses and shed framing by Crescent Engineering"
+                className="w-full h-full object-cover sm:object-contain md:object-cover"
+                alt="Ultra clear high-resolution structural steel truss and PEB clear-span architecture by Crescent Engineering"
                 src={BLUEPRINT_DATA.image}
                 loading="lazy"
                 decoding="async"
@@ -317,7 +317,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
                 <img
                   src={BLUEPRINT_DATA.image}
                   alt="High definition steel rafter and roof truss structural framing"
-                  className="max-h-[75vh] w-auto mx-auto object-contain border border-tertiary shadow-2xl contrast-[1.08] brightness-[1.03]"
+                  className="max-h-[75vh] w-auto mx-auto object-contain border border-tertiary shadow-2xl"
                 />
               </div>
             </div>
