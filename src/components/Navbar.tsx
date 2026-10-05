@@ -112,17 +112,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
             <span>WhatsApp</span>
           </a>
 
-          {/* CAD Portal Button */}
-          <button
-            type="button"
-            onClick={onOpenCad}
-            className="flex items-center gap-1.5 px-3 py-2 border border-outline-variant hover:border-primary-container text-tertiary hover:text-primary transition-colors text-xs font-mono font-medium"
-            title="Open CAD Specification Viewer"
-          >
-            <span className="material-symbols-outlined text-[16px]">architecture</span>
-            <span>CAD Portal</span>
-          </button>
-
           {/* All CADs Dropdown Menu */}
           <div className="relative" ref={cadDropdownRef}>
             <button
@@ -130,15 +119,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
               onClick={() => setCadDropdownOpen((prev) => !prev)}
               aria-expanded={cadDropdownOpen}
               aria-haspopup="true"
-              className={`flex items-center gap-1.5 px-2.5 py-2 border text-xs font-mono font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-2 border text-xs font-mono font-medium transition-all ${
                 cadDropdownOpen
                   ? 'border-primary-container bg-primary-container/10 text-primary ring-1 ring-primary-container'
                   : 'border-outline-variant hover:border-primary-container text-tertiary hover:text-primary bg-surface-container-lowest'
               }`}
               title="Browse all 11 CAD Blueprints & Specifications"
             >
+              <span className="material-symbols-outlined text-[16px]">architecture</span>
               <span>All CADs</span>
-              <span className="px-1.5 py-0.5 bg-primary-container text-on-primary text-[10px] font-bold">
+              <span className="px-1.5 py-0.2 bg-primary-container text-on-primary text-[10px] font-bold">
                 {CAPABILITIES.length}
               </span>
               <span

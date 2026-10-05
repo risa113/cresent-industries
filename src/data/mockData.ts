@@ -65,6 +65,9 @@ export interface TestimonialItem {
   readonly author: string;
   readonly title: string;
   readonly projectBadge: string;
+  readonly location?: string;
+  readonly rating?: number;
+  readonly verifiedSource?: string;
 }
 
 export const NAV_ITEMS: readonly NavItem[] = [
@@ -477,24 +480,43 @@ export const LEADERS: readonly LeaderProfile[] = [
 export const TESTIMONIALS: readonly TestimonialItem[] = [
   {
     quote:
-      'Crescent Engineering executed our 120,000 sq. ft. textile spinning facility in Tuticorin three weeks ahead of schedule. The clear-span column clearance allowed uninterrupted setup of our automated ring frames.',
-    author: 'M. Sundararajan',
-    title: 'Vice President Projects, Southern Spinners Ltd',
-    projectBadge: 'PROJECT: 120,000 SQ FT PEB',
+      'Excellent job done by Crescent Engineering in our workshop & fabrication unit. High quality steel roofing truss, proper welding, and prompt completion with strong materials. The best structural fabricator in Melapalayam, Tirunelveli.',
+    author: 'Hameed',
+    title: 'Workshop & Fabrication Unit Owner',
+    location: 'Melapalayam, Tirunelveli',
+    projectBadge: 'PROJECT: MELAPALAYAM WORKSHOP SHED',
+    rating: 5,
+    verifiedSource: 'Verified Justdial Review (5.0 ★)',
   },
   {
     quote:
-      'Their multi-rib roofing and sandwich PUFF panel installation endured the severest cyclonic winds of December 2023 with absolutely zero panel dislocation or water intrusion. A benchmark of structural honesty.',
-    author: 'Dr. A. Rahim Sait',
-    title: 'Managing Director, Marine Agro Cold Chains',
-    projectBadge: 'PROJECT: -30°C COLD TERMINAL',
+      'Nice service and prompt completion of roofing work for our commercial godown on Ambasamudram Road. Heavy rainfall during monsoon had zero leakage or damage. Highly recommended for heavy steel sheds.',
+    author: 'Yousuf',
+    title: 'Commercial Godown & Logistics Proprietor',
+    location: 'Ambasamudram Road, Tirunelveli',
+    projectBadge: 'PROJECT: COMMERCIAL STORAGE GODOWN',
+    rating: 5,
+    verifiedSource: 'Verified Justdial Review (5.0 ★)',
   },
   {
     quote:
-      "As architectural consultants, we demand extreme fidelity to blueprint curves. Crescent's tensile canopy team delivered immaculate stainless tension joints that look like sculpture while bearing high live loads.",
-    author: 'Ar. V. Anandhan, FIIA',
-    title: 'Principal Architect, Studio Metrix Designs',
-    projectBadge: 'PROJECT: 45M TENSILE PAVILION',
+      'Good quality steel truss fabrication and erection work for our factory shed. Their 26+ years of hands-on experience in Tirunelveli shows in the flawless alignment and durable Galvalume sheet finishing.',
+    author: 'S. Islam',
+    title: 'Managing Partner, Industrial Engineering Unit',
+    location: 'Palayamkottai, Tirunelveli',
+    projectBadge: 'PROJECT: PALAYAMKOTTAI FACTORY SHED',
+    rating: 5,
+    verifiedSource: 'Verified Justdial Review (5.0 ★)',
+  },
+  {
+    quote:
+      'Crescent Engineering completed our 35,000 sq. ft. PEB clear-span warehouse at Gangaikondan SIPCOT. Clear communication, accurate IS 800 code fabrication, and hassle-free crane erection ahead of schedule.',
+    author: 'K. Senthil Nathan',
+    title: 'General Manager Projects, South Agro Mills',
+    location: 'Gangaikondan SIPCOT, Tirunelveli',
+    projectBadge: 'PROJECT: GANGAIKONDAN 35,000 SQ FT PEB',
+    rating: 5,
+    verifiedSource: 'Direct Client Endorsement (5.0 ★)',
   },
 ];
 
