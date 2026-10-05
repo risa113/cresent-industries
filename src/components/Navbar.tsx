@@ -54,13 +54,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-200 border-b border-outline-variant ${
-        isScrolled
-          ? 'bg-surface-container-lowest/95 backdrop-blur-md shadow-[0px_4px_16px_rgba(23,27,34,0.06)]'
-          : 'bg-surface-container-lowest/90 backdrop-blur-sm'
-      }`}
-    >
+    <>
+      <header
+        className={`sticky top-0 z-50 transition-all duration-200 border-b border-outline-variant ${
+          mobileMenuOpen
+            ? 'bg-white'
+            : isScrolled
+            ? 'bg-surface-container-lowest/95 backdrop-blur-md shadow-[0px_4px_16px_rgba(23,27,34,0.06)]'
+            : 'bg-surface-container-lowest/90 backdrop-blur-sm'
+        }`}
+      >
       <div className="flex justify-between items-center w-full px-4 sm:px-6 lg:px-16 h-20 max-w-[1440px] mx-auto">
         {/* Brand Logo Cluster */}
         <a href="#hero" className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary flex-1 min-w-0 mr-2">
@@ -259,162 +262,155 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
           </button>
         </div>
       </div>
+    </header>
 
-      {/* Mobile Drawer Backdrop & Panel */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 z-50 flex flex-col">
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 top-20 bg-black/50 backdrop-blur-sm transition-opacity"
-            onClick={() => setMobileMenuOpen(false)}
-            aria-hidden="true"
-          />
+    {/* Mobile Drawer Backdrop & Full-Screen Menu (rendered outside header to avoid stacking/clipping bugs) */}
+    {mobileMenuOpen && (
+      <div className="lg:hidden fixed inset-x-0 top-20 bottom-0 z-[9999] bg-white flex flex-col shadow-2xl overflow-y-auto">
+        <div className="p-6 space-y-5 pb-28 bg-white min-h-full">
+          <div className="flex items-center justify-between pb-3 border-b border-outline-variant text-xs font-mono text-outline">
+            <span>EXPLORE SPECIFICATIONS</span>
+            <span className="text-primary font-bold">100% RESPONSIVE</span>
+          </div>
 
-          {/* Drawer Menu */}
-          <div className="relative z-10 border-t border-outline-variant bg-surface-container-lowest px-6 py-6 space-y-5 max-h-[calc(100vh-5rem)] overflow-y-auto shadow-2xl">
-            <div className="flex items-center justify-between pb-3 border-b border-outline-variant text-xs font-mono text-outline">
-              <span>EXPLORE SPECIFICATIONS</span>
-              <span className="text-primary font-bold">100% RESPONSIVE</span>
+          <nav className="flex flex-col space-y-2">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={handleLinkClick}
+                className={`flex items-center justify-between py-3 px-3.5 font-medium text-base border-b border-outline-variant/40 transition-colors ${
+                  item.label === 'Contact'
+                    ? 'bg-primary/10 text-primary font-bold border-primary/30'
+                    : 'text-on-surface hover:text-primary hover:bg-surface-container-low'
+                }`}
+              >
+                <span className="flex items-center gap-2.5">
+                  {item.label === 'Contact' && (
+                    <span className="material-symbols-outlined text-base text-primary">contacts</span>
+                  )}
+                  <span>{item.label}</span>
+                </span>
+                <span className="material-symbols-outlined text-sm text-outline">arrow_forward_ios</span>
+              </a>
+            ))}
+          </nav>
+
+          <div className="pt-2 flex flex-col gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenCad();
+              }}
+              className="w-full flex items-center justify-center gap-2 py-3 border border-outline-variant bg-surface-container-low text-on-surface font-mono text-xs uppercase hover:border-primary-container transition-colors"
+            >
+              <span className="material-symbols-outlined text-[16px]">architecture</span>
+              <span>OPEN MASTER CAD PORTAL</span>
+            </button>
+
+            {/* Mobile All CADs Dropdown / Accordion */}
+            <div className="border border-outline-variant bg-surface-container-lowest">
+              <button
+                type="button"
+                onClick={() => setMobileCadAccordionOpen((prev) => !prev)}
+                className="w-full flex items-center justify-between px-3 py-2.5 font-mono text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-primary-container" />
+                  <span>BROWSE ALL CADS ({CAPABILITIES.length})</span>
+                </div>
+                <span
+                  className="material-symbols-outlined text-sm transition-transform duration-200"
+                  style={{ transform: mobileCadAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                >
+                  expand_more
+                </span>
+              </button>
+
+              {mobileCadAccordionOpen && (
+                <div className="p-2 border-t border-outline-variant space-y-1 max-h-[300px] overflow-y-auto">
+                  {CAPABILITIES.map((cap) => (
+                    <button
+                      key={cap.id}
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        if (onSelectCad) {
+                          onSelectCad(cap);
+                        } else {
+                          onOpenCad();
+                        }
+                      }}
+                      className="w-full text-left p-2.5 hover:bg-surface-container-low text-xs border border-transparent hover:border-outline-variant flex items-center justify-between gap-2"
+                    >
+                      <div className="min-w-0 flex-1">
+                        <span className="font-mono text-[10px] text-primary block">
+                          CAT {cap.number} // {cap.metric}
+                        </span>
+                        <span className="font-medium text-on-surface block truncate">
+                          {cap.title}
+                        </span>
+                      </div>
+                      <span className="material-symbols-outlined text-sm text-outline">
+                        arrow_forward
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
-            <nav className="flex flex-col space-y-2">
-              {NAV_ITEMS.map((item) => (
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onRequestQuote();
+              }}
+              className="w-full flex items-center justify-center gap-2 bg-on-background hover:bg-primary-container text-on-primary py-3.5 text-xs font-semibold font-label-caps uppercase tracking-wider transition-colors"
+            >
+              <span>REQUEST ENGINEERING SPECIFICATION</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+
+            <div className="pt-3 border-t border-outline-variant flex flex-col gap-2">
+              <span className="text-[10px] font-mono text-outline uppercase tracking-wider">DIRECT WHATSAPP DESKS</span>
+              <div className="grid grid-cols-2 gap-2">
                 <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={handleLinkClick}
-                  className={`flex items-center justify-between py-2.5 px-3 font-medium text-base border-b border-outline-variant/40 transition-colors ${
-                    item.label === 'Contact'
-                      ? 'bg-primary/10 text-primary font-bold border-primary/30'
-                      : 'text-on-surface hover:text-primary'
-                  }`}
+                  href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
                 >
-                  <span className="flex items-center gap-2.5">
-                    {item.label === 'Contact' && (
-                      <span className="material-symbols-outlined text-base text-primary">contacts</span>
-                    )}
-                    <span>{item.label}</span>
-                  </span>
-                  <span className="material-symbols-outlined text-sm text-outline">arrow_forward_ios</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span>WhatsApp 1</span>
                 </a>
-              ))}
-            </nav>
-
-            <div className="pt-2 flex flex-col gap-3">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenCad();
-                }}
-                className="w-full flex items-center justify-center gap-2 py-3 border border-outline-variant bg-surface-container-low text-on-surface font-mono text-xs uppercase"
-              >
-                <span className="material-symbols-outlined text-[16px]">architecture</span>
-                <span>OPEN CAD REPOSITORY</span>
-              </button>
-
-              {/* Mobile All CADs Dropdown / Accordion */}
-              <div className="border border-outline-variant bg-surface-container-lowest">
-                <button
-                  type="button"
-                  onClick={() => setMobileCadAccordionOpen((prev) => !prev)}
-                  className="w-full flex items-center justify-between px-3 py-2.5 font-mono text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors"
+                <a
+                  href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp2Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-primary-container" />
-                    <span>BROWSE ALL CADS ({CAPABILITIES.length})</span>
-                  </div>
-                  <span
-                    className="material-symbols-outlined text-sm transition-transform duration-200"
-                    style={{ transform: mobileCadAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                  >
-                    expand_more
-                  </span>
-                </button>
-
-                {mobileCadAccordionOpen && (
-                  <div className="p-2 border-t border-outline-variant space-y-1 max-h-[280px] overflow-y-auto">
-                    {CAPABILITIES.map((cap) => (
-                      <button
-                        key={cap.id}
-                        type="button"
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          if (onSelectCad) {
-                            onSelectCad(cap);
-                          } else {
-                            onOpenCad();
-                          }
-                        }}
-                        className="w-full text-left p-2 hover:bg-surface-container-low text-xs border border-transparent hover:border-outline-variant flex items-center justify-between gap-2"
-                      >
-                        <div className="min-w-0 flex-1">
-                          <span className="font-mono text-[10px] text-primary block">
-                            CAT {cap.number} // {cap.metric}
-                          </span>
-                          <span className="font-medium text-on-surface block truncate">
-                            {cap.title}
-                          </span>
-                        </div>
-                        <span className="material-symbols-outlined text-sm text-outline">
-                          arrow_forward
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                )}
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span>WhatsApp 2</span>
+                </a>
               </div>
+            </div>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onRequestQuote();
-                }}
-                className="w-full flex items-center justify-center gap-2 bg-on-background hover:bg-primary-container text-on-primary py-3.5 text-xs font-semibold font-label-caps uppercase tracking-wider"
-              >
-                <span>REQUEST ENGINEERING SPECIFICATION</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </button>
-
-              <div className="pt-3 border-t border-outline-variant flex flex-col gap-2">
-                <span className="text-[10px] font-mono text-outline uppercase tracking-wider">DIRECT WHATSAPP DESKS</span>
-                <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span>WhatsApp 1</span>
-                  </a>
-                  <a
-                    href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp2Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
-                  >
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span>WhatsApp 2</span>
-                  </a>
-                </div>
+            <div className="pt-3 border-t border-outline-variant flex flex-col gap-2 text-xs font-mono text-tertiary">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-primary">call</span>
+                <a href={`tel:${COMPANY_CONTACT.mobile1}`} className="hover:text-primary">{COMPANY_CONTACT.mobile1}</a>
               </div>
-
-              <div className="pt-3 border-t border-outline-variant flex flex-col gap-2 text-xs font-mono text-tertiary">
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm text-primary">call</span>
-                  <a href={`tel:${COMPANY_CONTACT.mobile1}`} className="hover:text-primary">{COMPANY_CONTACT.mobile1}</a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm text-primary">mail</span>
-                  <a href={`mailto:${COMPANY_CONTACT.email}`} className="hover:text-primary">{COMPANY_CONTACT.email}</a>
-                </div>
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-sm text-primary">mail</span>
+                <a href={`mailto:${COMPANY_CONTACT.email}`} className="hover:text-primary">{COMPANY_CONTACT.email}</a>
               </div>
             </div>
           </div>
         </div>
-      )}
-    </header>
-  );
+      </div>
+    )}
+  </>
+);
 };
