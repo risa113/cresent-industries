@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { NAV_ITEMS, COMPANY_CONTACT, getWhatsAppUrl } from '../data/mockData';
+import React, { useState, useEffect, useRef } from 'react';
+import { NAV_ITEMS, COMPANY_CONTACT, CAPABILITIES, CapabilityItem, getWhatsAppUrl } from '../data/mockData';
 
 export interface NavbarProps {
   readonly onRequestQuote: () => void;
   readonly onOpenCad: () => void;
+  readonly onSelectCad?: (item: CapabilityItem) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSelectCad }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [cadDropdownOpen, setCadDropdownOpen] = useState(false);
+  const [mobileCadAccordionOpen, setMobileCadAccordionOpen] = useState(false);
+  const cadDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +21,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cadDropdownRef.current && !cadDropdownRef.current.contains(event.target as Node)) {
+        setCadDropdownOpen(false);
+      }
+    };
+    if (cadDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [cadDropdownOpen]);
 
   // Prevent background scroll when mobile drawer is open
   useEffect(() => {
@@ -92,14 +111,132 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>WhatsApp</span>
           </a>
+
+          {/* CAD Portal Button */}
           <button
             type="button"
             onClick={onOpenCad}
             className="flex items-center gap-1.5 px-3 py-2 border border-outline-variant hover:border-primary-container text-tertiary hover:text-primary transition-colors text-xs font-mono font-medium"
+            title="Open CAD Specification Viewer"
           >
             <span className="material-symbols-outlined text-[16px]">architecture</span>
             <span>CAD Portal</span>
           </button>
+
+          {/* All CADs Dropdown Menu */}
+          <div className="relative" ref={cadDropdownRef}>
+            <button
+              type="button"
+              onClick={() => setCadDropdownOpen((prev) => !prev)}
+              aria-expanded={cadDropdownOpen}
+              aria-haspopup="true"
+              className={`flex items-center gap-1.5 px-2.5 py-2 border text-xs font-mono font-medium transition-all ${
+                cadDropdownOpen
+                  ? 'border-primary-container bg-primary-container/10 text-primary ring-1 ring-primary-container'
+                  : 'border-outline-variant hover:border-primary-container text-tertiary hover:text-primary bg-surface-container-lowest'
+              }`}
+              title="Browse all 11 CAD Blueprints & Specifications"
+            >
+              <span>All CADs</span>
+              <span className="px-1.5 py-0.5 bg-primary-container text-on-primary text-[10px] font-bold">
+                {CAPABILITIES.length}
+              </span>
+              <span
+                className="material-symbols-outlined text-[16px] transition-transform duration-200"
+                style={{ transform: cadDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+              >
+                expand_more
+              </span>
+            </button>
+
+            {/* Dropdown Panel showing all CADs fully */}
+            {cadDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-[420px] max-w-[90vw] bg-on-background text-on-primary border border-primary-container shadow-2xl z-50 overflow-hidden flex flex-col animate-fade-in">
+                {/* Header */}
+                <div className="p-3 bg-inverse-surface border-b border-tertiary flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 bg-primary-container shrink-0" />
+                    <div>
+                      <span className="text-[11px] font-mono text-secondary-fixed font-bold tracking-wider uppercase block">
+                        CAD SPECIFICATIONS REPOSITORY
+                      </span>
+                      <span className="text-[10px] font-mono text-outline-variant">
+                        SELECT ANY DRAWING TO VIEW DETAILED SPECIFICATION
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono px-2 py-0.5 bg-emerald-950 border border-emerald-500/40 text-emerald-300 uppercase font-bold shrink-0">
+                    11 CADS
+                  </span>
+                </div>
+
+                {/* Scrollable CADs List */}
+                <div className="overflow-y-auto max-h-[380px] p-2 space-y-1.5 cad-scrollbar">
+                  {CAPABILITIES.map((cap) => (
+                    <button
+                      key={cap.id}
+                      type="button"
+                      onClick={() => {
+                        setCadDropdownOpen(false);
+                        if (onSelectCad) {
+                          onSelectCad(cap);
+                        } else {
+                          onOpenCad();
+                        }
+                      }}
+                      className="w-full text-left p-2.5 bg-surface/5 hover:bg-primary-container/20 border border-tertiary/40 hover:border-primary-container/60 transition-all flex items-start gap-2.5 group"
+                    >
+                      <div className="w-7 h-7 shrink-0 mt-0.5 flex items-center justify-center bg-inverse-surface border border-tertiary text-primary-fixed group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+                        <span className="material-symbols-outlined text-[16px]">{cap.icon}</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-1 mb-0.5">
+                          <span className="text-[10px] font-mono text-secondary-fixed font-bold">
+                            CAT {cap.number}
+                          </span>
+                          <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/80 px-1 py-0.2 border border-emerald-500/30 truncate max-w-[150px]">
+                            {cap.metric}
+                          </span>
+                        </div>
+                        <div className="text-xs font-semibold text-on-primary group-hover:text-primary-fixed transition-colors truncate">
+                          {cap.title}
+                        </div>
+                        <div className="text-[10px] font-mono text-outline-variant truncate mt-0.5">
+                          {cap.cadSpec}
+                        </div>
+                      </div>
+                      <span className="material-symbols-outlined text-sm text-tertiary group-hover:text-primary-fixed group-hover:translate-x-0.5 transition-all mt-1.5">
+                        arrow_forward
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
+                {/* Footer Bar */}
+                <div className="p-2.5 bg-inverse-surface border-t border-tertiary flex items-center justify-between text-xs font-mono">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCadDropdownOpen(false);
+                      onOpenCad();
+                    }}
+                    className="text-secondary-fixed hover:text-on-primary flex items-center gap-1 font-bold text-[11px]"
+                  >
+                    <span className="material-symbols-outlined text-sm">open_in_new</span>
+                    <span>Launch Master CAD Portal</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCadDropdownOpen(false)}
+                    className="text-[10px] text-outline-variant hover:text-on-primary uppercase"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
           <button
             type="button"
             onClick={onRequestQuote}
@@ -185,6 +322,58 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad }) => 
                 <span className="material-symbols-outlined text-[16px]">architecture</span>
                 <span>OPEN CAD REPOSITORY</span>
               </button>
+
+              {/* Mobile All CADs Dropdown / Accordion */}
+              <div className="border border-outline-variant bg-surface-container-lowest">
+                <button
+                  type="button"
+                  onClick={() => setMobileCadAccordionOpen((prev) => !prev)}
+                  className="w-full flex items-center justify-between px-3 py-2.5 font-mono text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-primary-container" />
+                    <span>BROWSE ALL CADS ({CAPABILITIES.length})</span>
+                  </div>
+                  <span
+                    className="material-symbols-outlined text-sm transition-transform duration-200"
+                    style={{ transform: mobileCadAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                  >
+                    expand_more
+                  </span>
+                </button>
+
+                {mobileCadAccordionOpen && (
+                  <div className="p-2 border-t border-outline-variant space-y-1 max-h-[280px] overflow-y-auto">
+                    {CAPABILITIES.map((cap) => (
+                      <button
+                        key={cap.id}
+                        type="button"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          if (onSelectCad) {
+                            onSelectCad(cap);
+                          } else {
+                            onOpenCad();
+                          }
+                        }}
+                        className="w-full text-left p-2 hover:bg-surface-container-low text-xs border border-transparent hover:border-outline-variant flex items-center justify-between gap-2"
+                      >
+                        <div className="min-w-0 flex-1">
+                          <span className="font-mono text-[10px] text-primary block">
+                            CAT {cap.number} // {cap.metric}
+                          </span>
+                          <span className="font-medium text-on-surface block truncate">
+                            {cap.title}
+                          </span>
+                        </div>
+                        <span className="material-symbols-outlined text-sm text-outline">
+                          arrow_forward
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <button
                 type="button"

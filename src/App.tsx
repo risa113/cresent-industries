@@ -51,7 +51,11 @@ export const App: React.FC<AppProps> = () => {
   return (
     <div className="min-h-screen bg-surface text-on-surface flex flex-col font-sans selection:bg-primary-container selection:text-on-primary">
       {/* Top Floating Nav */}
-      <Navbar onRequestQuote={handleOpenQuote} onOpenCad={handleOpenCadPortal} />
+      <Navbar
+        onRequestQuote={handleOpenQuote}
+        onOpenCad={handleOpenCadPortal}
+        onSelectCad={handleSelectCadItem}
+      />
 
       {/* Main Content Sections */}
       <main className="flex-1 w-full overflow-x-hidden">
