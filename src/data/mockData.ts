@@ -58,6 +58,8 @@ export interface LeaderProfile {
   readonly bio: string;
   readonly expertise: string;
   readonly credentials: string;
+  readonly photo?: string;
+  readonly imageAlt?: string;
 }
 
 export interface TestimonialItem {
@@ -471,6 +473,8 @@ export const LEADERS: readonly LeaderProfile[] = [
     name: 'Er. Mohamed Asseesul Islam, D.C.E.',
     role: 'Director of Operations & Structural Engineering',
     icon: 'engineering',
+    photo: `${BASE}images/director-asseesul-islam.jpg`,
+    imageAlt: 'Er. Mohamed Asseesul Islam, D.C.E. - Director of Operations & Structural Engineering at Crescent Engineering Industries',
     bio: 'Specializing in modern computational structural analysis and automated CNC fabrication logistics, Er. Mohamed Asseesul Islam oversees the plant operations, structural engineering quality assurance, and on-site crane erection divisions across all major enterprise contracts.',
     expertise: 'STAAD.Pro Modeling, Cold-Formed Steel, High-Tensile Fasteners',
     credentials: 'Structural PEB Consultant // MBMA Member',

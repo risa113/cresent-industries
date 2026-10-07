@@ -42,18 +42,46 @@ export const Leadership: React.FC<LeadershipProps> = () => {
               className="border border-outline-variant bg-surface-container-lowest p-6 sm:p-8 lg:p-10 space-y-4 sm:space-y-6 flex flex-col justify-between hover:border-primary-container transition-all"
             >
               <div className="space-y-4">
-                <div className="flex justify-between items-start border-b border-outline-variant pb-4 sm:pb-6 gap-3">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-on-surface font-headline-md">
+                <div className="flex items-start gap-4 sm:gap-5 border-b border-outline-variant pb-5 sm:pb-6">
+                  {leader.photo ? (
+                    <div className="relative shrink-0">
+                      <div className="w-20 h-24 sm:w-24 sm:h-28 rounded-lg overflow-hidden border-2 border-primary-container shadow-md bg-surface-container">
+                        <img
+                          src={leader.photo}
+                          alt={leader.imageAlt || leader.name}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span className="absolute -bottom-2 -right-2 bg-primary text-on-primary rounded-full p-1 shadow">
+                        <span className="material-symbols-outlined text-[16px] block">
+                          verified
+                        </span>
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="w-20 h-24 sm:w-24 sm:h-28 rounded-lg border border-dashed border-outline-variant/80 bg-surface-container-high/40 flex flex-col items-center justify-center text-outline shrink-0">
+                      <span className="material-symbols-outlined text-3xl mb-1 text-primary">
+                        {leader.icon}
+                      </span>
+                      <span className="text-[10px] font-mono tracking-wider uppercase text-outline">
+                        LEADERSHIP
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl sm:text-2xl font-bold text-on-surface font-headline-md tracking-tight">
                       {leader.name}
                     </h3>
                     <p className="text-[11px] sm:text-xs font-mono text-primary tracking-wider uppercase font-semibold mt-1">
                       {leader.role}
                     </p>
+                    <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high text-[10px] font-mono text-on-surface-variant border border-outline-variant/60">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                      <span>ACTIVE BOARD EXECUTIVE</span>
+                    </div>
                   </div>
-                  <span className="material-symbols-outlined text-outline text-2xl sm:text-3xl shrink-0">
-                    {leader.icon}
-                  </span>
                 </div>
 
                 <p className="text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">
