@@ -465,6 +465,8 @@ export const LEADERS: readonly LeaderProfile[] = [
     name: 'Er. K. Mohamed',
     role: 'Founder & Chief Structural Consultant',
     icon: 'verified_user',
+    photo: `${BASE}images/founder-er-k-mohamed.jpg`,
+    imageAlt: 'Er. K. Mohamed - Founder & Chief Structural Consultant at Crescent Engineering Industries',
     bio: 'With over 35 years in heavy civil construction and structural steel systems, Er. K. Mohamed founded Crescent Engineering Industries to bring global PEB manufacturing precision to Southern India. He has supervised the engineering execution of hundreds of industrial facilities.',
     expertise: 'Structural Steel, PEB Optimization, Foundation Dynamics',
     credentials: 'Institution of Engineers (India) // ICI Life Member',
