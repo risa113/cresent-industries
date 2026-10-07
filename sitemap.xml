@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://risa113.github.io/cresent-industries/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://risa113.github.io/cresent-industries/images/founder-er-k-mohamed.jpg</image:loc>
+      <image:title>Er. K. Mohamed - Founder and Chief Structural Consultant</image:title>
+      <image:caption>Er. K. Mohamed, Founder &amp; Chief Structural Consultant of Crescent Engineering Industries with over 35 years in structural steel and PEB systems.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://risa113.github.io/cresent-industries/images/director-asseesul-islam.jpg</image:loc>
+      <image:title>Er. Mohamed Asseesul Islam, D.C.E. - Director of Operations and Structural Engineering</image:title>
+      <image:caption>Er. Mohamed Asseesul Islam, D.C.E., Director of Operations &amp; Structural Engineering at Crescent Engineering Industries.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://risa113.github.io/cresent-industries/images/hero-steel-hd.webp</image:loc>
+      <image:title>Heavy Industrial Steel Fabrication &amp; Pre-Engineered Building (PEB)</image:title>
+      <image:caption>Crescent Engineering Industries heavy steel plant fabrication and industrial clear span warehouse erection.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://risa113.github.io/cresent-industries/images/portfolio-steel-roofing-hd.jpg</image:loc>
+      <image:title>Industrial Curved Steel Roofing &amp; PEB Truss Installation</image:title>
+      <image:caption>Turnkey industrial Galvalume curved roofing and structural tubular steel truss solutions in Tamil Nadu.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://risa113.github.io/cresent-industries/images/portfolio-peb-plant.webp</image:loc>
+      <image:title>Heavy Industrial Manufacturing &amp; Steel Fabrication Facility</image:title>
+      <image:caption>Clear span heavy structural steel warehouse facility designed and erected by Crescent Engineering Industries.</image:caption>
+    </image:image>
+  </url>
+</urlset>

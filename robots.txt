@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://risa113.github.io/cresent-industries/sitemap.xml
