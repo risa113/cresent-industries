@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { StatsMatrix } from './components/StatsMatrix';
 import { CompanyEditorial } from './components/CompanyEditorial';
 import { Capabilities } from './components/Capabilities';
 import { BlueprintBoard } from './components/BlueprintBoard';
 import { PrecisionMatrix } from './components/PrecisionMatrix';
 import { SectorsServed } from './components/SectorsServed';
 import { Portfolio } from './components/Portfolio';
-import { StatsMatrix } from './components/StatsMatrix';
 import { Leadership } from './components/Leadership';
 import { Testimonials } from './components/Testimonials';
 import { ContactCTA } from './components/ContactCTA';
@@ -21,6 +21,7 @@ import { CapabilityItem, PortfolioProject, CAPABILITIES } from './data/mockData'
 export interface AppProps {}
 
 export const App: React.FC<AppProps> = () => {
+  const [ambientLightOn, setAmbientLightOn] = useState(false);
   const [cadModalOpen, setCadModalOpen] = useState(false);
   const [selectedCadItem, setSelectedCadItem] = useState<CapabilityItem | null>(null);
 
@@ -49,60 +50,69 @@ export const App: React.FC<AppProps> = () => {
   };
 
   return (
-    <div className="min-h-screen bg-surface text-on-surface flex flex-col font-sans selection:bg-primary-container selection:text-on-primary">
-      {/* Top Floating Nav */}
+    <div
+      className={`min-h-screen bg-[#07090e] text-white flex flex-col font-sans transition-all duration-700 selection:bg-amber-400 selection:text-black ${
+        ambientLightOn ? 'ambient-glow-active' : ''
+      }`}
+    >
+      {/* Top Floating Luxury Nav */}
       <Navbar
         onRequestQuote={handleOpenQuote}
         onOpenCad={handleOpenCadPortal}
         onSelectCad={handleSelectCadItem}
       />
 
-      {/* Main Content Sections */}
+      {/* Main Single Page Content without Refresh */}
       <main className="flex-1 w-full overflow-x-hidden">
-        {/* Section 2: Cinematic Hero Experience */}
-        <Hero onRequestQuote={handleOpenQuote} onOpenCad={handleOpenCadPortal} />
+        {/* Section 1: Cinematic Hero Experience with istlight project slider */}
+        <Hero
+          onRequestQuote={handleOpenQuote}
+          onOpenCad={handleOpenCadPortal}
+          ambientLightOn={ambientLightOn}
+          onToggleAmbientLight={() => setAmbientLightOn((prev) => !prev)}
+        />
+
+        {/* Section 2: Atmospheric Stats Counter with Golden Light Beams */}
+        <StatsMatrix />
 
         {/* Section 3: 01 / The Company - Architectural Editorial */}
         <CompanyEditorial />
 
-        {/* Section 4: 02 / Engineering Capabilities (11 Categories) */}
+        {/* Section 4: 02 / Engineering Capabilities (11 Categories with hover glow) */}
         <Capabilities onSelectCad={handleSelectCadItem} />
 
-        {/* Section 5: 09 / Featured PEB Experience (Architectural Blueprint Board) */}
+        {/* Section 5: 09 / Featured PEB Experience (Interactive Blueprint Board) */}
         <BlueprintBoard />
 
-        {/* Section 6: 03 / Why Crescent - Graphite Ink Precision Matrix */}
+        {/* Section 6: 03 / Why Crescent - with 4 Circular SVG Progress Gauges */}
         <PrecisionMatrix />
 
         {/* Section 7: 04 / Sectors & Domains */}
         <SectorsServed />
 
-        {/* Section 8: 05 / Selected Case Archives - Architectural Portfolio */}
+        {/* Section 8: 05 / Selected Case Archives - Filterable Portfolio */}
         <Portfolio
           onSelectProject={handleSelectProject}
           onRequestDossier={handleOpenQuote}
         />
 
-        {/* Section 9: Engineering Data / Stats Matrix */}
-        <StatsMatrix />
-
-        {/* Section 10: 06 / Leadership Credentials */}
+        {/* Section 9: 06 / Leadership Credentials (Er. K. Mohamed & Er. Mohamed Asseesul Islam) */}
         <Leadership onConsultClick={handleOpenQuote} />
 
-        {/* Section 11: 07 / Client Testimonials */}
+        {/* Section 10: 07 / Client Testimonials (Tirunelveli Verified Reviews) */}
         <Testimonials />
 
-        {/* Section 12: Final Call To Action & RFP Form */}
+        {/* Section 11: Final Call To Action & Consultation Form */}
         <ContactCTA onOpenQuoteModal={handleOpenQuote} />
       </main>
 
-      {/* Section 13: Enterprise Structural Engineering Footer */}
+      {/* Section 12: Enterprise Structural Engineering Footer */}
       <Footer onRequestQuote={handleOpenQuote} />
 
       {/* Sticky Bottom Actions & Scroll-to-Top */}
       <FloatingActions onRequestQuote={handleOpenQuote} />
 
-      {/* Modals */}
+      {/* Pure React Modals - 100% Zero Page Refresh */}
       <CADModal
         isOpen={cadModalOpen}
         onClose={() => setCadModalOpen(false)}

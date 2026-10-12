@@ -11,7 +11,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [cadDropdownOpen, setCadDropdownOpen] = useState(false);
-  const [mobileCadAccordionOpen, setMobileCadAccordionOpen] = useState(false);
   const cadDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,361 +55,289 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-200 border-b border-outline-variant ${
+        className={`sticky top-0 z-50 transition-all duration-300 border-b border-white/10 ${
           mobileMenuOpen
-            ? 'bg-white'
+            ? 'bg-[#07090e]'
             : isScrolled
-            ? 'bg-surface-container-lowest/95 backdrop-blur-md shadow-[0px_4px_16px_rgba(23,27,34,0.06)]'
-            : 'bg-surface-container-lowest/90 backdrop-blur-sm'
+            ? 'bg-[#07090e]/95 backdrop-blur-md shadow-2xl py-1'
+            : 'bg-[#07090e]/85 backdrop-blur-sm py-2'
         }`}
       >
-      <div className="flex justify-between items-center w-full px-4 sm:px-6 lg:px-16 h-20 max-w-[1440px] mx-auto">
-        {/* Brand Logo Cluster */}
-        <a href="#hero" className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary flex-1 min-w-0 mr-2">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 border border-outline-variant p-1 flex items-center justify-center bg-surface-container-lowest group-hover:border-primary-container transition-colors shrink-0">
-            <img
-              alt="Crescent Engineering Industries Master Logo"
-              className="w-full h-full object-contain"
-              src={COMPANY_CONTACT.logoUrl}
-            />
-          </div>
-          <div className="flex flex-col min-w-0 flex-1">
-            <span className="text-xs sm:text-base lg:text-lg font-bold tracking-tight text-on-surface uppercase truncate font-headline-sm">
-              CRESCENT // INFRASTRUCTURE
-            </span>
-            <span className="text-[9px] sm:text-[10px] text-outline tracking-wider font-mono uppercase truncate">
-              <span className="sm:hidden">ROOFING &amp; PEB DIVISION</span>
-              <span className="hidden sm:inline">DIVISION: CRESCENT ROOFING // PEB &amp; STRUCTURAL STEEL</span>
-            </span>
-          </div>
-        </a>
-
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className={`transition-colors pb-1 text-xs font-semibold uppercase tracking-wider font-label-caps ${
-                item.label === 'Contact'
-                  ? 'text-primary font-bold px-2 py-0.5 border border-primary/30 bg-primary/5 hover:bg-primary/15'
-                  : 'text-on-surface-variant hover:text-primary'
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Trailing Action Cluster */}
-        <div className="hidden md:flex items-center gap-2 xl:gap-2.5">
+        <div className="flex justify-between items-center w-full px-4 sm:px-6 lg:px-16 h-20 max-w-[1440px] mx-auto text-white">
+          {/* Brand Logo Cluster */}
           <a
-            href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hello Crescent Engineering, I would like to inquire about PEB & Steel Structure services.')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-2 border border-emerald-600/30 text-emerald-700 hover:bg-emerald-50 transition-colors text-xs font-mono font-medium"
-            title="Chat directly on WhatsApp (+91 98430 60976)"
+            href="#hero"
+            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none flex-1 min-w-0 mr-2"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>WhatsApp</span>
+            <div className="w-10 h-10 border border-white/20 p-1 flex items-center justify-center bg-white/5 rounded-xl group-hover:border-amber-400 transition-colors shrink-0">
+              <img
+                alt="Crescent Engineering Industries Master Logo"
+                className="w-full h-full object-contain"
+                src={COMPANY_CONTACT.logoUrl}
+              />
+            </div>
+            <div className="flex flex-col min-w-0 flex-1">
+              <span className="text-xs sm:text-base lg:text-lg font-bold tracking-wider text-white uppercase truncate font-display">
+                CRESCENT // INFRASTRUCTURE
+              </span>
+              <span className="text-[9px] sm:text-[10px] text-amber-400 tracking-wider font-mono uppercase truncate">
+                <span className="sm:hidden">ROOFING &amp; PEB DIVISION</span>
+                <span className="hidden sm:inline">DIVISION: CRESCENT ROOFING // PEB &amp; STRUCTURAL STEEL</span>
+              </span>
+            </div>
           </a>
 
-          {/* All CADs Dropdown Menu */}
-          <div className="relative" ref={cadDropdownRef}>
-            <button
-              type="button"
-              onClick={() => setCadDropdownOpen((prev) => !prev)}
-              aria-expanded={cadDropdownOpen}
-              aria-haspopup="true"
-              className={`flex items-center gap-1.5 px-3 py-2 border text-xs font-mono font-medium transition-all ${
-                cadDropdownOpen
-                  ? 'border-primary-container bg-primary-container/10 text-primary ring-1 ring-primary-container'
-                  : 'border-outline-variant hover:border-primary-container text-tertiary hover:text-primary bg-surface-container-lowest'
-              }`}
-              title="Browse all 11 CAD Blueprints & Specifications"
-            >
-              <span className="material-symbols-outlined text-[16px]">architecture</span>
-              <span>All CADs</span>
-              <span className="px-1.5 py-0.2 bg-primary-container text-on-primary text-[10px] font-bold">
-                {CAPABILITIES.length}
-              </span>
-              <span
-                className="material-symbols-outlined text-[16px] transition-transform duration-200"
-                style={{ transform: cadDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
-              >
-                expand_more
-              </span>
-            </button>
-
-            {/* Dropdown Panel showing all CADs fully */}
-            {cadDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-[420px] max-w-[90vw] bg-on-background text-on-primary border border-primary-container shadow-2xl z-50 overflow-hidden flex flex-col animate-fade-in">
-                {/* Header */}
-                <div className="p-3 bg-inverse-surface border-b border-tertiary flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 bg-primary-container shrink-0" />
-                    <div>
-                      <span className="text-[11px] font-mono text-secondary-fixed font-bold tracking-wider uppercase block">
-                        CAD SPECIFICATIONS REPOSITORY
-                      </span>
-                      <span className="text-[10px] font-mono text-outline-variant">
-                        SELECT ANY DRAWING TO VIEW DETAILED SPECIFICATION
-                      </span>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 bg-emerald-950 border border-emerald-500/40 text-emerald-300 uppercase font-bold shrink-0">
-                    11 CADS
-                  </span>
-                </div>
-
-                {/* Scrollable CADs List */}
-                <div className="overflow-y-auto max-h-[380px] p-2 space-y-1.5 cad-scrollbar">
-                  {CAPABILITIES.map((cap) => (
-                    <button
-                      key={cap.id}
-                      type="button"
-                      onClick={() => {
-                        setCadDropdownOpen(false);
-                        if (onSelectCad) {
-                          onSelectCad(cap);
-                        } else {
-                          onOpenCad();
-                        }
-                      }}
-                      className="w-full text-left p-2.5 bg-surface/5 hover:bg-primary-container/20 border border-tertiary/40 hover:border-primary-container/60 transition-all flex items-start gap-2.5 group"
-                    >
-                      <div className="w-7 h-7 shrink-0 mt-0.5 flex items-center justify-center bg-inverse-surface border border-tertiary text-primary-fixed group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
-                        <span className="material-symbols-outlined text-[16px]">{cap.icon}</span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1 mb-0.5">
-                          <span className="text-[10px] font-mono text-secondary-fixed font-bold">
-                            CAT {cap.number}
-                          </span>
-                          <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/80 px-1 py-0.2 border border-emerald-500/30 truncate max-w-[150px]">
-                            {cap.metric}
-                          </span>
-                        </div>
-                        <div className="text-xs font-semibold text-on-primary group-hover:text-primary-fixed transition-colors truncate">
-                          {cap.title}
-                        </div>
-                        <div className="text-[10px] font-mono text-outline-variant truncate mt-0.5">
-                          {cap.cadSpec}
-                        </div>
-                      </div>
-                      <span className="material-symbols-outlined text-sm text-tertiary group-hover:text-primary-fixed group-hover:translate-x-0.5 transition-all mt-1.5">
-                        arrow_forward
-                      </span>
-                    </button>
-                  ))}
-                </div>
-
-                {/* Footer Bar */}
-                <div className="p-2.5 bg-inverse-surface border-t border-tertiary flex items-center justify-between text-xs font-mono">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setCadDropdownOpen(false);
-                      onOpenCad();
-                    }}
-                    className="text-secondary-fixed hover:text-on-primary flex items-center gap-1 font-bold text-[11px]"
-                  >
-                    <span className="material-symbols-outlined text-sm">open_in_new</span>
-                    <span>Launch Master CAD Portal</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCadDropdownOpen(false)}
-                    className="text-[10px] text-outline-variant hover:text-on-primary uppercase"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <button
-            type="button"
-            onClick={onRequestQuote}
-            className="flex items-center gap-2 bg-on-background hover:bg-primary-container text-on-primary px-3.5 xl:px-4 py-2.5 transition-colors duration-150 text-xs font-semibold uppercase tracking-wider font-label-caps"
-          >
-            <span>Request Specification</span>
-            <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
-          </button>
-        </div>
-
-        {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
-          <button
-            type="button"
-            onClick={onRequestQuote}
-            className="sm:hidden px-2.5 py-1.5 bg-primary-container text-on-primary text-[11px] font-mono uppercase font-bold shrink-0 shadow-sm"
-          >
-            RFP
-          </button>
-          <button
-            type="button"
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 sm:p-2 text-on-surface hover:text-primary border border-outline-variant rounded-none bg-surface-container-lowest focus:outline-none shrink-0"
-          >
-            <span className="material-symbols-outlined text-2xl">
-              {mobileMenuOpen ? 'close' : 'menu'}
-            </span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    {/* Mobile Drawer Backdrop & Full-Screen Menu (rendered outside header to avoid stacking/clipping bugs) */}
-    {mobileMenuOpen && (
-      <div className="lg:hidden fixed inset-x-0 top-20 bottom-0 z-[9999] bg-white flex flex-col shadow-2xl overflow-y-auto">
-        <div className="p-6 space-y-5 pb-28 bg-white min-h-full">
-          <div className="flex items-center justify-between pb-3 border-b border-outline-variant text-xs font-mono text-outline">
-            <span>EXPLORE SPECIFICATIONS</span>
-            <span className="text-primary font-bold">100% RESPONSIVE</span>
-          </div>
-
-          <nav className="flex flex-col space-y-2">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                onClick={handleLinkClick}
-                className={`flex items-center justify-between py-3 px-3.5 font-medium text-base border-b border-outline-variant/40 transition-colors ${
+                className={`py-1.5 px-3 rounded-full text-xs font-semibold uppercase tracking-wider font-mono transition-all ${
                   item.label === 'Contact'
-                    ? 'bg-primary/10 text-primary font-bold border-primary/30'
-                    : 'text-on-surface hover:text-primary hover:bg-surface-container-low'
+                    ? 'text-amber-400 hover:text-white border border-amber-400/40 bg-amber-400/10 hover:bg-amber-400/20'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
-                <span className="flex items-center gap-2.5">
-                  {item.label === 'Contact' && (
-                    <span className="material-symbols-outlined text-base text-primary">contacts</span>
-                  )}
-                  <span>{item.label}</span>
-                </span>
-                <span className="material-symbols-outlined text-sm text-outline">arrow_forward_ios</span>
+                {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="pt-2 flex flex-col gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenCad();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-3 border border-outline-variant bg-surface-container-low text-on-surface font-mono text-xs uppercase hover:border-primary-container transition-colors"
+          {/* Trailing Action Cluster */}
+          <div className="hidden md:flex items-center gap-2 xl:gap-3 ml-4">
+            <a
+              href={getWhatsAppUrl(
+                COMPANY_CONTACT.whatsapp1Clean,
+                'Hello Crescent Engineering, I would like to inquire about PEB & Steel Structure services.'
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 transition-colors text-xs font-mono font-medium"
+              title="Chat directly on WhatsApp (+91 98430 60976)"
             >
-              <span className="material-symbols-outlined text-[16px]">architecture</span>
-              <span>OPEN MASTER CAD PORTAL</span>
-            </button>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>WhatsApp</span>
+            </a>
 
-            {/* Mobile All CADs Dropdown / Accordion */}
-            <div className="border border-outline-variant bg-surface-container-lowest">
+            {/* All CADs Dropdown Menu */}
+            <div className="relative" ref={cadDropdownRef}>
               <button
                 type="button"
-                onClick={() => setMobileCadAccordionOpen((prev) => !prev)}
-                className="w-full flex items-center justify-between px-3 py-2.5 font-mono text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors"
+                onClick={() => setCadDropdownOpen((prev) => !prev)}
+                aria-expanded={cadDropdownOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border text-xs font-mono font-medium transition-all ${
+                  cadDropdownOpen
+                    ? 'border-amber-400 bg-amber-400/10 text-amber-300 ring-1 ring-amber-400'
+                    : 'border-white/20 hover:border-amber-400 text-white/80 hover:text-white bg-white/5'
+                }`}
+                title="Browse all 11 CAD Blueprints & Specifications"
               >
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-primary-container" />
-                  <span>BROWSE ALL CADS ({CAPABILITIES.length})</span>
-                </div>
+                <span className="material-symbols-outlined text-[16px] text-amber-400">
+                  architecture
+                </span>
+                <span>All CADs</span>
+                <span className="px-1.5 py-0.2 bg-amber-400 text-black text-[10px] font-bold rounded-full">
+                  {CAPABILITIES.length}
+                </span>
                 <span
-                  className="material-symbols-outlined text-sm transition-transform duration-200"
-                  style={{ transform: mobileCadAccordionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                  className="material-symbols-outlined text-[16px] transition-transform duration-200"
+                  style={{ transform: cadDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
                 >
                   expand_more
                 </span>
               </button>
 
-              {mobileCadAccordionOpen && (
-                <div className="p-2 border-t border-outline-variant space-y-1 max-h-[300px] overflow-y-auto">
-                  {CAPABILITIES.map((cap) => (
-                    <button
-                      key={cap.id}
-                      type="button"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        if (onSelectCad) {
-                          onSelectCad(cap);
-                        } else {
-                          onOpenCad();
-                        }
-                      }}
-                      className="w-full text-left p-2.5 hover:bg-surface-container-low text-xs border border-transparent hover:border-outline-variant flex items-center justify-between gap-2"
-                    >
-                      <div className="min-w-0 flex-1">
-                        <span className="font-mono text-[10px] text-primary block">
-                          CAT {cap.number} // {cap.metric}
+              {/* Dropdown Panel showing all CADs fully */}
+              {cadDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-[420px] max-w-[90vw] bg-[#11141c] text-white border border-amber-400/50 shadow-2xl rounded-2xl z-50 overflow-hidden flex flex-col">
+                  {/* Header */}
+                  <div className="p-3.5 bg-black/50 border-b border-white/10 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                      <div>
+                        <span className="text-[11px] font-mono text-amber-400 font-bold tracking-wider uppercase block">
+                          CAD SPECIFICATIONS REPOSITORY
                         </span>
-                        <span className="font-medium text-on-surface block truncate">
-                          {cap.title}
+                        <span className="text-[10px] font-mono text-white/50">
+                          SELECT ANY DRAWING TO VIEW DETAILED SPECIFICATION
                         </span>
                       </div>
-                      <span className="material-symbols-outlined text-sm text-outline">
-                        arrow_forward
-                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono px-2 py-0.5 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 uppercase font-bold rounded">
+                      11 CADS
+                    </span>
+                  </div>
+
+                  {/* Scrollable CADs List */}
+                  <div className="overflow-y-auto max-h-[380px] p-2 space-y-1.5 cad-scrollbar">
+                    {CAPABILITIES.map((cap) => (
+                      <button
+                        key={cap.id}
+                        type="button"
+                        onClick={() => {
+                          setCadDropdownOpen(false);
+                          if (onSelectCad) {
+                            onSelectCad(cap);
+                          } else {
+                            onOpenCad();
+                          }
+                        }}
+                        className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-amber-400/40 transition-all flex items-start gap-2.5 group"
+                      >
+                        <div className="w-7 h-7 shrink-0 mt-0.5 flex items-center justify-center rounded-lg bg-white/10 text-amber-400 group-hover:bg-amber-400 group-hover:text-black transition-colors">
+                          <span className="material-symbols-outlined text-[16px]">{cap.icon}</span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-1 mb-0.5">
+                            <span className="text-[10px] font-mono text-amber-400 font-bold">
+                              CAT {cap.number}
+                            </span>
+                            <span className="text-[9px] font-mono text-emerald-300 bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-500/30 truncate max-w-[150px]">
+                              {cap.metric}
+                            </span>
+                          </div>
+                          <div className="text-xs font-semibold text-white group-hover:text-amber-300 transition-colors truncate font-display">
+                            {cap.title}
+                          </div>
+                          <div className="text-[10px] font-mono text-white/50 truncate mt-0.5">
+                            {cap.cadSpec}
+                          </div>
+                        </div>
+                        <span className="material-symbols-outlined text-sm text-white/30 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all mt-1.5">
+                          arrow_forward
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Footer Bar */}
+                  <div className="p-3 bg-black/60 border-t border-white/10 flex items-center justify-between text-xs font-mono">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCadDropdownOpen(false);
+                        onOpenCad();
+                      }}
+                      className="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-bold text-[11px]"
+                    >
+                      <span className="material-symbols-outlined text-sm">open_in_new</span>
+                      <span>Launch Master CAD Portal</span>
                     </button>
-                  ))}
+                    <button
+                      type="button"
+                      onClick={() => setCadDropdownOpen(false)}
+                      className="text-[10px] text-white/40 hover:text-white uppercase"
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
 
             <button
               type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onRequestQuote();
-              }}
-              className="w-full flex items-center justify-center gap-2 bg-on-background hover:bg-primary-container text-on-primary py-3.5 text-xs font-semibold font-label-caps uppercase tracking-wider transition-colors"
+              onClick={onRequestQuote}
+              className="flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-black px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
             >
-              <span>REQUEST ENGINEERING SPECIFICATION</span>
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              <span>Request Specification</span>
+              <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
             </button>
+          </div>
 
-            <div className="pt-3 border-t border-outline-variant flex flex-col gap-2">
-              <span className="text-[10px] font-mono text-outline uppercase tracking-wider">DIRECT WHATSAPP DESKS</span>
-              <div className="grid grid-cols-2 gap-2">
+          {/* Mobile Hamburger Button */}
+          <div className="flex items-center gap-2 lg:hidden shrink-0">
+            <button
+              type="button"
+              onClick={onRequestQuote}
+              className="sm:hidden px-3 py-1.5 bg-amber-400 text-black rounded-full text-[11px] font-mono uppercase font-bold shrink-0 shadow-sm"
+            >
+              RFP
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+              className="p-2 border border-white/20 rounded-xl hover:border-amber-400 hover:text-amber-400 transition-colors text-white"
+            >
+              <span className="material-symbols-outlined text-2xl">
+                {mobileMenuOpen ? 'close' : 'menu'}
+              </span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer (Full Dark Luxury Mode) */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-[#07090e] text-white pt-20 px-6 pb-10 overflow-y-auto lg:hidden animate-in fade-in duration-200">
+          <div className="max-w-md mx-auto space-y-6 pt-4">
+            <nav className="flex flex-col space-y-2">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={handleLinkClick}
+                  className="py-3 px-4 rounded-xl text-sm font-semibold tracking-wider font-mono text-white/80 hover:text-white hover:bg-white/10 flex items-center justify-between border border-white/5"
+                >
+                  <span>{item.label}</span>
+                  <span className="material-symbols-outlined text-sm text-white/40">arrow_forward</span>
+                </a>
+              ))}
+            </nav>
+
+            <div className="space-y-3 pt-4 border-t border-white/10">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenCad();
+                }}
+                className="w-full py-3 rounded-full border border-white/20 hover:border-amber-400 text-white font-mono text-xs uppercase flex items-center justify-center gap-2 bg-white/5"
+              >
+                <span className="material-symbols-outlined text-base text-amber-400">architecture</span>
+                <span>OPEN MASTER CAD PORTAL</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onRequestQuote();
+                }}
+                className="w-full py-3.5 rounded-full bg-amber-400 text-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg"
+              >
+                <span>REQUEST ENGINEERING SPECIFICATION</span>
+                <span className="material-symbols-outlined text-base">arrow_forward</span>
+              </button>
+
+              <div className="pt-4 grid grid-cols-2 gap-2">
                 <a
                   href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
+                  className="py-2.5 rounded-xl bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 font-mono text-xs font-semibold flex items-center justify-center gap-1.5"
                 >
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
                   <span>WhatsApp 1</span>
                 </a>
                 <a
                   href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp2Clean, 'Hi, I need assistance with a PEB / Steel Structure project.')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-2 bg-emerald-50 text-emerald-800 border border-emerald-300 font-mono text-[11px] font-semibold"
+                  className="py-2.5 rounded-xl bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 font-mono text-xs font-semibold flex items-center justify-center gap-1.5"
                 >
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
                   <span>WhatsApp 2</span>
                 </a>
               </div>
             </div>
-
-            <div className="pt-3 border-t border-outline-variant flex flex-col gap-2 text-xs font-mono text-tertiary">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-primary">call</span>
-                <a href={`tel:${COMPANY_CONTACT.mobile1}`} className="hover:text-primary">{COMPANY_CONTACT.mobile1}</a>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-primary">mail</span>
-                <a href={`mailto:${COMPANY_CONTACT.email}`} className="hover:text-primary">{COMPANY_CONTACT.email}</a>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-    )}
-  </>
-);
+      )}
+    </>
+  );
 };
