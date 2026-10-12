@@ -91,11 +91,11 @@ export const Capabilities: React.FC<CapabilitiesProps> = ({ onSelectCad }) => {
 
         {/* 11 Services Grid with Hover Invert Transition */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, idx) => (
             <div
               key={item.id}
               onClick={() => onSelectCad(item)}
-              className="group relative bg-[#11151f] rounded-2xl p-7 border border-white/10 hover:border-amber-400/60 hover:bg-[#161c28] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden"
+              className={`group relative bg-[#11151f] rounded-2xl p-7 border border-white/10 hover:border-amber-400/60 hover:bg-[#161c28] hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden reveal-bump hover-bump stagger-${(idx % 6) + 1}`}
             >
               {/* Top Row: Number & Icon */}
               <div className="space-y-4">

@@ -57,7 +57,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Column: Direct Inquiries & Numbers */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-6 reveal-left">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 bg-primary-container shrink-0" />
               <span className="font-mono text-secondary-fixed tracking-wider uppercase text-[10px] sm:text-xs font-semibold">
@@ -144,7 +144,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
           </div>
 
           {/* Right Column: Interactive RFP Specification Form */}
-          <div className="lg:col-span-6 w-full">
+          <div className="lg:col-span-6 w-full reveal-right hover-bump">
             <div className="border border-tertiary bg-inverse-surface/90 p-6 sm:p-8 backdrop-blur-md shadow-2xl">
               <div className="flex items-center justify-between border-b border-tertiary pb-3 mb-6">
                 <span className="text-xs font-mono text-secondary-fixed font-bold tracking-wider uppercase">

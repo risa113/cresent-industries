@@ -33,7 +33,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
         {/* Board Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-tertiary pb-6 mb-8 sm:mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-tertiary pb-6 mb-8 sm:mb-12 gap-4 reveal-down">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-2.5 h-2.5 bg-primary-container shrink-0" />
@@ -105,7 +105,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
         </div>
 
         {/* Blueprint Visual Board */}
-        <div className="border border-tertiary bg-on-background p-3 sm:p-4 lg:p-8 relative">
+        <div className="border border-tertiary bg-on-background p-3 sm:p-4 lg:p-8 relative reveal-pop">
           {/* Framing CAD Crosshairs */}
           <div className="absolute top-2 left-2 text-outline-variant font-mono text-[9px] sm:text-xs">
             + GRID: A-01 // ULTRA HD 1920x1080

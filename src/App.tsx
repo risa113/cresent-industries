@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { StatsMatrix } from './components/StatsMatrix';
@@ -24,6 +24,26 @@ export const App: React.FC<AppProps> = () => {
   const [ambientLightOn, setAmbientLightOn] = useState(false);
   const [cadModalOpen, setCadModalOpen] = useState(false);
   const [selectedCadItem, setSelectedCadItem] = useState<CapabilityItem | null>(null);
+
+  // Global scroll reveal observer for up/down/left/right/pop/bump animations
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      '.reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-pop, .reveal-bump'
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);

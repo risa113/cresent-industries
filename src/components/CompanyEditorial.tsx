@@ -21,7 +21,7 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 mb-14 gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 mb-14 gap-2 reveal-down">
           <div className="flex items-center gap-3 flex-wrap">
             <span className="font-mono text-amber-400 font-bold text-xs sm:text-sm">
               {COMPANY_DATA.sectionTag}
@@ -38,8 +38,8 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
 
         {/* Asymmetric Editorial Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-14 items-center">
-          {/* Left Text Block */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+          {/* Left Text Block - Slides in from Left */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8 reveal-left">
             <div className="space-y-2">
               <span className="text-xs font-mono font-bold tracking-widest text-amber-400 uppercase block">
                 {COMPANY_DATA.eyebrow}
@@ -58,7 +58,7 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
             </p>
 
             {/* Specification Datum Box */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 space-y-3.5 backdrop-blur-sm">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 space-y-3.5 backdrop-blur-sm reveal-up stagger-2 hover-bump">
               {COMPANY_DATA.specBox.map((item, idx) => (
                 <div
                   key={idx}
@@ -79,7 +79,7 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
             <div className="pt-2">
               <a
                 href="#credentials"
-                className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-xs font-bold uppercase tracking-widest group"
+                className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-xs font-bold uppercase tracking-widest group btn-luxury-bump"
               >
                 <span>KNOW OUR STORY &amp; FOUNDATIONAL PHILOSOPHY</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -87,9 +87,9 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
             </div>
           </div>
 
-          {/* Right Presentation Photograph */}
-          <div className="lg:col-span-5 relative w-full">
-            <div className="rounded-3xl border border-white/15 bg-white/5 p-3 relative group shadow-2xl overflow-hidden backdrop-blur-sm">
+          {/* Right Presentation Photograph - Slides in from Right */}
+          <div className="lg:col-span-5 relative w-full reveal-right stagger-1">
+            <div className="rounded-3xl border border-white/15 bg-white/5 p-3 relative group shadow-2xl overflow-hidden backdrop-blur-sm hover-bump">
               <div className="relative overflow-hidden aspect-[4/5] rounded-2xl bg-neutral-900">
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
