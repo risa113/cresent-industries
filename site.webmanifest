@@ -1,0 +1,19 @@
+{
+  "name": "Crescent Engineering Industries",
+  "short_name": "Crescent",
+  "icons": [
+    {
+      "src": "/cresent-industries/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/cresent-industries/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#171B22",
+  "background_color": "#171B22",
+  "display": "standalone"
+}
