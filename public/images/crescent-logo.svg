@@ -1,29 +1,190 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <!-- Outer Structural Precision Hexagon -->
-  <polygon points="50,4 92,26 92,74 50,96 8,74 8,26" stroke="#2563EB" stroke-width="3" fill="#0F172A" />
-  
-  <!-- Steel Grid Lines -->
-  <line x1="8" y1="26" x2="92" y2="74" stroke="#1E293B" stroke-width="1.5" />
-  <line x1="8" y1="74" x2="92" y2="26" stroke="#1E293B" stroke-width="1.5" />
-  <line x1="50" y1="4" x2="50" y2="96" stroke="#1E293B" stroke-width="1.5" />
-  
-  <!-- Architectural Crescent Silhouette in High-Grade Cyan/Blue -->
-  <path d="M50 16 C30 16 16 32 16 52 C16 72 32 86 52 86 C64 86 74 80 80 72 C60 76 40 64 36 44 C34 32 40 22 50 16 Z" fill="url(#crescentGradient)" />
-  
-  <!-- Central Structural PEB Beam Portal (Orange/Gold Accent) -->
-  <path d="M48 38 L68 50 L68 62 L48 50 Z" fill="#F97316" />
-  <path d="M68 50 L84 40 L84 52 L68 62 Z" fill="#FB923C" />
-  
-  <!-- Precision Truss Nodes -->
-  <circle cx="50" cy="50" r="3" fill="#FFFFFF" />
-  <circle cx="68" cy="62" r="2.5" fill="#FFFFFF" />
-  <circle cx="48" cy="38" r="2.5" fill="#FFFFFF" />
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%" fill="none">
   <defs>
-    <linearGradient id="crescentGradient" x1="16" y1="16" x2="80" y2="86" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#38BDF8" />
-      <stop offset="0.5" stop-color="#2563EB" />
-      <stop offset="1" stop-color="#1D4ED8" />
+    <!-- 3D Gold Metallic Outer Arc Gradient -->
+    <linearGradient id="crescentGoldMain" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#FFE885" />
+      <stop offset="20%" stop-color="#F5A623" />
+      <stop offset="45%" stop-color="#FFDA66" />
+      <stop offset="70%" stop-color="#D97706" />
+      <stop offset="90%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#78350F" />
     </linearGradient>
+
+    <!-- 3D Gold Bevel Inner Shadow Gradient -->
+    <linearGradient id="crescentGoldBevel" x1="85%" y1="0%" x2="15%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5B8" />
+      <stop offset="25%" stop-color="#FBBF24" />
+      <stop offset="60%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#92400E" />
+    </linearGradient>
+
+    <!-- Golden Roof Top Bevel (Highlight) -->
+    <linearGradient id="roofGoldTop" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#FFF7C2" />
+      <stop offset="35%" stop-color="#FBBF24" />
+      <stop offset="75%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+
+    <!-- Golden Roof Bottom Bevel (Shade) -->
+    <linearGradient id="roofGoldBottom" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#92400E" />
+      <stop offset="40%" stop-color="#B45309" />
+      <stop offset="80%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+
+    <!-- Navy Building Gradient -->
+    <linearGradient id="navyBuildingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F213D" />
+      <stop offset="50%" stop-color="#0A182E" />
+      <stop offset="100%" stop-color="#050C17" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadow for 3D depth -->
+    <filter id="logoShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="3" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+
+    <!-- Ambient Glow for Gold -->
+    <filter id="goldGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
+
+  <!-- Group with Filter for depth -->
+  <g filter="url(#logoShadow)">
+
+    <!-- ========================================== -->
+    <!-- 1. THE 3D GOLDEN CRESCENT MOON EMBRACE    -->
+    <!-- ========================================== -->
+    <!-- Beveled Dark Gold Under-Crescent Layer -->
+    <path
+      d="M480,135
+         C330,25 120,95 75,260
+         C35,410 135,535 290,550
+         C375,555 450,515 485,440
+         C435,485 360,505 285,495
+         C165,475 95,370 125,255
+         C155,140 295,85 435,140
+         C452,146 468,142 480,135 Z"
+      fill="url(#crescentGoldBevel)"
+    />
+
+    <!-- Main Vibrant 3D Gold Crescent Body -->
+    <path
+      d="M485,130
+         C315,10 105,85 70,265
+         C38,425 160,555 315,550
+         C385,548 445,515 480,442
+         C435,480 370,498 310,490
+         C180,475 105,370 130,245
+         C155,120 295,68 445,130
+         C460,136 474,136 485,130 Z"
+      fill="url(#crescentGoldMain)"
+    />
+
+    <!-- Specular Highlight Arc on Outer Rim -->
+    <path
+      d="M455,138
+         C310,38 135,105 92,260
+         C65,365 125,470 235,518
+         C180,480 120,400 128,300
+         C136,190 250,95 410,128
+         C428,132 444,135 455,138 Z"
+      fill="#FFFFFF"
+      opacity="0.38"
+    />
+
+    <!-- Specular Ridge Line -->
+    <path
+      d="M470,133
+         C320,25 115,95 80,265
+         C55,395 145,510 280,535"
+      stroke="#FFF6D1"
+      stroke-width="3"
+      stroke-linecap="round"
+      opacity="0.5"
+    />
+
+    <!-- ========================================== -->
+    <!-- 2. STRUCTURAL NAVY BLUE BUILDING SILHOUETTE -->
+    <!-- ========================================== -->
+    <!-- Outer Navy House Shell -->
+    <path
+      d="M350,115
+         L225,235
+         L225,465
+         L268,465
+         L268,275
+         L350,195
+         L432,275
+         L432,465
+         L475,465
+         L475,235
+         Z"
+      fill="url(#navyBuildingGrad)"
+    />
+
+    <!-- Inner Navy Framing & Ceiling -->
+    <polygon points="268,265 350,185 432,265 432,465 268,465" fill="#071324" />
+
+    <!-- ========================================== -->
+    <!-- 3. WHITE ARCHITECTURAL BUILDING FACADE     -->
+    <!-- ========================================== -->
+    <polygon
+      points="350,255 268,328 268,465 410,465 410,310"
+      fill="#FFFFFF"
+    />
+
+    <!-- 4-Pane Architectural Window -->
+    <!-- Window Border Recess -->
+    <rect x="320" y="325" width="56" height="56" rx="4" fill="#E2E8F0" />
+
+    <!-- 4 Crisp Navy Panes -->
+    <rect x="323" y="328" width="23" height="23" rx="2" fill="#081426" />
+    <rect x="351" y="328" width="23" height="23" rx="2" fill="#081426" />
+    <rect x="323" y="356" width="23" height="23" rx="2" fill="#081426" />
+    <rect x="351" y="356" width="23" height="23" rx="2" fill="#081426" />
+
+    <!-- ========================================== -->
+    <!-- 4. DYNAMIC GOLDEN ROOF CHEVRON & SWOOSH    -->
+    <!-- ========================================== -->
+    <!-- Top Bevel of Golden Roof -->
+    <path
+      d="M350,195
+         L280,265
+         L290,285
+         L350,230
+         L420,290
+         L540,390
+         L460,295
+         Z"
+      fill="url(#roofGoldTop)"
+    />
+
+    <!-- Front & Bottom Face of Golden Roof Chevron (with extended forward arrow) -->
+    <path
+      d="M350,195
+         L280,265
+         L282,288
+         L350,234
+         L455,310
+         L540,390
+         L432,288
+         Z"
+      fill="url(#roofGoldBottom)"
+    />
+
+    <!-- Crisp Highlight Ridge on Roof Peak and Swoosh -->
+    <polyline
+      points="280,265 350,195 540,390"
+      stroke="#FFFDE0"
+      stroke-width="3.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      opacity="0.8"
+    />
+  </g>
 </svg>

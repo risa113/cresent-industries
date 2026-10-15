@@ -19,10 +19,10 @@ export const Footer: React.FC<FooterProps> = ({ onRequestQuote }) => {
           {/* Column 1: Brand & Identity */}
           <div className="lg:col-span-5 space-y-5 sm:space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 border border-white/20 p-1 flex items-center justify-center bg-white/5 rounded-lg shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-white/10 to-white/[0.02] border border-white/15 p-1 flex items-center justify-center shrink-0">
                 <img
                   alt="Crescent Engineering Industries Master Logo"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
                   src={COMPANY_CONTACT.logoUrl}
                 />
               </div>
