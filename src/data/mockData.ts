@@ -73,11 +73,13 @@ export interface TestimonialItem {
 }
 
 export const NAV_ITEMS: readonly NavItem[] = [
+  { label: 'About', href: '#editorial' },
   { label: 'Capabilities', href: '#capabilities' },
-  { label: 'Blueprint Board', href: '#blueprint' },
+  { label: 'Blueprint', href: '#blueprint' },
   { label: 'Sectors', href: '#sectors' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Credentials', href: '#credentials' },
+  { label: 'Reviews', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { PillHeader, PillNavItem } from './components/PillHeader';
 import { Hero } from './components/Hero';
 import { StatsMatrix } from './components/StatsMatrix';
 import { CompanyEditorial } from './components/CompanyEditorial';
@@ -19,14 +18,15 @@ import { QuoteModal } from './components/QuoteModal';
 import { FloatingActions } from './components/FloatingActions';
 import { CapabilityItem, PortfolioProject, CAPABILITIES } from './data/mockData';
 
-export interface AppProps {}
-
-export const App: React.FC<AppProps> = () => {
+export const App: React.FC = () => {
   const [ambientLightOn, setAmbientLightOn] = useState(false);
   const [cadModalOpen, setCadModalOpen] = useState(false);
   const [selectedCadItem, setSelectedCadItem] = useState<CapabilityItem | null>(null);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
-  // Global scroll reveal observer for up/down/left/right/pop/bump animations
+  // Global scroll reveal observer for animated sections
   useEffect(() => {
     const elements = document.querySelectorAll(
       '.reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-pop, .reveal-bump'
@@ -45,11 +45,6 @@ export const App: React.FC<AppProps> = () => {
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
-  const [projectModalOpen, setProjectModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   const handleOpenCadPortal = () => {
     setSelectedCadItem(CAPABILITIES[0]);
@@ -70,93 +65,22 @@ export const App: React.FC<AppProps> = () => {
     setQuoteModalOpen(true);
   };
 
-  // Header Style Mode: 'pill-screenshot' | 'pill-crescent' | 'default'
-  const [headerStyle, setHeaderStyle] = useState<'pill-screenshot' | 'pill-crescent' | 'default'>('pill-screenshot');
-
-  const screenshotPillItems: readonly PillNavItem[] = [
-    { id: 'brand', label: 'sprlcl', isBrand: true },
-    { id: 'lineup', label: 'Lineup', href: '#capabilities' },
-    { id: 'cronograma', label: 'Cronograma', href: '#blueprint' },
-    { id: 'packs', label: 'Packs', href: '#portfolio' },
-  ];
-
-  const crescentPillItems: readonly PillNavItem[] = [
-    { id: 'brand', label: 'CRESCENT', isBrand: true, href: '#hero' },
-    { id: 'capabilities', label: 'Capabilities', href: '#capabilities' },
-    { id: 'blueprint', label: 'Blueprint', href: '#blueprint' },
-    { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
-    { id: 'cads', label: 'CADs', onClick: handleOpenCadPortal, badge: CAPABILITIES.length },
-    { id: 'quote', label: 'Request Quote', onClick: handleOpenQuote },
-  ];
-
   return (
     <div
       className={`min-h-screen bg-[#07090e] text-white flex flex-col font-sans transition-all duration-700 selection:bg-amber-400 selection:text-black ${
         ambientLightOn ? 'ambient-glow-active' : ''
       }`}
     >
-      {/* Top Header UI (Conditional based on selected style) */}
-      {headerStyle === 'default' && (
-        <Navbar
-          onRequestQuote={handleOpenQuote}
-          onOpenCad={handleOpenCadPortal}
-          onSelectCad={handleSelectCadItem}
-        />
-      )}
-      {headerStyle === 'pill-screenshot' && (
-        <PillHeader items={screenshotPillItems} />
-      )}
-      {headerStyle === 'pill-crescent' && (
-        <PillHeader items={crescentPillItems} />
-      )}
+      {/* Proper Enterprise Header & Navigation with Smooth Scrolling */}
+      <Navbar
+        onRequestQuote={handleOpenQuote}
+        onOpenCad={handleOpenCadPortal}
+        onSelectCad={handleSelectCadItem}
+      />
 
-      {/* Interactive Header Style Switcher */}
-      <aside
-        aria-label="Header Style Selector"
-        className="fixed bottom-5 left-5 z-50 bg-[#0e121a]/90 backdrop-blur-md border border-white/15 px-3 py-2 rounded-full shadow-2xl flex items-center gap-1.5 sm:gap-2 text-xs font-mono"
-      >
-        <span className="text-[10px] text-white/50 uppercase tracking-wider hidden md:inline">Nav Style:</span>
-        <button
-          type="button"
-          onClick={() => setHeaderStyle('pill-screenshot')}
-          className={`px-2.5 py-1 rounded-full text-[11px] transition-all ${
-            headerStyle === 'pill-screenshot'
-              ? 'bg-white text-black font-bold shadow-sm'
-              : 'text-white/70 hover:text-white hover:bg-white/10'
-          }`}
-          title="Screenshot replica (sprlcl, Lineup, Cronograma, Packs)"
-        >
-          Pill (sprlcl)
-        </button>
-        <button
-          type="button"
-          onClick={() => setHeaderStyle('pill-crescent')}
-          className={`px-2.5 py-1 rounded-full text-[11px] transition-all ${
-            headerStyle === 'pill-crescent'
-              ? 'bg-amber-400 text-black font-bold shadow-sm'
-              : 'text-white/70 hover:text-white hover:bg-white/10'
-          }`}
-          title="Pill nav with Crescent project actions"
-        >
-          Pill (Project)
-        </button>
-        <button
-          type="button"
-          onClick={() => setHeaderStyle('default')}
-          className={`px-2.5 py-1 rounded-full text-[11px] transition-all ${
-            headerStyle === 'default'
-              ? 'bg-blue-600 text-white font-bold shadow-sm'
-              : 'text-white/70 hover:text-white hover:bg-white/10'
-          }`}
-          title="Original enterprise full navbar"
-        >
-          Classic
-        </button>
-      </aside>
-
-      {/* Main Single Page Content without Refresh */}
-      <main className="flex-1 w-full overflow-x-hidden">
-        {/* Section 1: Cinematic Hero Experience with istlight project slider */}
+      {/* Main Single Page Content with Smooth Scrolling Sections */}
+      <main className="flex-1 w-full overflow-x-hidden scroll-smooth">
+        {/* Section 1: Hero */}
         <Hero
           onRequestQuote={handleOpenQuote}
           onOpenCad={handleOpenCadPortal}
@@ -164,41 +88,41 @@ export const App: React.FC<AppProps> = () => {
           onToggleAmbientLight={() => setAmbientLightOn((prev) => !prev)}
         />
 
-        {/* Section 2: Atmospheric Stats Counter with Golden Light Beams */}
+        {/* Section 2: Stats Counter */}
         <StatsMatrix />
 
-        {/* Section 3: 01 / The Company - Architectural Editorial */}
+        {/* Section 3: 01 / The Company Editorial */}
         <CompanyEditorial />
 
-        {/* Section 4: 02 / Engineering Capabilities (11 Categories with hover glow) */}
+        {/* Section 4: 02 / Engineering Capabilities */}
         <Capabilities onSelectCad={handleSelectCadItem} />
 
-        {/* Section 5: 09 / Featured PEB Experience (Interactive Blueprint Board) */}
+        {/* Section 5: 09 / Featured PEB Blueprint Experience */}
         <BlueprintBoard />
 
-        {/* Section 6: 03 / Why Crescent - with 4 Circular SVG Progress Gauges */}
+        {/* Section 6: 03 / Precision Matrix & Standards */}
         <PrecisionMatrix />
 
         {/* Section 7: 04 / Sectors & Domains */}
         <SectorsServed />
 
-        {/* Section 8: 05 / Selected Case Archives - Filterable Portfolio */}
+        {/* Section 8: 05 / Selected Case Archives (Portfolio) */}
         <Portfolio
           onSelectProject={handleSelectProject}
           onRequestDossier={handleOpenQuote}
         />
 
-        {/* Section 9: 06 / Leadership Credentials (Er. K. Mohamed & Er. Mohamed Asseesul Islam) */}
+        {/* Section 9: 06 / Leadership Credentials */}
         <Leadership onConsultClick={handleOpenQuote} />
 
-        {/* Section 10: 07 / Client Testimonials (Tirunelveli Verified Reviews) */}
+        {/* Section 10: 07 / Client Testimonials */}
         <Testimonials />
 
-        {/* Section 11: Final Call To Action & Consultation Form */}
+        {/* Section 11: Consultation & Contact Form */}
         <ContactCTA onOpenQuoteModal={handleOpenQuote} />
       </main>
 
-      {/* Section 12: Enterprise Structural Engineering Footer */}
+      {/* Enterprise Structural Engineering Footer */}
       <Footer onRequestQuote={handleOpenQuote} />
 
       {/* Sticky Bottom Actions & Scroll-to-Top */}
