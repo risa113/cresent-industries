@@ -234,3 +234,12 @@
 .animate-shimmer {
   animation: shimmerGlow 3.5s ease-in-out infinite;
 }
+
+/* Hide scrollbars for pill navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

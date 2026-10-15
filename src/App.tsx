@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
+import { PillHeader, PillNavItem } from './components/PillHeader';
 import { Hero } from './components/Hero';
 import { StatsMatrix } from './components/StatsMatrix';
 import { CompanyEditorial } from './components/CompanyEditorial';
@@ -69,18 +70,89 @@ export const App: React.FC<AppProps> = () => {
     setQuoteModalOpen(true);
   };
 
+  // Header Style Mode: 'pill-screenshot' | 'pill-crescent' | 'default'
+  const [headerStyle, setHeaderStyle] = useState<'pill-screenshot' | 'pill-crescent' | 'default'>('pill-screenshot');
+
+  const screenshotPillItems: readonly PillNavItem[] = [
+    { id: 'brand', label: 'sprlcl', isBrand: true },
+    { id: 'lineup', label: 'Lineup', href: '#capabilities' },
+    { id: 'cronograma', label: 'Cronograma', href: '#blueprint' },
+    { id: 'packs', label: 'Packs', href: '#portfolio' },
+  ];
+
+  const crescentPillItems: readonly PillNavItem[] = [
+    { id: 'brand', label: 'CRESCENT', isBrand: true, href: '#hero' },
+    { id: 'capabilities', label: 'Capabilities', href: '#capabilities' },
+    { id: 'blueprint', label: 'Blueprint', href: '#blueprint' },
+    { id: 'portfolio', label: 'Portfolio', href: '#portfolio' },
+    { id: 'cads', label: 'CADs', onClick: handleOpenCadPortal, badge: CAPABILITIES.length },
+    { id: 'quote', label: 'Request Quote', onClick: handleOpenQuote },
+  ];
+
   return (
     <div
       className={`min-h-screen bg-[#07090e] text-white flex flex-col font-sans transition-all duration-700 selection:bg-amber-400 selection:text-black ${
         ambientLightOn ? 'ambient-glow-active' : ''
       }`}
     >
-      {/* Top Floating Luxury Nav */}
-      <Navbar
-        onRequestQuote={handleOpenQuote}
-        onOpenCad={handleOpenCadPortal}
-        onSelectCad={handleSelectCadItem}
-      />
+      {/* Top Header UI (Conditional based on selected style) */}
+      {headerStyle === 'default' && (
+        <Navbar
+          onRequestQuote={handleOpenQuote}
+          onOpenCad={handleOpenCadPortal}
+          onSelectCad={handleSelectCadItem}
+        />
+      )}
+      {headerStyle === 'pill-screenshot' && (
+        <PillHeader items={screenshotPillItems} />
+      )}
+      {headerStyle === 'pill-crescent' && (
+        <PillHeader items={crescentPillItems} />
+      )}
+
+      {/* Interactive Header Style Switcher */}
+      <aside
+        aria-label="Header Style Selector"
+        className="fixed bottom-5 left-5 z-50 bg-[#0e121a]/90 backdrop-blur-md border border-white/15 px-3 py-2 rounded-full shadow-2xl flex items-center gap-1.5 sm:gap-2 text-xs font-mono"
+      >
+        <span className="text-[10px] text-white/50 uppercase tracking-wider hidden md:inline">Nav Style:</span>
+        <button
+          type="button"
+          onClick={() => setHeaderStyle('pill-screenshot')}
+          className={`px-2.5 py-1 rounded-full text-[11px] transition-all ${
+            headerStyle === 'pill-screenshot'
+              ? 'bg-white text-black font-bold shadow-sm'
+              : 'text-white/70 hover:text-white hover:bg-white/10'
+          }`}
+          title="Screenshot replica (sprlcl, Lineup, Cronograma, Packs)"
+        >
+          Pill (sprlcl)
+        </button>
+        <button
+          type="button"
+          onClick={() => setHeaderStyle('pill-crescent')}
+          className={`px-2.5 py-1 rounded-full text-[11px] transition-all ${
+            headerStyle === 'pill-crescent'
+              ? 'bg-amber-400 text-black font-bold shadow-sm'
+              : 'text-white/70 hover:text-white hover:bg-white/10'
+          }`}
+          title="Pill nav with Crescent project actions"
+        >
+          Pill (Project)
+        </button>
+        <button
+          type="button"
+          onClick={() => setHeaderStyle('default')}
+          className={`px-2.5 py-1 rounded-full text-[11px] transition-all ${
+            headerStyle === 'default'
+              ? 'bg-blue-600 text-white font-bold shadow-sm'
+              : 'text-white/70 hover:text-white hover:bg-white/10'
+          }`}
+          title="Original enterprise full navbar"
+        >
+          Classic
+        </button>
+      </aside>
 
       {/* Main Single Page Content without Refresh */}
       <main className="flex-1 w-full overflow-x-hidden">
