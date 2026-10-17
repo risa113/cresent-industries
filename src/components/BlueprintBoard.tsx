@@ -28,55 +28,55 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
 
   return (
     <section
-      className="py-16 sm:py-20 lg:py-24 bg-inverse-surface text-on-primary border-b border-outline-variant relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-white text-slate-900 border-b border-slate-200 relative overflow-hidden"
       id="blueprint"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
         {/* Board Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-tertiary pb-6 mb-8 sm:mb-12 gap-4 reveal-down">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-200 pb-6 mb-8 sm:mb-12 gap-4 reveal-down">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-2.5 h-2.5 bg-primary-container shrink-0" />
-              <span className="font-mono text-secondary-fixed tracking-wider sm:tracking-widest text-[10px] sm:text-xs uppercase font-semibold">
+              <span className="w-2.5 h-2.5 bg-amber-500 shrink-0 rounded-xs" />
+              <span className="font-mono text-amber-700 tracking-wider sm:tracking-widest text-[10px] sm:text-xs uppercase font-semibold">
                 {BLUEPRINT_DATA.subtitle}
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 uppercase tracking-wider font-semibold">
+              <span className="text-[10px] font-mono px-2.5 py-0.5 bg-emerald-50 border border-emerald-300 text-emerald-800 uppercase tracking-wider font-semibold rounded-full">
                 ● ULTRA HD CLARITY
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-on-primary font-display tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-950 font-display tracking-tight">
               {BLUEPRINT_DATA.headline}
             </h2>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="font-mono text-xs text-outline-variant space-y-1">
+            <div className="font-mono text-xs text-slate-500 space-y-1">
               <div className="text-[11px] sm:text-xs">{BLUEPRINT_DATA.scale}</div>
-              <div className="text-primary-fixed font-semibold text-xs sm:text-sm">
+              <div className="text-amber-700 font-semibold text-xs sm:text-sm">
                 {BLUEPRINT_DATA.tag}
               </div>
             </div>
 
             {/* Interactive Scalable Zoom Toolbar */}
-            <div className="flex items-center gap-1.5 bg-on-background/80 border border-tertiary p-1 font-mono text-xs">
-              <span className="text-[10px] text-outline px-1 hidden sm:inline">SCALE:</span>
+            <div className="flex items-center gap-1.5 bg-slate-100 border border-slate-200 p-1 font-mono text-xs rounded-lg">
+              <span className="text-[10px] text-slate-500 px-1 hidden sm:inline">SCALE:</span>
               <button
                 type="button"
                 onClick={handleZoomOut}
                 disabled={zoomLevel <= 1}
-                className="w-7 h-7 flex items-center justify-center bg-inverse-surface border border-tertiary text-on-primary hover:border-primary-container disabled:opacity-40 disabled:hover:border-tertiary transition-colors"
+                className="w-7 h-7 flex items-center justify-center bg-white border border-slate-300 text-slate-800 hover:border-amber-500 disabled:opacity-40 transition-colors rounded"
                 title="Zoom Out"
               >
                 -
               </button>
-              <span className="px-2 font-bold text-secondary-fixed min-w-[48px] text-center">
+              <span className="px-2 font-bold text-amber-700 min-w-[48px] text-center">
                 {Math.round(zoomLevel * 100)}%
               </span>
               <button
                 type="button"
                 onClick={handleZoomIn}
                 disabled={zoomLevel >= 2}
-                className="w-7 h-7 flex items-center justify-center bg-inverse-surface border border-tertiary text-on-primary hover:border-primary-container disabled:opacity-40 disabled:hover:border-tertiary transition-colors"
+                className="w-7 h-7 flex items-center justify-center bg-white border border-slate-300 text-slate-800 hover:border-amber-500 disabled:opacity-40 transition-colors rounded"
                 title="Zoom In"
               >
                 +
@@ -85,7 +85,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
                 <button
                   type="button"
                   onClick={handleResetZoom}
-                  className="px-2 py-1 text-[10px] bg-tertiary/40 hover:bg-tertiary text-on-primary transition-colors"
+                  className="px-2 py-1 text-[10px] bg-slate-200 hover:bg-slate-300 text-slate-800 transition-colors rounded"
                   title="Reset Scale"
                 >
                   RESET
@@ -94,7 +94,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
               <button
                 type="button"
                 onClick={() => setFullscreenModalOpen(true)}
-                className="flex items-center gap-1 px-2.5 py-1 bg-primary-container hover:bg-primary text-on-primary text-[11px] font-semibold transition-colors ml-1"
+                className="flex items-center gap-1 px-2.5 py-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-bold transition-colors ml-1 rounded"
                 title="Fullscreen Ultra HD Inspector"
               >
                 <span className="material-symbols-outlined text-[14px]">fullscreen</span>
@@ -105,23 +105,23 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
         </div>
 
         {/* Blueprint Visual Board */}
-        <div className="border border-tertiary bg-on-background p-3 sm:p-4 lg:p-8 relative reveal-pop">
+        <div className="border border-slate-200 bg-slate-950 p-3 sm:p-4 lg:p-8 relative reveal-pop rounded-2xl shadow-xl">
           {/* Framing CAD Crosshairs */}
-          <div className="absolute top-2 left-2 text-outline-variant font-mono text-[9px] sm:text-xs">
+          <div className="absolute top-2 left-2 text-slate-400 font-mono text-[9px] sm:text-xs">
             + GRID: A-01 // ULTRA HD 1920x1080
           </div>
-          <div className="absolute top-2 right-2 text-outline-variant font-mono text-[9px] sm:text-xs">
+          <div className="absolute top-2 right-2 text-slate-400 font-mono text-[9px] sm:text-xs">
             + GRID: H-99 // SHARPENED STEEL
           </div>
-          <div className="absolute bottom-2 left-2 text-outline-variant font-mono text-[9px] sm:text-xs hidden sm:block">
+          <div className="absolute bottom-2 left-2 text-slate-400 font-mono text-[9px] sm:text-xs hidden sm:block">
             + DATUM: 0.000 // STRUCTURAL SPEC
           </div>
-          <div className="absolute bottom-2 right-2 text-outline-variant font-mono text-[9px] sm:text-xs hidden sm:block">
+          <div className="absolute bottom-2 right-2 text-slate-400 font-mono text-[9px] sm:text-xs hidden sm:block">
             + LOAD: 180 KM/H GUST RESISTANT
           </div>
 
           {/* Central Structural Image Viewport */}
-          <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] w-full border border-tertiary/80 bg-neutral-950 group">
+          <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] w-full border border-slate-800 bg-neutral-950 group rounded-xl">
             <div
               className="w-full h-full transition-transform duration-300 ease-out origin-center"
               style={{ transform: `scale(${zoomLevel})` }}
@@ -152,8 +152,8 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
                     <span
                       className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${
                         isActive
-                          ? 'bg-primary-container ring-4 ring-primary-container/60 scale-125'
-                          : 'bg-primary ring-2 ring-primary/40 hover:scale-110 shadow-lg'
+                          ? 'bg-amber-500 ring-4 ring-amber-400/60 scale-125'
+                          : 'bg-amber-600 ring-2 ring-amber-500/40 hover:scale-110 shadow-lg'
                       }`}
                     >
                       <span className="w-2 h-2 bg-white rounded-full" />
@@ -161,17 +161,17 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
 
                     {/* Desktop Hover Tooltip */}
                     <div
-                      className={`hidden lg:block bg-inverse-surface/95 border ${
-                        isActive ? 'border-primary-container ring-2 ring-primary-container/30' : 'border-outline/80'
-                      } p-2.5 backdrop-blur-md shadow-2xl text-left min-w-[210px] pointer-events-none transition-all`}
+                      className={`hidden lg:block bg-white/95 border ${
+                        isActive ? 'border-amber-500 ring-2 ring-amber-400/30' : 'border-slate-300'
+                      } p-2.5 backdrop-blur-md shadow-2xl text-left min-w-[210px] pointer-events-none transition-all rounded-lg`}
                     >
-                      <span className="text-[10px] font-mono text-secondary-fixed block font-bold">
+                      <span className="text-[10px] font-mono text-amber-700 block font-bold">
                         {callout.code}
                       </span>
-                      <span className="text-xs font-mono text-on-primary font-semibold block">
+                      <span className="text-xs font-mono text-slate-900 font-bold block">
                         {callout.title}
                       </span>
-                      <span className="text-[10px] block text-outline-variant mt-0.5">
+                      <span className="text-[10px] block text-slate-600 mt-0.5">
                         {callout.spec}
                       </span>
                     </div>
@@ -182,10 +182,10 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
           </div>
 
           {/* Mobile / Responsive Callout Selector & Active Spec Card */}
-          <div className="mt-4 pt-4 border-t border-tertiary">
-            <div className="flex items-center justify-between mb-3 text-xs font-mono text-outline-variant">
+          <div className="mt-4 pt-4 border-t border-slate-800">
+            <div className="flex items-center justify-between mb-3 text-xs font-mono text-slate-400">
               <span>SELECT ANNOTATION POINT:</span>
-              <span className="text-secondary-fixed font-bold">TOUCH INTERACTIVE</span>
+              <span className="text-amber-400 font-bold">TOUCH INTERACTIVE</span>
             </div>
 
             {/* Point Selection Tabs */}
@@ -195,34 +195,34 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
                   key={c.id}
                   type="button"
                   onClick={() => setActiveCalloutId(c.id)}
-                  className={`px-2.5 py-2 text-left font-mono text-xs border transition-all ${
+                  className={`px-2.5 py-2 text-left font-mono text-xs border rounded-lg transition-all ${
                     c.id === activeCalloutId
-                      ? 'border-primary-container bg-primary-container/20 text-on-primary font-bold'
-                      : 'border-tertiary bg-inverse-surface/50 text-outline-variant hover:text-on-primary hover:border-outline'
+                      ? 'border-amber-400 bg-amber-500/20 text-amber-300 font-bold'
+                      : 'border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700'
                   }`}
                 >
-                  <div className="text-[10px] text-secondary-fixed">{c.code.split(' // ')[0]}</div>
+                  <div className="text-[10px] text-amber-400">{c.code.split(' // ')[0]}</div>
                   <div className="truncate font-semibold text-[11px] sm:text-xs">{c.title}</div>
                 </button>
               ))}
             </div>
 
             {/* Active Point Detail Plate */}
-            <div className="p-4 bg-inverse-surface border border-primary-container/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="p-4 bg-slate-900 border border-amber-500/60 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <div className="text-xs font-mono text-secondary-fixed font-bold mb-0.5">
+                <div className="text-xs font-mono text-amber-400 font-bold mb-0.5">
                   {activeCallout.code}
                 </div>
-                <div className="text-sm font-bold text-on-primary mb-1">
+                <div className="text-sm font-bold text-white mb-1">
                   {activeCallout.title}
                 </div>
-                <div className="text-xs text-outline-variant leading-relaxed">
+                <div className="text-xs text-slate-300 leading-relaxed">
                   {activeCallout.description}
                 </div>
               </div>
-              <div className="sm:text-right shrink-0 border-t sm:border-t-0 sm:border-l border-tertiary pt-2 sm:pt-0 sm:pl-4">
-                <span className="text-[10px] font-mono text-outline-variant block">SPECIFICATION</span>
-                <span className="text-xs font-mono text-primary-fixed font-bold">
+              <div className="sm:text-right shrink-0 border-t sm:border-t-0 sm:border-l border-slate-800 pt-2 sm:pt-0 sm:pl-4">
+                <span className="text-[10px] font-mono text-slate-400 block">SPECIFICATION</span>
+                <span className="text-xs font-mono text-amber-400 font-bold">
                   {activeCallout.spec}
                 </span>
               </div>
@@ -230,13 +230,13 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
           </div>
 
           {/* Technical Specs Sub-Panel */}
-          <div className="mt-6 pt-6 border-t border-tertiary grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono text-outline-variant">
+          <div className="mt-6 pt-6 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono text-slate-400">
             {BLUEPRINT_DATA.specs.map((s, idx) => (
-              <div key={idx} className="border-l border-primary-container/40 pl-3">
-                <span className="text-primary-fixed block mb-1 font-bold text-[11px]">
+              <div key={idx} className="border-l border-amber-500/60 pl-3">
+                <span className="text-amber-400 block mb-1 font-bold text-[11px]">
                   {s.label}:
                 </span>
-                <span className="text-on-primary text-xs">{s.value}</span>
+                <span className="text-slate-200 text-xs">{s.value}</span>
               </div>
             ))}
           </div>

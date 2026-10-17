@@ -9,7 +9,7 @@ export interface CompanyEditorialProps {
 export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
   return (
     <section
-      className="relative py-24 sm:py-32 bg-[#07090e] text-white border-b border-white/10 overflow-hidden"
+      className="relative py-24 sm:py-32 bg-white text-slate-900 border-b border-slate-200 overflow-hidden"
       id="editorial"
     >
       {/* Ghost Background Outline Text */}
@@ -21,17 +21,17 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 mb-14 gap-2 reveal-down">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-4 mb-14 gap-2 reveal-down">
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-mono text-amber-400 font-bold text-xs sm:text-sm">
+            <span className="font-mono text-amber-600 font-bold text-xs sm:text-sm">
               {COMPANY_DATA.sectionTag}
             </span>
-            <span className="text-white/20 hidden sm:inline">|</span>
-            <span className="text-[10px] sm:text-xs font-semibold text-white/60 uppercase font-mono tracking-wider">
+            <span className="text-slate-300 hidden sm:inline">|</span>
+            <span className="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase font-mono tracking-wider">
               {COMPANY_DATA.subtitle}
             </span>
           </div>
-          <span className="font-mono text-amber-400 text-xs font-semibold">
+          <span className="font-mono text-amber-600 text-xs font-semibold">
             {COMPANY_DATA.founded}
           </span>
         </div>
@@ -41,35 +41,35 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
           {/* Left Text Block - Slides in from Left */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8 reveal-left">
             <div className="space-y-2">
-              <span className="text-xs font-mono font-bold tracking-widest text-amber-400 uppercase block">
+              <span className="text-xs font-mono font-bold tracking-widest text-amber-600 uppercase block">
                 {COMPANY_DATA.eyebrow}
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-display tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-950 font-display tracking-tight leading-tight">
                 {COMPANY_DATA.headline}
               </h2>
             </div>
 
-            <p className="text-sm sm:text-base md:text-lg text-white/80 leading-relaxed font-light">
+            <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
               {COMPANY_DATA.p1}
             </p>
 
-            <p className="text-xs sm:text-sm md:text-base text-white/60 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
               {COMPANY_DATA.p2}
             </p>
 
             {/* Specification Datum Box */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 space-y-3.5 backdrop-blur-sm reveal-up stagger-2 hover-bump">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6 space-y-3.5 shadow-sm reveal-up stagger-2 hover-bump">
               {COMPANY_DATA.specBox.map((item, idx) => (
                 <div
                   key={idx}
                   className={`flex flex-col sm:flex-row justify-between sm:items-center gap-1 sm:gap-2 ${
-                    idx < COMPANY_DATA.specBox.length - 1 ? 'pb-3 border-b border-white/10' : ''
+                    idx < COMPANY_DATA.specBox.length - 1 ? 'pb-3 border-b border-slate-200' : ''
                   }`}
                 >
-                  <span className="text-[11px] text-white/50 uppercase font-mono font-medium">
+                  <span className="text-[11px] text-slate-500 uppercase font-mono font-medium">
                     {item.label}
                   </span>
-                  <span className="text-xs sm:text-sm font-mono font-semibold text-amber-400 break-words">
+                  <span className="text-xs sm:text-sm font-mono font-bold text-slate-900 break-words">
                     {item.value}
                   </span>
                 </div>
@@ -79,7 +79,7 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
             <div className="pt-2">
               <a
                 href="#credentials"
-                className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-xs font-bold uppercase tracking-widest group btn-luxury-bump"
+                className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 transition-colors text-xs font-bold uppercase tracking-widest group btn-luxury-bump"
               >
                 <span>KNOW OUR STORY &amp; FOUNDATIONAL PHILOSOPHY</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -89,7 +89,7 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
 
           {/* Right Presentation Photograph - Slides in from Right */}
           <div className="lg:col-span-5 relative w-full reveal-right stagger-1">
-            <div className="rounded-3xl border border-white/15 bg-white/5 p-3 relative group shadow-2xl overflow-hidden backdrop-blur-sm hover-bump">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-3 relative group shadow-xl overflow-hidden hover-bump">
               <div className="relative overflow-hidden aspect-[4/5] rounded-2xl bg-neutral-900">
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
@@ -100,8 +100,8 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
                 />
 
                 {/* Blueprint Coordinate Tag Overlay */}
-                <div className="absolute bottom-0 inset-x-0 bg-black/80 text-white p-4 backdrop-blur-md border-t border-white/10">
-                  <div className="flex justify-between items-center text-[10px] font-mono text-white/50 mb-1">
+                <div className="absolute bottom-0 inset-x-0 bg-slate-900/90 text-white p-4 backdrop-blur-md border-t border-slate-800">
+                  <div className="flex justify-between items-center text-[10px] font-mono text-slate-400 mb-1">
                     <span>GPS COORD</span>
                     <span>DATUM SPEC</span>
                   </div>
@@ -117,9 +117,9 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
               </div>
 
               {/* Engineering Coordinate Callouts */}
-              <div className="pt-3 px-2 flex justify-between items-center text-xs font-mono text-white/50">
+              <div className="pt-3 px-2 flex justify-between items-center text-xs font-mono text-slate-500">
                 <span>{COMPANY_DATA.facilityCode}</span>
-                <span className="text-emerald-400 font-semibold">{COMPANY_DATA.qcTolerance}</span>
+                <span className="text-emerald-700 font-semibold">{COMPANY_DATA.qcTolerance}</span>
               </div>
             </div>
           </div>

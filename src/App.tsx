@@ -67,7 +67,7 @@ export const App: React.FC = () => {
 
   return (
     <div
-      className={`min-h-screen bg-[#07090e] text-white flex flex-col font-sans transition-all duration-700 selection:bg-amber-400 selection:text-black ${
+      className={`min-h-screen bg-white text-slate-900 flex flex-col font-sans transition-all duration-700 selection:bg-amber-400 selection:text-black ${
         ambientLightOn ? 'ambient-glow-active' : ''
       }`}
     >
