@@ -46,10 +46,10 @@ export const Leadership: React.FC<LeadershipProps> = () => {
           {LEADERS.map((leader) => (
             <div
               key={leader.name}
-              className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 space-y-6 flex flex-col justify-between hover:border-amber-400 hover:shadow-xl shadow-xs transition-all duration-300"
+              className="rounded-3xl border border-slate-200 bg-white p-5 sm:p-10 space-y-6 flex flex-col justify-between hover:border-amber-400 hover:shadow-xl shadow-xs transition-all duration-300"
             >
               <div className="space-y-5">
-                <div className="flex items-start gap-4 sm:gap-6 border-b border-slate-100 pb-6">
+                <div className="flex items-start gap-3.5 sm:gap-6 border-b border-slate-100 pb-6">
                   {leader.photo ? (
                     <div className="relative shrink-0">
                       <div className="w-20 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden border-2 border-amber-500 shadow-md bg-neutral-900">
@@ -57,7 +57,7 @@ export const Leadership: React.FC<LeadershipProps> = () => {
                           src={leader.photo}
                           alt={leader.imageAlt || leader.name}
                           className="w-full h-full object-cover object-top brightness-95"
-                          loading="lazy"
+                          loading="eager"
                         />
                       </div>
                       <span className="absolute -bottom-2 -right-2 bg-amber-500 text-slate-950 rounded-full p-1 shadow-md">

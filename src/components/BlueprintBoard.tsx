@@ -49,16 +49,16 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
             </h2>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="font-mono text-xs text-slate-500 space-y-1">
-              <div className="text-[11px] sm:text-xs">{BLUEPRINT_DATA.scale}</div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+            <div className="font-mono text-xs text-slate-500 space-y-0.5">
+              <div className="text-[10px] sm:text-xs">{BLUEPRINT_DATA.scale}</div>
               <div className="text-amber-700 font-semibold text-xs sm:text-sm">
                 {BLUEPRINT_DATA.tag}
               </div>
             </div>
 
             {/* Interactive Scalable Zoom Toolbar */}
-            <div className="flex items-center gap-1.5 bg-slate-100 border border-slate-200 p-1 font-mono text-xs rounded-lg">
+            <div className="flex items-center gap-1 bg-slate-100 border border-slate-200 p-1 font-mono text-xs rounded-lg self-start sm:self-auto flex-wrap">
               <span className="text-[10px] text-slate-500 px-1 hidden sm:inline">SCALE:</span>
               <button
                 type="button"
@@ -69,7 +69,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
               >
                 -
               </button>
-              <span className="px-2 font-bold text-amber-700 min-w-[48px] text-center">
+              <span className="px-2 font-bold text-amber-700 min-w-[44px] text-center text-xs">
                 {Math.round(zoomLevel * 100)}%
               </span>
               <button
@@ -94,7 +94,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
               <button
                 type="button"
                 onClick={() => setFullscreenModalOpen(true)}
-                className="flex items-center gap-1 px-2.5 py-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-bold transition-colors ml-1 rounded"
+                className="flex items-center gap-1 px-2.5 py-1 bg-amber-500 hover:bg-amber-400 text-slate-950 text-[10px] sm:text-[11px] font-bold transition-colors ml-0.5 sm:ml-1 rounded"
                 title="Fullscreen Ultra HD Inspector"
               >
                 <span className="material-symbols-outlined text-[14px]">fullscreen</span>
@@ -105,7 +105,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
         </div>
 
         {/* Blueprint Visual Board */}
-        <div className="border border-slate-200 bg-slate-950 p-3 sm:p-4 lg:p-8 relative reveal-pop rounded-2xl shadow-xl">
+        <div className="border border-slate-200 bg-slate-950 p-2.5 sm:p-4 lg:p-8 relative rounded-2xl shadow-xl">
           {/* Framing CAD Crosshairs */}
           <div className="absolute top-2 left-2 text-slate-400 font-mono text-[9px] sm:text-xs">
             + GRID: A-01 // ULTRA HD 1920x1080
@@ -130,7 +130,7 @@ export const BlueprintBoard: React.FC<BlueprintBoardProps> = () => {
                 className="w-full h-full object-cover sm:object-contain md:object-cover"
                 alt="Ultra clear high-resolution structural steel truss and PEB clear-span architecture by Crescent Engineering"
                 src={BLUEPRINT_DATA.image}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
               />
             </div>

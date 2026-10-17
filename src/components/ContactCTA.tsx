@@ -145,7 +145,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
 
           {/* Right Column: Interactive RFP Specification Form */}
           <div className="lg:col-span-6 w-full reveal-right hover-bump">
-            <div className="border border-slate-200 bg-white p-6 sm:p-8 rounded-2xl shadow-xl">
+            <div className="border border-slate-200 bg-white p-4 sm:p-8 rounded-2xl shadow-xl">
               <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-6">
                 <span className="text-xs font-mono text-amber-700 font-bold tracking-wider uppercase">
                   RFP ENGINEERING FORM // IS 800:2007 COMPLIANT
@@ -249,7 +249,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Er. Rajesh Kumar"
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                       />
                     </div>
 
@@ -263,7 +263,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 98400 00000"
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -278,7 +278,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="rajesh@enterprise.com"
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                       />
                     </div>
 
@@ -289,7 +289,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                       <select
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-xs font-mono text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                       >
                         <option>Pre-Engineered Building (PEB)</option>
                         <option>Heavy Industrial Steel Framing</option>
@@ -312,7 +312,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                         value={formData.estimatedArea}
                         onChange={(e) => setFormData({ ...formData, estimatedArea: e.target.value })}
                         placeholder="e.g. 50,000 Sq. Ft."
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                       />
                     </div>
 
@@ -325,7 +325,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                         value={formData.location}
                         onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                         placeholder="e.g. Coimbatore, TN"
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                        className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -339,7 +339,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       placeholder="e.g. Clear span 36m, 15 MT EOT crane gantry required, cyclonic coastal terrain category."
-                      className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                     />
                   </div>
 

@@ -65,7 +65,7 @@ export const PrecisionMatrix: React.FC<PrecisionMatrixProps> = () => {
         </div>
 
         {/* 4 Circular Animated SVG Percentage Gauges (istlight skill values) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-8 mb-14 sm:mb-20">
           {coreGauges.map((g) => {
             const strokeDashoffset = isVisible
               ? circumference - (circumference * g.percent) / 100
@@ -74,10 +74,10 @@ export const PrecisionMatrix: React.FC<PrecisionMatrixProps> = () => {
             return (
               <div
                 key={g.title}
-                className="flex flex-col items-center justify-center space-y-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-amber-400 hover:shadow-lg transition-all duration-300 group"
+                className="flex flex-col items-center justify-center space-y-3 sm:space-y-4 p-3 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-amber-400 hover:shadow-lg transition-all duration-300 group"
               >
                 {/* SVG Circle */}
-                <div className="relative w-32 h-32 sm:w-36 sm:h-36 flex items-center justify-center">
+                <div className="relative w-24 h-24 sm:w-36 sm:h-36 flex items-center justify-center">
                   <svg className="w-full h-full -rotate-90 transform" viewBox="0 0 128 128">
                     <circle
                       cx="64"
@@ -101,17 +101,17 @@ export const PrecisionMatrix: React.FC<PrecisionMatrixProps> = () => {
                     />
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950 group-hover:text-amber-600 transition-colors font-display">
+                    <span className="text-xl sm:text-3xl font-extrabold tracking-tight text-slate-950 group-hover:text-amber-600 transition-colors font-display">
                       {g.display}
                     </span>
                   </div>
                 </div>
 
-                <div className="text-center space-y-1">
-                  <h3 className="text-sm sm:text-base font-bold text-slate-950 font-display">
+                <div className="text-center space-y-0.5 sm:space-y-1">
+                  <h3 className="text-xs sm:text-base font-bold text-slate-950 font-display">
                     {g.title}
                   </h3>
-                  <p className="text-[10px] sm:text-xs text-slate-500 tracking-wider font-mono">
+                  <p className="text-[9px] sm:text-xs text-slate-500 tracking-wider font-mono">
                     {g.subtitle}
                   </p>
                 </div>

@@ -52,13 +52,13 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onRequest
         </div>
 
         {/* Filter Tabs Strip */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-12 text-xs font-mono cad-scrollbar">
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-10 text-xs font-mono cad-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat.value}
               type="button"
               onClick={() => setActiveFilter(cat.value)}
-              className={`px-4 py-2 rounded-full whitespace-nowrap transition-all uppercase font-semibold ${
+              className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap transition-all uppercase font-semibold text-xs ${
                 activeFilter === cat.value
                   ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
                   : 'bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 shadow-2xs'
@@ -71,7 +71,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onRequest
 
         {/* Project Case Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, pIdx) => (
             <div
               key={project.id}
               onClick={() => onSelectProject(project)}
@@ -83,7 +83,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onRequest
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-95 group-hover:brightness-100"
                   alt={project.alt}
                   src={project.image}
-                  loading="lazy"
+                  loading={pIdx < 2 ? 'eager' : 'lazy'}
                   decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
@@ -106,7 +106,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onRequest
               </div>
 
               {/* Details Body */}
-              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="p-5 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-xs font-mono text-slate-500">
                     <span className="font-bold text-amber-600">{project.code}</span>

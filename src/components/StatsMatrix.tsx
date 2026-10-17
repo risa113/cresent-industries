@@ -54,22 +54,22 @@ export const StatsMatrix: React.FC<StatsMatrixProps> = ({ className = '' }) => {
           <div className="w-12 h-1 bg-amber-500 mx-auto rounded-full mt-3" />
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
           {STATS.map((stat, idx) => (
             <div
               key={idx}
-              className={`flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all duration-300 group text-center reveal-bump hover-bump stagger-${idx + 1}`}
+              className={`flex flex-col items-center justify-center p-4 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400 transition-all duration-300 group text-center hover-bump stagger-${idx + 1}`}
             >
-              <div className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 font-display tracking-tight group-hover:text-amber-600 transition-colors drop-shadow-xs">
+              <div className="text-2xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 font-display tracking-tight group-hover:text-amber-600 transition-colors drop-shadow-xs">
                 {stat.value}
               </div>
-              <div className="mt-3 text-[11px] sm:text-xs font-mono text-slate-700 uppercase tracking-widest font-semibold">
+              <div className="mt-2 sm:mt-3 text-[10px] sm:text-xs font-mono text-slate-700 uppercase tracking-wider sm:tracking-widest font-semibold">
                 {stat.label}
               </div>
-              <div className="mt-1 text-xs text-slate-500">
+              <div className="mt-1 text-[11px] sm:text-xs text-slate-500">
                 {stat.sub}
               </div>
-              <div className="mt-3 w-8 h-0.5 bg-amber-500/30 group-hover:w-14 group-hover:bg-amber-500 transition-all duration-300" />
+              <div className="mt-2.5 sm:mt-3 w-8 h-0.5 bg-amber-500/30 group-hover:w-14 group-hover:bg-amber-500 transition-all duration-300" />
             </div>
           ))}
         </div>

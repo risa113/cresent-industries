@@ -88,17 +88,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
             </div>
 
             {/* Typography */}
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               <div className="flex items-center gap-1.5">
                 <span className="font-display font-extrabold text-sm sm:text-base lg:text-lg tracking-wider text-slate-900 uppercase group-hover:text-amber-600 transition-colors">
                   CRESCENT
                 </span>
                 <span className="text-slate-300 font-light text-xs sm:text-sm">//</span>
-                <span className="font-mono text-[11px] sm:text-xs text-amber-600 font-semibold tracking-wider uppercase">
+                <span className="font-mono text-[10px] sm:text-xs text-amber-600 font-semibold tracking-wider uppercase">
                   INFRASTRUCTURE
                 </span>
               </div>
-              <span className="text-[9px] sm:text-[10px] text-slate-500 tracking-widest font-mono uppercase">
+              <span className="text-[8.5px] sm:text-[10px] text-slate-500 tracking-wider sm:tracking-widest font-mono uppercase truncate max-w-[145px] sm:max-w-none">
                 PEB &amp; STRUCTURAL STEEL FABRICATION
               </span>
             </div>

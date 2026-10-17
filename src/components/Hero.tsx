@@ -105,10 +105,10 @@ export const Hero: React.FC<HeroProps> = ({
               className="w-full h-full object-cover object-center brightness-[0.95] contrast-[1.05]"
               loading={idx === 0 ? 'eager' : 'lazy'}
             />
-            {/* White clean gradient vignettes */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white/40" />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/35" />
-            <div className="absolute inset-0 structural-grid opacity-25 pointer-events-none" />
+            {/* White clean gradient vignettes - responsive so steel architecture is always visible */}
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-white/20 md:via-white/85 md:to-white/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/75 to-transparent md:from-white/95 md:via-white/85 md:to-white/35" />
+            <div className="absolute inset-0 structural-grid opacity-20 pointer-events-none" />
 
             {ambientLightOn && (
               <div className="absolute inset-0 bg-amber-400/10 mix-blend-multiply pointer-events-none transition-opacity duration-700" />
@@ -118,15 +118,15 @@ export const Hero: React.FC<HeroProps> = ({
       })}
 
       {/* Main Center Content */}
-      <div className="relative z-20 flex-1 flex flex-col justify-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 w-full pt-24 sm:pt-28 pb-12">
+      <div className="relative z-20 flex-1 flex flex-col justify-center max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 w-full pt-20 sm:pt-28 pb-10 sm:pb-12">
         <div className="max-w-4xl space-y-4 sm:space-y-6">
           {/* Eyebrow & Badges */}
-          <div className="flex items-center gap-2.5 flex-wrap">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-100/95 backdrop-blur-md border border-slate-300 text-slate-800 text-[11px] font-mono tracking-widest uppercase font-semibold shadow-xs">
+          <div className="flex items-center gap-2 flex-wrap">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100/95 backdrop-blur-md border border-slate-300 text-slate-800 text-[10px] sm:text-[11px] font-mono tracking-wider sm:tracking-widest uppercase font-semibold shadow-xs">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
               <span>{activeSlideData.tag}</span>
             </div>
-            <span className="text-[10px] font-mono px-2.5 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 uppercase font-bold rounded-full shadow-xs">
+            <span className="text-[9px] sm:text-[10px] font-mono px-2.5 py-1 bg-emerald-50 text-emerald-800 border border-emerald-300 uppercase font-bold rounded-full shadow-xs">
               ● 100% AUTHENTIC WORK
             </span>
           </div>
@@ -139,7 +139,7 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
 
           {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.08] font-display">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.12] sm:leading-[1.08] font-display">
             {HERO_DATA.headline} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-500 to-sky-700">
               {HERO_DATA.headlineHighlight}
@@ -147,16 +147,69 @@ export const Hero: React.FC<HeroProps> = ({
           </h1>
 
           {/* Description */}
-          <p className="text-sm sm:text-base md:text-lg text-slate-700 max-w-2xl font-normal leading-relaxed">
+          <p className="text-xs sm:text-base md:text-lg text-slate-700 max-w-2xl font-normal leading-relaxed">
             {HERO_DATA.description}
           </p>
 
+          {/* Dedicated Mobile / Tablet Image Showcase Card - 100% Guaranteed Visible on Phones */}
+          <div className="block lg:hidden my-3 relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-lg bg-slate-900 group">
+            <div className="relative aspect-[16/10] w-full overflow-hidden">
+              <img
+                src={activeSlideData.image}
+                alt={activeSlideData.title}
+                className="w-full h-full object-cover brightness-95 transition-all duration-700 group-hover:scale-105"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-black/20" />
+
+              {/* Slide Counter Pill */}
+              <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                <span className="px-2 py-0.5 bg-amber-500 text-slate-950 text-[10px] font-mono font-bold rounded shadow-xs">
+                  {activeSlideData.number} / 04
+                </span>
+                <span className="px-2 py-0.5 bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-mono font-bold rounded border border-slate-200 shadow-xs">
+                  AUTHENTIC WORK
+                </span>
+              </div>
+
+              {/* Bottom Details on Mobile Card */}
+              <div className="absolute bottom-2.5 inset-x-2.5 flex items-end justify-between gap-2 text-white">
+                <div className="min-w-0 flex-1">
+                  <span className="text-[10px] font-mono text-amber-400 font-semibold block truncate uppercase">
+                    {activeSlideData.tag}
+                  </span>
+                  <h4 className="text-xs sm:text-sm font-bold text-white block truncate font-display">
+                    {activeSlideData.title}
+                  </h4>
+                </div>
+                <div className="flex items-center gap-1 shrink-0">
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-md flex items-center justify-center text-white active:scale-95 transition-all"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    className="w-7 h-7 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 flex items-center justify-center font-bold active:scale-95 transition-all"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Action CTAs */}
-          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4">
             <button
               type="button"
               onClick={onRequestQuote}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-[0_4px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_6px_25px_rgba(245,158,11,0.4)] active:scale-[0.98]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-[0_4px_20px_rgba(245,158,11,0.25)] hover:shadow-[0_6px_25px_rgba(245,158,11,0.4)] active:scale-[0.98]"
             >
               <span>Request Engineering Specification</span>
               <ArrowRight className="w-4 h-4" />
@@ -166,7 +219,7 @@ export const Hero: React.FC<HeroProps> = ({
               href={getWhatsAppUrl(COMPANY_CONTACT.whatsapp1Clean, 'Hello Crescent Engineering, I would like to consult with an engineer regarding our structural PEB project.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-md active:scale-[0.98]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-md active:scale-[0.98]"
             >
               <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
                 <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.02.79.81-2.94-.19-.3a8.21 8.21 0 01-1.26-4.37c0-4.54 3.7-8.24 8.24-8.24h-.02zm-3.55 4.39c-.19 0-.41.07-.63.31-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.66 2.54 4.03 3.56.56.24 1 .39 1.34.5.57.18 1.08.15 1.49.09.45-.07 1.39-.57 1.59-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28s-1.39-.69-1.61-.77c-.22-.08-.37-.12-.53.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42s-.53-1.28-.73-1.75c-.19-.46-.39-.4-.53-.41l-.45-.01z"/>
@@ -177,7 +230,7 @@ export const Hero: React.FC<HeroProps> = ({
             <button
               type="button"
               onClick={onOpenCad}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full border border-slate-300 hover:border-amber-500 text-slate-800 hover:text-amber-700 font-semibold text-xs sm:text-sm tracking-wider uppercase bg-white/95 hover:bg-white backdrop-blur-sm transition-all shadow-xs active:scale-[0.98]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full border border-slate-300 hover:border-amber-500 text-slate-800 hover:text-amber-700 font-semibold text-xs sm:text-sm tracking-wider uppercase bg-white/95 hover:bg-white backdrop-blur-sm transition-all shadow-xs active:scale-[0.98]"
             >
               <span className="material-symbols-outlined text-sm sm:text-base text-amber-600">architecture</span>
               <span>Explore CAD Repository</span>
@@ -233,9 +286,9 @@ export const Hero: React.FC<HeroProps> = ({
         </button>
       </aside>
 
-      {/* Floating Bottom-Right Lightbulb Theme Widget */}
+      {/* Floating Bottom-Right Lightbulb Theme Widget - Hidden on mobile to avoid overlapping fixed bottom action bar */}
       {onToggleAmbientLight && (
-        <div className="fixed bottom-6 right-6 z-40">
+        <div className="hidden sm:block fixed bottom-6 right-6 z-40">
           <button
             onClick={onToggleAmbientLight}
             title={ambientLightOn ? 'Turn off ambient glow' : 'Turn on ambient glow'}

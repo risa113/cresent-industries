@@ -147,7 +147,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="e.g. Anand Structural Works"
-                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
               />
             </div>
 
@@ -161,7 +161,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 placeholder="+91 98400 00000"
-                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
               />
             </div>
 
@@ -174,7 +174,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="procurement@company.com"
-                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
               />
             </div>
 
@@ -185,7 +185,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
               <select
                 value={form.category}
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
-                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm sm:text-xs font-mono text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
               >
                 <option>Pre-Engineered Building (PEB)</option>
                 <option>Heavy Structural Steel</option>
@@ -204,7 +204,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 value={form.details}
                 onChange={(e) => setForm({ ...form, details: e.target.value })}
                 placeholder="e.g. 80m x 30m warehouse in Tirunelveli, 10 MT crane"
-                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
+                className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm sm:text-xs font-mono text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
               />
             </div>
 

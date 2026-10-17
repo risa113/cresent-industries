@@ -90,12 +90,12 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
           {/* Right Presentation Photograph - Slides in from Right */}
           <div className="lg:col-span-5 relative w-full reveal-right stagger-1">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-3 relative group shadow-xl overflow-hidden hover-bump">
-              <div className="relative overflow-hidden aspect-[4/5] rounded-2xl bg-neutral-900">
+              <div className="relative overflow-hidden aspect-[16/11] sm:aspect-[4/5] rounded-2xl bg-neutral-900 shadow-inner">
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
                   alt="Authentic structural PEB truss framework and column grid fabricated by Crescent Engineering"
                   src={COMPANY_DATA.image}
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
                 />
 
