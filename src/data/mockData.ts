@@ -139,8 +139,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Custom designed tapered I-beam primary framing, Z/C purlin secondary grids, and clear-span engineering conforming to IS 800:2007 and MBMA standards.',
     metric: 'SPAN: 12M - 65M CLEAR',
     cadSpec: 'IS 800:2007 / MBMA 2012 / Tapered Flange Section H-Beams',
-    image: `${BASE}images/poster-peb-industrial-building.jpg`,
-    imageAlt: 'Pre-Engineered Buildings (PEB) industrial plant facility',
+    image: `${BASE}images/service-peb-buildings-hd.jpg`,
+    imageAlt: 'Pre-Engineered Buildings (PEB) industrial plant facility structural steel framing',
   },
   {
     id: 'conversion',
@@ -151,8 +151,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Structural retrofit engineering, factory roof height elevations, column removal for enlarged bay clear spans, and structural extensions.',
     metric: 'RETROFIT: ZERO SHUTDOWN',
     cadSpec: 'High-Tensile HSFG Grade 8.8 / 10.9 Bolted Splice Connections',
-    image: `${BASE}images/poster-white-warehouse-plant.jpg`,
-    imageAlt: 'Conversion and structural industrial building extension',
+    image: `${BASE}images/service-conversion-buildings-hd.jpg`,
+    imageAlt: 'Conversion and structural industrial building extension and steel framework',
   },
   {
     id: 'puf-panel',
@@ -163,8 +163,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Continuous line injected polyurethane foam (PUF) insulated composite wall and roof panels with interlocking tongue-and-groove joint profile.',
     metric: 'CORE DENSITY: 40±2 KG/M³',
     cadSpec: 'Thermal Conductivity k = 0.022 W/m.K / B1 Fire Rating',
-    image: `${BASE}images/portfolio-cold-storage.webp`,
-    imageAlt: 'Insulated PUF panel sheeting system envelope',
+    image: `${BASE}images/service-puf-panel-hd.jpg`,
+    imageAlt: 'Insulated PUF panel sheeting system envelope with polyurethane core',
   },
   {
     id: 'colour-coated',
@@ -175,8 +175,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'High-rib trapezoidal profile steel panels roll-formed from premium 550 MPa yield Galvalume coil substrates with anti-capillary weather grooves.',
     metric: 'COATING: AZ-150 GSM',
     cadSpec: 'Bare Galvalume / SMP Paint System 25 Micron Primer Coat',
-    image: `${BASE}images/poster-green-roofing-sheet.png`,
-    imageAlt: 'Colour-coated Galvalume trapezoidal roofing sheets',
+    image: `${BASE}images/service-colour-coated-roofing-hd.jpg`,
+    imageAlt: 'Colour-coated Galvalume trapezoidal roofing sheets installation on steel frame',
   },
   {
     id: 'tensile',
@@ -187,7 +187,7 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Curvilinear architectural membranes manufactured with imported PVDF-coated fabrics and calibrated stainless tension tie-rods and arched supports.',
     metric: 'MEMBRANE: ARCHITECTURAL PVDF',
     cadSpec: 'High-Tensile Structural Cable Systems / Stainless Steel Turnbuckles',
-    image: `${BASE}images/poster-curved-canopy-arch.jpg`,
+    image: `${BASE}images/service-tensile-roofing-hd.jpg`,
     imageAlt: 'Curved tensile architectural roofing system and cantilever canopy',
   },
   {
@@ -199,8 +199,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Plate girders, composite bowstring arches, pedestrian overbridges, and heavy truss superstructures fabricated to Indian Road Congress (IRC) standards.',
     metric: 'STANDARD: IRC CLASS 70R',
     cadSpec: 'Full Penetration Butt Welds 100% Radiography Tested',
-    image: `${BASE}images/poster-steel-bridge-overwalk.png`,
-    imageAlt: 'Structural steel bridge and pedestrian overbridge truss',
+    image: `${BASE}images/service-steel-bridges-hd.jpg`,
+    imageAlt: 'Structural steel bridge and heavy truss superstructure',
   },
   {
     id: 'cold-storage',
@@ -211,8 +211,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Hermetically sealed controlled atmosphere deep-cold chambers engineered with thermal-break structural base plates and air-tight vapor retarders.',
     metric: 'TEMP: +15°C TO -40°C',
     cadSpec: 'Continuous Vapor Barrier 0.05 Perm / 150mm PUF Density',
-    image: `${BASE}images/poster-blue-industrial-building.jpg`,
-    imageAlt: 'Engineered cold storage insulated building facility',
+    image: `${BASE}images/service-cold-storage-hd.jpg`,
+    imageAlt: 'Engineered cold storage insulated building facility and racking system',
   },
   {
     id: 'mezzanine',
@@ -223,8 +223,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Heavy-duty intermediate structural steel mezzanine floors and multi-tier platforms designed to multiply usable warehouse and industrial capacity.',
     metric: 'LOAD: UP TO 2,000 KG/M²',
     cadSpec: 'Heavy Universal Beams / Chequered Steel Deck Plate',
-    image: `${BASE}images/project-real-2.jpg`,
-    imageAlt: 'Structural steel mezzanine floor platform and warehouse frame',
+    image: `${BASE}images/service-mezzanine-floors-hd.jpg`,
+    imageAlt: 'Structural steel mezzanine floor platform and warehouse elevated structure',
   },
   {
     id: 'stone-coated',
@@ -235,7 +235,7 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Architectural luxury steel roof shingles embedded with natural volcanic stone granules, combining classic aesthetics with hurricane-proof interlocking fasteners.',
     metric: 'PROFILE: VOLCANIC GRANULE',
     cadSpec: 'Alu-Zinc Alloy Coated Base Sheet / Acrylic Resin Matrix',
-    image: `${BASE}images/poster-red-stone-coated-roofing.png`,
+    image: `${BASE}images/service-stone-coated-roofing-hd.jpg`,
     imageAlt: 'Stone-coated architectural metal roofing tile system',
   },
   {
@@ -247,8 +247,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       'Multiwall and embossed UV-stabilized daylighting panels providing high impact resistance (250x glass) with 99% harmful ultraviolet radiation filtration.',
     metric: 'TRANSMISSION: UP TO 85% LUX',
     cadSpec: 'Co-extruded UV Absorber / Impact Strength > 300J',
-    image: `${BASE}images/poster-curved-roof-truss.jpg`,
-    imageAlt: 'Polycarbonate daylighting and curved space truss roofing matrix',
+    image: `${BASE}images/service-polycarbonate-roofing-hd.jpg`,
+    imageAlt: 'Polycarbonate daylighting and curved barrel vault skylight roofing system',
   },
   {
     id: 'upvc',
@@ -259,8 +259,8 @@ export const CAPABILITIES: readonly CapabilityItem[] = [
       '3-layer co-extruded multi-rib synthetic resin sheets explicitly engineered for acid fumes, chemical fertilizer facilities, and intense coastal marine environments.',
     metric: 'CORROSION RESISTANCE: 100%',
     cadSpec: 'ASA Surface Polymer / 0% Corrosion under High Acid Exposure',
-    image: `${BASE}images/industrial-steel-roofing-hd.jpg`,
-    imageAlt: 'Chemical and weather resistant UPVC roofing sheet installation',
+    image: `${BASE}images/service-upvc-roofing-hd.jpg`,
+    imageAlt: 'Chemical and weather resistant UPVC corrugated roofing sheet installation',
   },
 ];
 
@@ -372,19 +372,19 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'High-bay automated fulfillment centres, logistics distribution hubs, and bulk storage facilities engineered for maximum clear height and heavy floor loads.',
     metric: 'MAX CLEAR SPAN',
-    image: `${BASE}images/portfolio-logistics-hub.webp`,
-    imageAlt: 'High-bay logistics warehouse and distribution facility steel framing',
+    image: `${BASE}images/sector-warehouses-hd.jpg`,
+    imageAlt: 'High-bay logistics warehouse and distribution facility interior',
   },
   {
-    id: 'workshops',
+    id: 'industrial-fabrication',
     number: '02',
-    title: 'Workshops',
-    icon: 'handyman',
+    title: 'Industrial Fabrication',
+    icon: 'precision_manufacturing',
     description:
-      'Industrial fabrication yards, mechanical assembly facilities, and maintenance sheds engineered for heavy crane gantry brackets and dynamic equipment loads.',
+      'Heavy structural steel fabrication yards, CNC profiling lines, and industrial equipment assembly bays engineered with heavy-duty overhead EOT gantry cranes.',
     metric: 'CRANE INTEGRATED',
-    image: `${BASE}images/project-real-2.jpg`,
-    imageAlt: 'Industrial workshop and fabrication unit steel framing',
+    image: `${BASE}images/sector-industrial-fabrication-hd.jpg`,
+    imageAlt: 'Industrial steel fabrication facility with overhead EOT gantry crane',
   },
   {
     id: 'sports-centres',
@@ -394,7 +394,7 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'Column-free indoor sports arenas, swimming pavilions, and athletic centres featuring long-span curved space trusses and natural daylighting integration.',
     metric: 'COLUMN-FREE SPAN',
-    image: `${BASE}images/poster-curved-roof-truss.jpg`,
+    image: `${BASE}images/sector-sports-centres-hd.jpg`,
     imageAlt: 'Sports complex long-span curved space truss dome structure',
   },
   {
@@ -405,7 +405,7 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'Monumental convention pavilions, expo centres, and public event halls delivering unobstructed interior vistas and architectural structural steel aesthetics.',
     metric: 'WIDE OPEN VOLUME',
-    image: `${BASE}images/portfolio-steel-roofing-hd.jpg`,
+    image: `${BASE}images/sector-exhibition-centres-hd.jpg`,
     imageAlt: 'High clearance convention and exhibition centre pavilion',
   },
   {
@@ -416,8 +416,8 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'Heavy manufacturing plants, chemical processing facilities, and textile mills designed with insulated envelopes and high operational safety compliance.',
     metric: 'HEAVY INDUSTRIAL',
-    image: `${BASE}images/poster-peb-industrial-building.jpg`,
-    imageAlt: 'Turnkey industrial manufacturing plant and factory shed',
+    image: `${BASE}images/sector-factories-hd.jpg`,
+    imageAlt: 'Turnkey industrial manufacturing plant and factory shed with overhead cranes',
   },
   {
     id: 'showrooms',
@@ -427,8 +427,8 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'Automobile dealerships, commercial retail galleries, and brand display centres integrating wide-span structural glass facades and architectural canopies.',
     metric: 'GLASS FACADE READY',
-    image: `${BASE}images/poster-curved-canopy-arch.jpg`,
-    imageAlt: 'Automobile dealership and commercial showroom canopy',
+    image: `${BASE}images/sector-showrooms-hd.jpg`,
+    imageAlt: 'Automobile dealership and commercial showroom with architectural steel framing',
   },
   {
     id: 'supermarkets',
@@ -438,8 +438,8 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'Large-format hypermarkets, retail supercentres, and commercial department stores designed for rapid turnkey assembly, energy efficiency, and high footfall.',
     metric: 'INSULATED ENVELOPE',
-    image: `${BASE}images/poster-blue-industrial-building.jpg`,
-    imageAlt: 'Commercial retail supermarket and hypermarket building',
+    image: `${BASE}images/sector-supermarkets-hd.jpg`,
+    imageAlt: 'Commercial retail supermarket and hypermarket building with wide-span roof',
   },
   {
     id: 'hospitals',
@@ -449,8 +449,8 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'Healthcare complexes and emergency medical centres constructed with seismic-compliant steel frameworks, vibration control, and climate-sealed envelopes.',
     metric: 'SEISMIC ZONE COMPLIANT',
-    image: `${BASE}images/editorial-steel-hd.webp`,
-    imageAlt: 'Healthcare infrastructure and hospital structural steel framework',
+    image: `${BASE}images/sector-hospitals-hd.jpg`,
+    imageAlt: 'Healthcare infrastructure and hospital structural steel framework under construction',
   },
   {
     id: 'aircraft-hangars',
@@ -460,8 +460,8 @@ export const SECTORS: readonly SectorItem[] = [
     description:
       'Monumental aviation hangars engineered with ultra-wide clear spans, bi-parting sliding door support, and zero interior obstruction for aircraft maintenance.',
     metric: '60M+ CLEAR OPENING',
-    image: `${BASE}images/project-real-3.jpg`,
-    imageAlt: 'Monumental clear-span aviation aircraft hangar structure',
+    image: `${BASE}images/sector-aircraft-hangars-hd.jpg`,
+    imageAlt: 'Monumental clear-span aviation aircraft hangar structure housing aircraft',
   },
 ];
 
