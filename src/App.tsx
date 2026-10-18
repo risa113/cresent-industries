@@ -69,7 +69,7 @@ export const App: React.FC = () => {
 
   return (
     <div
-      className={`min-h-screen bg-white text-slate-900 flex flex-col font-sans transition-all duration-700 selection:bg-amber-400 selection:text-black ${
+      className={`min-h-screen w-full max-w-full overflow-x-hidden bg-white text-slate-900 flex flex-col font-sans transition-all duration-700 selection:bg-amber-400 selection:text-black ${
         ambientLightOn ? 'ambient-glow-active' : ''
       }`}
     >
@@ -81,7 +81,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Single Page Content with Smooth Scrolling Sections */}
-      <main className="flex-1 w-full overflow-x-hidden scroll-smooth">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden scroll-smooth">
         {/* Section 1: Hero */}
         <Hero
           onRequestQuote={handleOpenQuote}

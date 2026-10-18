@@ -23,7 +23,7 @@ export const Capabilities: React.FC<CapabilitiesProps> = ({ onSelectCad }) => {
       <div id="capabilities" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
 
       {/* Ghost Background Outline Text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
+      <div className="hidden sm:block absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
         <span className="text-6xl sm:text-9xl font-black text-transparent tracking-widest stroke-ghost-text uppercase font-display">
           SERVICES
         </span>
@@ -45,7 +45,7 @@ export const Capabilities: React.FC<CapabilitiesProps> = ({ onSelectCad }) => {
         </div>
 
         {/* Filter Tabs Strip */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 text-xs font-mono cad-scrollbar">
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 text-xs font-mono cad-scrollbar max-w-full">
           <button
             type="button"
             onClick={() => setFilter('ALL')}

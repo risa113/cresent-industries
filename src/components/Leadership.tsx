@@ -9,7 +9,7 @@ export const Leadership: React.FC<LeadershipProps> = ({ onConsultClick }) => {
   return (
     <section className="relative py-24 sm:py-32 bg-slate-50/70 text-slate-900 border-b border-slate-200 overflow-hidden" id="credentials">
       {/* Ghost Background Outline Text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
+      <div className="hidden sm:block absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
         <span className="text-6xl sm:text-9xl font-black text-transparent tracking-widest stroke-ghost-text uppercase font-display">
           LEADERSHIP
         </span>

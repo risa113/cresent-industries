@@ -30,7 +30,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onRequest
   return (
     <section className="relative py-24 sm:py-32 bg-white text-slate-900 border-b border-slate-200 overflow-hidden" id="portfolio">
       {/* Ghost Background Outline Text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
+      <div className="hidden sm:block absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
         <span className="text-6xl sm:text-9xl font-black text-transparent tracking-widest stroke-ghost-text uppercase font-display">
           PORTFOLIO
         </span>
@@ -52,7 +52,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onRequest
         </div>
 
         {/* Filter Tabs Strip */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-10 text-xs font-mono cad-scrollbar">
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-10 text-xs font-mono cad-scrollbar max-w-full">
           {categories.map((cat) => (
             <button
               key={cat.value}

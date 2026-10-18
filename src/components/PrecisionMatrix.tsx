@@ -43,7 +43,7 @@ export const PrecisionMatrix: React.FC<PrecisionMatrixProps> = () => {
       id="precision"
     >
       {/* Ghost Background Outline Text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
+      <div className="hidden sm:block absolute top-10 left-1/2 -translate-x-1/2 select-none pointer-events-none opacity-20 whitespace-nowrap">
         <span className="text-6xl sm:text-9xl font-black text-transparent tracking-widest stroke-ghost-text uppercase font-display">
           PRECISION
         </span>
