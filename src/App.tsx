@@ -25,6 +25,7 @@ export const App: React.FC = () => {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [quoteCategory, setQuoteCategory] = useState<string | undefined>(undefined);
 
   // Global scroll reveal observer for animated sections
   useEffect(() => {
@@ -61,7 +62,8 @@ export const App: React.FC = () => {
     setProjectModalOpen(true);
   };
 
-  const handleOpenQuote = () => {
+  const handleOpenQuote = (category?: string) => {
+    setQuoteCategory(category);
     setQuoteModalOpen(true);
   };
 
@@ -104,48 +106,49 @@ export const App: React.FC = () => {
         <PrecisionMatrix />
 
         {/* Section 7: 04 / Sectors & Domains */}
-        <SectorsServed />
+        <SectorsServed onSelectSector={(sectorTitle) => handleOpenQuote(sectorTitle)} />
 
         {/* Section 8: 05 / Selected Case Archives (Portfolio) */}
         <Portfolio
           onSelectProject={handleSelectProject}
-          onRequestDossier={handleOpenQuote}
+          onRequestDossier={() => handleOpenQuote('Pre-Engineered Buildings (PEB)')}
         />
 
         {/* Section 9: 06 / Leadership Credentials */}
-        <Leadership onConsultClick={handleOpenQuote} />
+        <Leadership onConsultClick={() => handleOpenQuote('Pre-Engineered Buildings (PEB)')} />
 
         {/* Section 10: 07 / Client Testimonials */}
         <Testimonials />
 
         {/* Section 11: Consultation & Contact Form */}
-        <ContactCTA onOpenQuoteModal={handleOpenQuote} />
+        <ContactCTA onOpenQuoteModal={() => handleOpenQuote()} />
       </main>
 
       {/* Enterprise Structural Engineering Footer */}
-      <Footer onRequestQuote={handleOpenQuote} />
+      <Footer onRequestQuote={() => handleOpenQuote()} />
 
       {/* Sticky Bottom Actions & Scroll-to-Top */}
-      <FloatingActions onRequestQuote={handleOpenQuote} />
+      <FloatingActions onRequestQuote={() => handleOpenQuote()} />
 
       {/* Pure React Modals - 100% Zero Page Refresh */}
       <CADModal
         isOpen={cadModalOpen}
         onClose={() => setCadModalOpen(false)}
         item={selectedCadItem}
-        onRequestQuote={handleOpenQuote}
+        onRequestQuote={() => handleOpenQuote(selectedCadItem?.title)}
       />
 
       <ProjectModal
         isOpen={projectModalOpen}
         onClose={() => setProjectModalOpen(false)}
         project={selectedProject}
-        onRequestQuote={handleOpenQuote}
+        onRequestQuote={() => handleOpenQuote(selectedProject?.title)}
       />
 
       <QuoteModal
         isOpen={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}
+        initialCategory={quoteCategory}
       />
     </div>
   );

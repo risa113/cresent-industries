@@ -5,7 +5,7 @@ export interface LeadershipProps {
   readonly onConsultClick?: () => void;
 }
 
-export const Leadership: React.FC<LeadershipProps> = () => {
+export const Leadership: React.FC<LeadershipProps> = ({ onConsultClick }) => {
   return (
     <section className="relative py-24 sm:py-32 bg-slate-50/70 text-slate-900 border-b border-slate-200 overflow-hidden" id="credentials">
       {/* Ghost Background Outline Text */}
@@ -110,6 +110,23 @@ export const Leadership: React.FC<LeadershipProps> = () => {
                   </span>
                 </div>
               </div>
+
+              {/* Direct Consultation Action Button */}
+              {onConsultClick && (
+                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <span className="text-xs font-mono text-slate-500 text-center sm:text-left">
+                    INSTITUTION OF ENGINEERS (INDIA) // ICI LIFE MEMBER
+                  </span>
+                  <button
+                    type="button"
+                    onClick={onConsultClick}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-sm"
+                  >
+                    <span>CONSULT WITH ER. K. MOHAMED</span>
+                    <span className="material-symbols-outlined text-base font-bold">arrow_forward</span>
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -5,7 +5,7 @@ export interface SectorsServedProps {
   readonly onSelectSector?: (sectorName: string) => void;
 }
 
-export const SectorsServed: React.FC<SectorsServedProps> = () => {
+export const SectorsServed: React.FC<SectorsServedProps> = ({ onSelectSector }) => {
   return (
     <section className="relative py-24 sm:py-32 bg-slate-50/70 text-slate-900 border-b border-slate-200 overflow-hidden" id="applicable-for">
       {/* Anchor for backward compatibility with #sectors links */}
@@ -38,7 +38,8 @@ export const SectorsServed: React.FC<SectorsServedProps> = () => {
           {SECTORS.map((sector, idx) => (
             <div
               key={sector.id || sector.title}
-              className={`group bg-white rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-xl shadow-xs transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-bump hover-bump stagger-${(idx % 6) + 1} w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md`}
+              onClick={() => onSelectSector?.(sector.title)}
+              className={`group bg-white rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-xl shadow-xs transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer hover-bump stagger-${(idx % 6) + 1} w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md`}
             >
               {/* Category Image Banner */}
               {sector.image && (
@@ -84,10 +85,23 @@ export const SectorsServed: React.FC<SectorsServedProps> = () => {
                   </p>
                 </div>
 
-                {/* Footer Specification Tag */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
-                  <span>SECTOR GRADE</span>
-                  <span className="text-amber-700 font-bold">100% IS 800 COMPLIANT</span>
+                {/* Footer Specification Tag & Action Button */}
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <div className="text-[11px] font-mono text-slate-500">
+                    <span>GRADE: </span>
+                    <span className="text-amber-700 font-bold">IS 800</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onSelectSector?.(sector.title);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 group-hover:bg-amber-500 text-slate-800 group-hover:text-slate-950 font-bold text-xs font-mono transition-all shadow-2xs"
+                  >
+                    <span>INQUIRE</span>
+                    <span className="material-symbols-outlined text-[15px] font-bold">arrow_forward</span>
+                  </button>
                 </div>
               </div>
             </div>

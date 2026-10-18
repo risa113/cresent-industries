@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { COMPANY_CONTACT, createQuoteInquiryLinks } from '../data/mockData';
 
 export interface QuoteModalProps {
   readonly isOpen: boolean;
   readonly onClose: () => void;
+  readonly initialCategory?: string;
 }
 
-export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
+export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initialCategory }) => {
   const [submitted, setSubmitted] = useState(false);
   const [dispatchedLinks, setDispatchedLinks] = useState<{
     whatsappUrl1: string;
@@ -18,9 +19,18 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     name: '',
     phone: '',
     email: '',
-    category: 'Pre-Engineered Buildings (PEB)',
+    category: initialCategory || 'Pre-Engineered Buildings (PEB)',
     details: '',
   });
+
+  useEffect(() => {
+    if (initialCategory) {
+      setForm((prev) => ({ ...prev, category: initialCategory }));
+    }
+    if (isOpen) {
+      setSubmitted(false);
+    }
+  }, [initialCategory, isOpen]);
 
   if (!isOpen) return null;
 
@@ -187,17 +197,26 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
                 className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm sm:text-xs font-mono text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
               >
-                <option>Pre-Engineered Buildings (PEB)</option>
-                <option>Conversion Buildings</option>
-                <option>PUF Panel Sheeting Systems</option>
-                <option>Colour-Coated Roofing Sheets</option>
-                <option>Tensile Roofing Systems</option>
-                <option>Steel Bridges</option>
-                <option>Cold Storage Systems</option>
-                <option>Mezzanine Floors</option>
-                <option>Stone-Coated Roofing Systems</option>
-                <option>Polycarbonate Roofing Systems</option>
-                <option>UPVC Roofing Systems</option>
+                <optgroup label="Engineering Services (11)">
+                  <option>Pre-Engineered Buildings (PEB)</option>
+                  <option>Conversion Buildings</option>
+                  <option>PUF Panel Sheeting Systems</option>
+                  <option>Colour-Coated Roofing Sheets</option>
+                  <option>Tensile Roofing Systems</option>
+                  <option>Steel Bridges</option>
+                  <option>Cold Storage Systems</option>
+                  <option>Mezzanine Floors</option>
+                  <option>Stone-Coated Roofing Systems</option>
+                  <option>Polycarbonate Roofing Systems</option>
+                  <option>UPVC Roofing Systems</option>
+                </optgroup>
+                <optgroup label="Application Sectors (5)">
+                  <option>Warehouses</option>
+                  <option>Industrial Fabrication</option>
+                  <option>Sports Centres</option>
+                  <option>Factories</option>
+                  <option>Hospitals</option>
+                </optgroup>
               </select>
             </div>
 
