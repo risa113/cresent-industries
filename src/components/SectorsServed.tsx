@@ -29,16 +29,16 @@ export const SectorsServed: React.FC<SectorsServedProps> = () => {
           </h2>
           <div className="w-12 h-1 bg-amber-500 mx-auto rounded-full mt-3" />
           <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto pt-2 leading-relaxed">
-            Specialized structural steel frameworks and high-performance roofing systems tailored for 9 major commercial, industrial, and institutional sectors.
+            Specialized structural steel frameworks and high-performance roofing systems tailored for 5 core industrial, commercial, and institutional sectors.
           </p>
         </div>
 
-        {/* 9 Categories Responsive Grid (3x3 on Desktop) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* 5 Categories Responsive Grid (3 on Top, 2 Centered on Desktop) */}
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
           {SECTORS.map((sector, idx) => (
             <div
               key={sector.id || sector.title}
-              className={`group bg-white rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-xl shadow-xs transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-bump hover-bump stagger-${(idx % 6) + 1}`}
+              className={`group bg-white rounded-2xl border border-slate-200 hover:border-amber-400 hover:shadow-xl shadow-xs transition-all duration-300 flex flex-col justify-between overflow-hidden reveal-bump hover-bump stagger-${(idx % 6) + 1} w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md`}
             >
               {/* Category Image Banner */}
               {sector.image && (

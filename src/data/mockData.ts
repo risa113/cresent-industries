@@ -119,7 +119,7 @@ export const COMPANY_DATA = {
   specBox: [
     { label: 'LEGAL ENTITY', value: 'CRESCENT ENGINEERING INDUSTRIES' },
     { label: 'OPERATIONAL DIVISION', value: 'CRESCENT ROOFING SYSTEMS' },
-    { label: 'CHIEF EXECUTIVE LEADERSHIP', value: 'Er. K. Mohamed | Er. Mohamed Asseesul Islam, D.C.E.' },
+    { label: 'CHIEF EXECUTIVE LEADERSHIP', value: 'Er. K. Mohamed' },
     { label: 'STRUCTURAL SPECIFICATIONS', value: 'IS 800:2007 // ASTM A653 // IS 2062 E350' },
   ],
   image: `${BASE}images/editorial-steel-hd.webp`,
@@ -398,19 +398,8 @@ export const SECTORS: readonly SectorItem[] = [
     imageAlt: 'Sports complex long-span curved space truss dome structure',
   },
   {
-    id: 'exhibition-centres',
-    number: '04',
-    title: 'Exhibition Centres',
-    icon: 'museum',
-    description:
-      'Monumental convention pavilions, expo centres, and public event halls delivering unobstructed interior vistas and architectural structural steel aesthetics.',
-    metric: 'WIDE OPEN VOLUME',
-    image: `${BASE}images/sector-exhibition-centres-hd.jpg`,
-    imageAlt: 'High clearance convention and exhibition centre pavilion',
-  },
-  {
     id: 'factories',
-    number: '05',
+    number: '04',
     title: 'Factories',
     icon: 'factory',
     description:
@@ -420,30 +409,8 @@ export const SECTORS: readonly SectorItem[] = [
     imageAlt: 'Turnkey industrial manufacturing plant and factory shed with overhead cranes',
   },
   {
-    id: 'showrooms',
-    number: '06',
-    title: 'Showrooms',
-    icon: 'storefront',
-    description:
-      'Automobile dealerships, commercial retail galleries, and brand display centres integrating wide-span structural glass facades and architectural canopies.',
-    metric: 'GLASS FACADE READY',
-    image: `${BASE}images/sector-showrooms-hd.jpg`,
-    imageAlt: 'Automobile dealership and commercial showroom with architectural steel framing',
-  },
-  {
-    id: 'supermarkets',
-    number: '07',
-    title: 'Supermarkets',
-    icon: 'shopping_cart',
-    description:
-      'Large-format hypermarkets, retail supercentres, and commercial department stores designed for rapid turnkey assembly, energy efficiency, and high footfall.',
-    metric: 'INSULATED ENVELOPE',
-    image: `${BASE}images/sector-supermarkets-hd.jpg`,
-    imageAlt: 'Commercial retail supermarket and hypermarket building with wide-span roof',
-  },
-  {
     id: 'hospitals',
-    number: '08',
+    number: '05',
     title: 'Hospitals',
     icon: 'local_hospital',
     description:
@@ -451,17 +418,6 @@ export const SECTORS: readonly SectorItem[] = [
     metric: 'SEISMIC ZONE COMPLIANT',
     image: `${BASE}images/sector-hospitals-hd.jpg`,
     imageAlt: 'Healthcare infrastructure and hospital structural steel framework under construction',
-  },
-  {
-    id: 'aircraft-hangars',
-    number: '09',
-    title: 'Aircraft Hangars',
-    icon: 'flight',
-    description:
-      'Monumental aviation hangars engineered with ultra-wide clear spans, bi-parting sliding door support, and zero interior obstruction for aircraft maintenance.',
-    metric: '60M+ CLEAR OPENING',
-    image: `${BASE}images/sector-aircraft-hangars-hd.jpg`,
-    imageAlt: 'Monumental clear-span aviation aircraft hangar structure housing aircraft',
   },
 ];
 
@@ -560,16 +516,6 @@ export const LEADERS: readonly LeaderProfile[] = [
     bio: 'With over 35 years in heavy civil construction and structural steel systems, Er. K. Mohamed founded Crescent Engineering Industries to bring global PEB manufacturing precision to Southern India. He has supervised the engineering execution of hundreds of industrial facilities.',
     expertise: 'Structural Steel, PEB Optimization, Foundation Dynamics',
     credentials: 'Institution of Engineers (India) // ICI Life Member',
-  },
-  {
-    name: 'Er. Mohamed Asseesul Islam, D.C.E.',
-    role: 'Director of Operations & Structural Engineering',
-    icon: 'engineering',
-    photo: `${BASE}images/director-asseesul-islam.jpg`,
-    imageAlt: 'Er. Mohamed Asseesul Islam, D.C.E. - Director of Operations & Structural Engineering at Crescent Engineering Industries',
-    bio: 'Specializing in modern computational structural analysis and automated CNC fabrication logistics, Er. Mohamed Asseesul Islam oversees the plant operations, structural engineering quality assurance, and on-site crane erection divisions across all major enterprise contracts.',
-    expertise: 'STAAD.Pro Modeling, Cold-Formed Steel, High-Tensile Fasteners',
-    credentials: 'Structural PEB Consultant // MBMA Member',
   },
 ];
 
