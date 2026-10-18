@@ -8,6 +8,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
     -webkit-tap-highlight-color: transparent;
     background-color: #ffffff;
     color: #0f172a;

@@ -63,23 +63,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 border-b ${
+        className={`sticky top-0 z-50 transition-all duration-300 border-b w-full max-w-full ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md border-slate-200/90 shadow-sm py-2'
-            : 'bg-white/90 backdrop-blur-sm border-slate-200/80 py-3 sm:py-4'
+            ? 'bg-white/95 backdrop-blur-md border-slate-200/90 shadow-sm'
+            : 'bg-white/90 backdrop-blur-sm border-slate-200/80'
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 xl:px-12 py-2.5 sm:py-3.5 flex items-center justify-between w-full">
           {/* ========================================= */}
           {/* 1. BRAND LOGO & TITLE CLUSTER             */}
           {/* ========================================= */}
           <a
             href="#hero"
             onClick={(e) => handleNavClick(e, '#hero')}
-            className="flex items-center gap-3 group focus:outline-none shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group focus:outline-none min-w-0 mr-2"
           >
             {/* Ultra-sharp 3D Golden Crescent Logo */}
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-50 border border-amber-400/40 p-1 flex items-center justify-center group-hover:border-amber-500 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.25)] transition-all shrink-0">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-amber-50 border border-amber-400/40 p-1 flex items-center justify-center group-hover:border-amber-500 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.25)] transition-all shrink-0">
               <img
                 src={COMPANY_CONTACT.logoUrl}
                 alt="Crescent Engineering Industries Emblem"
@@ -89,16 +89,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
 
             {/* Typography */}
             <div className="flex flex-col min-w-0">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1 sm:gap-1.5">
                 <span className="font-display font-extrabold text-sm sm:text-base lg:text-lg tracking-wider text-slate-900 uppercase group-hover:text-amber-600 transition-colors">
                   CRESCENT
                 </span>
-                <span className="text-slate-300 font-light text-xs sm:text-sm">//</span>
-                <span className="font-mono text-[10px] sm:text-xs text-amber-600 font-semibold tracking-wider uppercase">
+                <span className="text-slate-300 font-light text-xs sm:text-sm hidden sm:inline">//</span>
+                <span className="font-mono text-[10px] sm:text-xs text-amber-600 font-semibold tracking-wider uppercase hidden sm:inline">
                   INFRASTRUCTURE
                 </span>
               </div>
-              <span className="text-[8.5px] sm:text-[10px] text-slate-500 tracking-wider sm:tracking-widest font-mono uppercase truncate max-w-[145px] sm:max-w-none">
+              <span className="text-[8px] sm:text-[10px] text-slate-500 tracking-wider font-mono uppercase truncate max-w-[125px] sm:max-w-none">
                 PEB &amp; STRUCTURAL STEEL FABRICATION
               </span>
             </div>
@@ -266,27 +266,49 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
           {/* 4. MOBILE / TABLET RIGHT ACTIONS & TOGGLE */}
           {/* ========================================= */}
           <div className="flex items-center gap-2 xl:hidden shrink-0">
-            {/* Quick Quote trigger on mobile */}
+            {/* Quick Quote trigger on tablet (hidden on mobile to protect header space; mobile already has fixed bottom quote bar) */}
             <button
               type="button"
               onClick={onRequestQuote}
-              className="px-3.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-transform active:scale-95 shadow-xs"
+              className="hidden sm:inline-flex px-3.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-transform active:scale-95 shadow-xs"
             >
               Quote
             </button>
 
-            {/* Hamburger / Close Icon */}
+            {/* Hamburger / Menu Toggle Button - 100% Guaranteed Visible on all Mobile Screens */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 hover:border-amber-500 flex items-center justify-center text-slate-800 hover:text-amber-600 transition-colors focus:outline-none"
+              className="flex items-center gap-1.5 h-9 sm:h-10 px-2.5 sm:px-3 rounded-xl bg-slate-900 hover:bg-amber-500 text-white hover:text-slate-950 border border-slate-800 transition-all focus:outline-none active:scale-95 shadow-sm shrink-0"
               aria-label="Toggle Navigation Menu"
               aria-expanded={mobileMenuOpen}
             >
-              <span className="material-symbols-outlined text-2xl">
+              <span className="material-symbols-outlined text-xl sm:text-2xl">
                 {mobileMenuOpen ? 'close' : 'menu'}
               </span>
+              <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider">
+                {mobileMenuOpen ? 'CLOSE' : 'MENU'}
+              </span>
             </button>
+          </div>
+        </div>
+
+        {/* ========================================= */}
+        {/* MOBILE DIRECT QUICK-NAV BAR (xl:hidden)   */}
+        {/* 100% visible navigation bar on mobile     */}
+        {/* ========================================= */}
+        <div className="xl:hidden w-full border-t border-slate-200/90 bg-slate-50/95 backdrop-blur-md px-2.5 py-1.5 overflow-x-auto cad-scrollbar">
+          <div className="flex items-center gap-1.5 min-w-max mx-auto justify-start sm:justify-center">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold text-slate-700 hover:text-slate-950 bg-white hover:bg-amber-500 hover:text-slate-950 border border-slate-200/90 shadow-2xs whitespace-nowrap active:scale-95 transition-all"
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
         </div>
       </header>
