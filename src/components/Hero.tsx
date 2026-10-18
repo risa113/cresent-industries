@@ -270,13 +270,6 @@ export const Hero: React.FC<HeroProps> = ({
         >
           CAD
         </button>
-        <a
-          href={`tel:${COMPANY_CONTACT.mobile1}`}
-          title="Call Us"
-          className="hover:text-sky-600 hover:scale-110 transition-all p-2 text-xs font-semibold"
-        >
-          TEL
-        </a>
         <button
           onClick={onRequestQuote}
           title="Request Quote"
