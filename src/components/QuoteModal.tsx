@@ -18,7 +18,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     name: '',
     phone: '',
     email: '',
-    category: 'Pre-Engineered Building (PEB)',
+    category: 'Pre-Engineered Buildings (PEB)',
     details: '',
   });
 
@@ -187,11 +187,17 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
                 onChange={(e) => setForm({ ...form, category: e.target.value })}
                 className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm sm:text-xs font-mono text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
               >
-                <option>Pre-Engineered Building (PEB)</option>
-                <option>Heavy Structural Steel</option>
-                <option>Tensile Roof Membrane</option>
-                <option>Cold Storage Shell</option>
-                <option>Industrial Roofing &amp; Cladding</option>
+                <option>Pre-Engineered Buildings (PEB)</option>
+                <option>Conversion Buildings</option>
+                <option>PUF Panel Sheeting Systems</option>
+                <option>Colour-Coated Roofing Sheets</option>
+                <option>Tensile Roofing Systems</option>
+                <option>Steel Bridges</option>
+                <option>Cold Storage Systems</option>
+                <option>Mezzanine Floors</option>
+                <option>Stone-Coated Roofing Systems</option>
+                <option>Polycarbonate Roofing Systems</option>
+                <option>UPVC Roofing Systems</option>
               </select>
             </div>
 

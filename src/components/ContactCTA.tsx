@@ -11,7 +11,7 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
     name: '',
     phone: '',
     email: '',
-    projectType: 'Pre-Engineered Building (PEB)',
+    projectType: 'Pre-Engineered Buildings (PEB)',
     estimatedArea: '',
     location: '',
     notes: '',
@@ -291,13 +291,17 @@ export const ContactCTA: React.FC<ContactCTAProps> = () => {
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                         className="w-full bg-slate-50 border border-slate-300 rounded px-3.5 py-2.5 text-sm sm:text-xs font-mono text-slate-900 focus:bg-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors"
                       >
-                        <option>Pre-Engineered Building (PEB)</option>
-                        <option>Heavy Industrial Steel Framing</option>
-                        <option>Architectural Tensile Roof</option>
-                        <option>PUFF Panel Sandwich Sheeting</option>
-                        <option>Cold Storage Facility</option>
-                        <option>Factory Height Extension / Mezzanine</option>
-                        <option>Colour-Coated Galvalume Roofing</option>
+                        <option>Pre-Engineered Buildings (PEB)</option>
+                        <option>Conversion Buildings</option>
+                        <option>PUF Panel Sheeting Systems</option>
+                        <option>Colour-Coated Roofing Sheets</option>
+                        <option>Tensile Roofing Systems</option>
+                        <option>Steel Bridges</option>
+                        <option>Cold Storage Systems</option>
+                        <option>Mezzanine Floors</option>
+                        <option>Stone-Coated Roofing Systems</option>
+                        <option>Polycarbonate Roofing Systems</option>
+                        <option>UPVC Roofing Systems</option>
                       </select>
                     </div>
                   </div>

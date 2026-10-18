@@ -63,6 +63,22 @@ export const CADModal: React.FC<CADModalProps> = ({
               'High-precision structural CAD/BIM drawing package conforming to IS 800:2007 and MBMA specifications. Ready for fabrication spool drafting.'}
           </p>
 
+          {/* Authentic Photograph Preview */}
+          {item?.image && (
+            <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200 shadow-inner">
+              <img
+                src={item.image}
+                alt={item.imageAlt || item.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-2.5 left-3 px-2.5 py-1 bg-black/75 backdrop-blur-md rounded text-[10px] font-mono text-white flex items-center gap-1.5 border border-white/10">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span>AUTHENTIC PROJECT REFERENCE // {item.title}</span>
+              </div>
+            </div>
+          )}
+
           {/* Technical Specs Plate */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3 font-mono text-xs">
             <div className="flex justify-between border-b border-slate-200/80 pb-2">

@@ -66,13 +66,13 @@ export const Footer: React.FC<FooterProps> = ({ onRequestQuote }) => {
             </span>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <a className="text-slate-600 hover:text-slate-950 hover:font-medium transition-colors block" href="#capabilities">
-                  Structural PEB Systems
+                <a className="text-slate-600 hover:text-slate-950 hover:font-medium transition-colors block" href="#services">
+                  Engineering Services (11)
                 </a>
               </li>
               <li>
-                <a className="text-slate-600 hover:text-slate-950 hover:font-medium transition-colors block" href="#capabilities">
-                  Industrial Roofing Matrix
+                <a className="text-slate-600 hover:text-slate-950 hover:font-medium transition-colors block" href="#applicable-for">
+                  Applicable Sectors (9)
                 </a>
               </li>
               <li>
