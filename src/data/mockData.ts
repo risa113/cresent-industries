@@ -579,6 +579,12 @@ export const COMPANY_CONTACT = {
   logoUrl: `${BASE}images/crescent-logo.svg`,
 };
 
+export const AGENCY_CREDIT = {
+  label: 'Built and Designed by',
+  name: 'DM Digital Marketing',
+  url: 'https://dmdigitalmarketing.com',
+};
+
 export const getWhatsAppUrl = (
   numberClean: string = COMPANY_CONTACT.whatsapp1Clean,
   message: string = 'Hello Crescent Engineering, I am interested in your PEB and Structural Steel services.'

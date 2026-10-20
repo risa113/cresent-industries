@@ -59,6 +59,9 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         display: ["Plus Jakarta Sans", "sans-serif"],
+        cinzel: ["Cinzel", "serif"],
+        playfair: ["Playfair Display", "serif"],
+        luxury: ["Cinzel", "'Playfair Display'", "Georgia", "serif"],
         mono: ["Inter", "monospace"],
         "technical-mono": ["Inter", "monospace"],
         "label-caps": ["Inter", "sans-serif"],

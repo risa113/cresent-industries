@@ -1,6 +1,6 @@
 import React from 'react';
-import { COMPANY_CONTACT, getWhatsAppUrl } from '../data/mockData';
-import { ArrowUp } from 'lucide-react';
+import { COMPANY_CONTACT, AGENCY_CREDIT, getWhatsAppUrl } from '../data/mockData';
+import { ArrowUp, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export interface FooterProps {
   readonly onRequestQuote: () => void;
@@ -146,10 +146,37 @@ export const Footer: React.FC<FooterProps> = ({ onRequestQuote }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 Crescent Engineering Industries. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+        <div className="pt-8 flex flex-col lg:flex-row items-center justify-between text-xs text-slate-500 gap-5">
+          {/* Copyright & Location */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left order-2 lg:order-1">
+            <p>© 2026 Crescent Engineering Industries. All rights reserved.</p>
+            <span className="hidden sm:inline text-slate-300">•</span>
             <span className="font-mono text-[11px] text-slate-500">Tirunelveli, Tamil Nadu, India</span>
+          </div>
+
+          {/* Luxury Attribution Badge with Backlink */}
+          <div className="order-1 lg:order-2 flex items-center justify-center">
+            <a
+              href={AGENCY_CREDIT.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${AGENCY_CREDIT.label} ${AGENCY_CREDIT.name} (Opens in new window)`}
+              className="luxury-agency-badge group inline-flex items-center gap-2 sm:gap-2.5 px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-white/95 hover:bg-white text-slate-700 transition-all select-text"
+              title={`${AGENCY_CREDIT.label} ${AGENCY_CREDIT.name}`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300 shrink-0" />
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-widest text-slate-400 group-hover:text-slate-600 uppercase transition-colors font-medium">
+                {AGENCY_CREDIT.label}
+              </span>
+              <span className="luxury-gold-brand font-extrabold text-xs sm:text-sm tracking-wider inline-flex items-center gap-1">
+                {AGENCY_CREDIT.name}
+                <ArrowUpRight className="w-3.5 h-3.5 text-amber-600 group-hover:text-amber-500 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0" />
+              </span>
+            </a>
+          </div>
+
+          {/* Back to Top */}
+          <div className="order-3 flex items-center gap-6">
             <button
               onClick={scrollToTop}
               className="flex items-center gap-1.5 hover:text-amber-600 transition-colors text-slate-600 font-medium"
