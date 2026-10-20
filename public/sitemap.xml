@@ -2,29 +2,147 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://risa113.github.io/cresent-industries/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <loc>https://crescentconstrution.com/</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    
+    <!-- Brand & Leadership -->
     <image:image>
-      <image:loc>https://risa113.github.io/cresent-industries/images/founder-er-k-mohamed.jpg</image:loc>
+      <image:loc>https://crescentconstrution.com/images/crescent-logo.svg</image:loc>
+      <image:title>Crescent Engineering Industries Master Logo</image:title>
+      <image:caption>Official logo of Crescent Engineering Industries, leading PEB manufacturer and heavy structural steel fabricator in Tamil Nadu.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/founder-er-k-mohamed.jpg</image:loc>
       <image:title>Er. K. Mohamed - Founder and Chief Structural Consultant</image:title>
       <image:caption>Er. K. Mohamed, Founder &amp; Chief Structural Consultant of Crescent Engineering Industries with over 35 years in structural steel and PEB systems.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://risa113.github.io/cresent-industries/images/hero-steel-hd.webp</image:loc>
-      <image:title>Heavy Industrial Steel Fabrication &amp; Pre-Engineered Building (PEB)</image:title>
-      <image:caption>Crescent Engineering Industries heavy steel plant fabrication and industrial clear span warehouse erection.</image:caption>
+      <image:loc>https://crescentconstrution.com/images/hero-steel-hd.webp</image:loc>
+      <image:title>Heavy Industrial Steel Fabrication and Pre-Engineered Building (PEB)</image:title>
+      <image:caption>High-tolerance clear-span steel warehouse fabrication and PEB infrastructure by Crescent Engineering Industries.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://risa113.github.io/cresent-industries/images/portfolio-steel-roofing-hd.jpg</image:loc>
-      <image:title>Industrial Curved Steel Roofing &amp; PEB Truss Installation</image:title>
-      <image:caption>Turnkey industrial Galvalume curved roofing and structural tubular steel truss solutions in Tamil Nadu.</image:caption>
+      <image:loc>https://crescentconstrution.com/images/editorial-steel-hd.webp</image:loc>
+      <image:title>Heavy Structural Steel Fabrication Works and Erection Yard</image:title>
+      <image:caption>Crescent Engineering Industries state-of-the-art structural fabrication works, CNC cutting, and submerged arc welding in Tirunelveli.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://risa113.github.io/cresent-industries/images/portfolio-peb-plant.webp</image:loc>
-      <image:title>Heavy Industrial Manufacturing &amp; Steel Fabrication Facility</image:title>
-      <image:caption>Clear span heavy structural steel warehouse facility designed and erected by Crescent Engineering Industries.</image:caption>
+      <image:loc>https://crescentconstrution.com/images/blueprint-truss-hd.webp</image:loc>
+      <image:title>ASTM Steel Load Compliance and CAD / BIM Structural Repository</image:title>
+      <image:caption>Certified structural steel load matrix, deflection standards, and BIM structural blueprint engineering.</image:caption>
+    </image:image>
+
+    <!-- 11 Engineering Services -->
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-peb-buildings-hd.jpg</image:loc>
+      <image:title>Pre-Engineered Buildings (PEB) Structural Engineering</image:title>
+      <image:caption>Turnkey pre-engineered steel buildings with up to 60m clear span and zero intermediate columns across Tamil Nadu.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-conversion-buildings-hd.jpg</image:loc>
+      <image:title>Civil to Steel Building Conversion and Expansion</image:title>
+      <image:caption>Retrofitting and expanding legacy civil concrete frameworks with rapid high-tensile structural steel envelopes.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-puf-panel-hd.jpg</image:loc>
+      <image:title>Insulated PUF Panel Structural Cladding Systems</image:title>
+      <image:caption>Continuous high-density polyisocyanurate and polyurethane foam core thermal roofing and wall panels.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-colour-coated-roofing-hd.jpg</image:loc>
+      <image:title>Colour Coated Industrial Trapezoidal Roofing Sheets</image:title>
+      <image:caption>Pre-painted Galvalume trapezoidal profile sheets engineered with AZ150 zinc-aluminum alloy protective coatings.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-tensile-roofing-hd.jpg</image:loc>
+      <image:title>Architectural High-Tensile Fabric Membrane Structures</image:title>
+      <image:caption>Pre-stressed architectural membrane systems with PVDF surface coatings for wide open industrial canopies and atriums.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-steel-bridges-hd.jpg</image:loc>
+      <image:title>Heavy Structural Steel Girder Bridges and Walkways</image:title>
+      <image:caption>Custom plate-girder and open-web truss steel bridges for industrial pipe-racks and inter-facility transit walkways.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-cold-storage-hd.jpg</image:loc>
+      <image:title>Controlled Atmosphere Cold Storage Infrastructure</image:title>
+      <image:caption>Hermetically sealed controlled atmosphere deep-cold chambers engineered with thermal-break structural base plates.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-mezzanine-floors-hd.jpg</image:loc>
+      <image:title>Heavy-Duty Industrial Steel Mezzanine Flooring</image:title>
+      <image:caption>High load-bearing structural mezzanine floor matrices designed for heavy industrial machinery and warehouse logistics.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-stone-coated-roofing-hd.jpg</image:loc>
+      <image:title>Stone Coated Galvanized Steel Roofing Tiles</image:title>
+      <image:caption>Alu-Zinc alloy coated base sheet with acrylic resin matrix and natural ceramic-coated basalt stone granules.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-polycarbonate-roofing-hd.jpg</image:loc>
+      <image:title>Skylight Polycarbonate Industrial Roofing Panels</image:title>
+      <image:caption>Multiwall UV-resistant co-extruded polycarbonate panels providing up to 82% natural daylight transmission.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/service-upvc-roofing-hd.jpg</image:loc>
+      <image:title>Multi-Layer Anti-Corrosive UPVC Industrial Roofing</image:title>
+      <image:caption>Chemical and acid-resistant 3-layer co-extruded UPVC roofing sheets designed for corrosive industrial environments.</image:caption>
+    </image:image>
+
+    <!-- Applicable Industrial Sectors -->
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/sector-warehouses-hd.jpg</image:loc>
+      <image:title>Industrial Warehousing and Logistics Hub Infrastructure</image:title>
+      <image:caption>High bay clear-span warehousing systems with optimized bay spacing and automated docking bay matrices.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/sector-industrial-fabrication-hd.jpg</image:loc>
+      <image:title>Heavy Engineering Fabrication and Industrial Foundry Plants</image:title>
+      <image:caption>Robust steel structures engineered for heavy EOT crane integration and severe dynamic vibrating machinery loads.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/sector-sports-centres-hd.jpg</image:loc>
+      <image:title>Indoor Sports Arenas, Stadiums and Multi-Sport Complexes</image:title>
+      <image:caption>Column-free vast spatial enclosures with engineered acoustic dampening and high lumen daylight diffusion arrays.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/sector-factories-hd.jpg</image:loc>
+      <image:title>Precision Manufacturing Factories and Assembly Facilities</image:title>
+      <image:caption>Custom production plants with integrated utility trenches, MEP routing trusses, and controlled thermal performance.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/sector-hospitals-hd.jpg</image:loc>
+      <image:title>Clean-Room Healthcare Facilities and Pharmaceutical Plants</image:title>
+      <image:caption>Certified antimicrobial structural environments with continuous vapor barriers and high air-change ceiling frameworks.</image:caption>
+    </image:image>
+
+    <!-- Key Portfolio Projects -->
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/portfolio-peb-plant.webp</image:loc>
+      <image:title>Heavy Industrial Manufacturing and Steel PEB Plant Project</image:title>
+      <image:caption>45,000 Sq.Ft clear span heavy manufacturing facility with 25T crane gantry designed and fabricated in Tamil Nadu.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/portfolio-logistics-hub.webp</image:loc>
+      <image:title>Mega Industrial Freight and Distribution Logistics Hub</image:title>
+      <image:caption>80,000 Sq.Ft multi-bay distribution center with laser-leveled flooring integration and weather-proof loading docks.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/portfolio-steel-roofing-hd.jpg</image:loc>
+      <image:title>Curved Galvalume Steel Roofing and Tubular PEB Truss</image:title>
+      <image:caption>High-performance curved architectural steel roofing with engineered ventilation louvers and perimeter flashing.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/portfolio-cold-storage.webp</image:loc>
+      <image:title>High-Capacity Controlled Atmosphere Cold Storage Facility</image:title>
+      <image:caption>Turnkey 12,000 MT multi-commodity cold chain facility with thermal-isolated structural connections.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crescentconstrution.com/images/portfolio-port-transit.webp</image:loc>
+      <image:title>High-Clearance Maritime Cargo Hub and Intermodal Depot</image:title>
+      <image:caption>High wind velocity resistant structural canopy for maritime heavy container transit and intermodal storage.</image:caption>
     </image:image>
   </url>
 </urlset>
