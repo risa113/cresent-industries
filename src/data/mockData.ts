@@ -574,7 +574,7 @@ export const COMPANY_CONTACT = {
   whatsapp2Clean: '919360335276',
   landlines: '0462-290 7277 / 290 8277',
   email: 'crescentfabs@gmail.com',
-  website: 'https://crescentconstrution.com',
+  website: 'https://www.crescentconstrution.com',
   coords: 'LAT 8.7139° N, LONG 77.7567° E',
   systemTime: 'SYSTEM TIME UTC+05:30',
   logoUrl: `${BASE}images/crescent-logo.svg`,
