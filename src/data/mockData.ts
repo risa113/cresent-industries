@@ -581,8 +581,8 @@ export const COMPANY_CONTACT = {
 
 export const AGENCY_CREDIT = {
   label: 'Built and Designed by',
-  name: 'DM Digital Marketing',
-  url: 'https://dmdigitalmarketing.com',
+  name: 'TM Digital Marketing',
+  url: 'https://tmdigitalmarketing.com',
 };
 
 export const getWhatsAppUrl = (
