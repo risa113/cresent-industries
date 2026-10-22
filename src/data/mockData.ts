@@ -80,14 +80,14 @@ export interface TestimonialItem {
 }
 
 export const NAV_ITEMS: readonly NavItem[] = [
-  { label: 'About', href: '#editorial' },
+  { label: 'About', href: '/about' },
   { label: 'Services', href: '#services' },
   { label: 'Blueprint', href: '#blueprint' },
   { label: 'Applicable For', href: '#applicable-for' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Credentials', href: '#credentials' },
   { label: 'Reviews', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const BASE = import.meta.env.BASE_URL || '/';
@@ -95,10 +95,10 @@ const BASE = import.meta.env.BASE_URL || '/';
 export const HERO_DATA = {
   eyebrow: 'ENGINEERED FOR STRENGTH // CAD-SPEC: IS 800:2007 // PEB MATRIX v4.2',
   division: 'STRUCTURAL DIVISION: CRESCENT ROOFING & PEB',
-  headline: 'Engineering Strength.',
-  headlineHighlight: 'Building Tomorrow.',
+  headline: 'Heavy Structural Steel Fabrication',
+  headlineHighlight: 'in Tirunelveli',
   description:
-    'Premium steel structural fabrication, pre-engineered buildings, industrial roofing matrices, and heavy infrastructure frameworks engineered for zero-tolerance performance, seismic compliance, and severe load durability.',
+    'Crescent Engineering Industries provides heavy structural steel fabrication, pre-engineered building structures, steel erection and industrial roofing solutions from Melapalayam, Tirunelveli, Tamil Nadu. With more than 30 years of stated industry experience, the company serves industrial and commercial requirements across its relevant service areas.',
   bgImage: `${BASE}images/hero-steel-hd.webp`,
   metrics: [
     { label: 'ANNUAL FABRICATION', value: '12,000+ MT' },
@@ -111,14 +111,16 @@ export const HERO_DATA = {
 export const COMPANY_DATA = {
   sectionTag: '01 / THE COMPANY',
   subtitle: 'ENTERPRISE PROFILE',
-  founded: 'FOUNDED 1999 // TIRUNELVELI, TN',
+  founded: '30+ YEARS EXPERIENCE // MELAPALAYAM, TIRUNELVELI',
   eyebrow: 'PRECISION CIVIL ENGINEERING',
   headline: 'Built on Precision. Delivered with Strength.',
-  p1: 'For over a quarter of a century, Crescent Engineering Industries has pioneered the vanguard of civil and structural engineering across Southern India. Operating with strict adherence to IS 800:2007 and MBMA quality frameworks, we manufacture and erect high-tolerance Pre-Engineered Steel Buildings, structural canopies, and specialized industrial envelopes.',
+  p1: 'Crescent Engineering Industries provides heavy structural steel fabrication, pre-engineered building structures, steel erection and industrial roofing solutions from Melapalayam, Tirunelveli, Tamil Nadu. With more than 30 years of stated industry experience, the company serves industrial and commercial requirements across its relevant service areas.',
   p2: 'Our fabrication yard in Melapalayam, Tirunelveli integrates heavy CNC beam lines, automated submerged arc welding, and multi-axis plasma plate profiling. From colossal manufacturing hangars to heavy rail overbridge structures, our work bridges architectural intent with unyielding structural physics.',
   specBox: [
-    { label: 'LEGAL ENTITY', value: 'CRESCENT ENGINEERING INDUSTRIES' },
-    { label: 'OPERATIONAL DIVISION', value: 'CRESCENT ROOFING SYSTEMS' },
+    { label: 'LEGAL ENTITY', value: 'CRESCENT ENGINEERING INDUSTRIES – STEEL FABRICATORS' },
+    { label: 'OPERATIONAL DIVISION', value: 'CRESCENT ROOFING' },
+    { label: 'BUSINESS CATEGORY', value: 'STEEL FABRICATOR' },
+    { label: 'STATED EXPERIENCE', value: 'MORE THAN 30 YEARS' },
     { label: 'CHIEF EXECUTIVE LEADERSHIP', value: 'Er. K. Mohamed' },
     { label: 'STRUCTURAL SPECIFICATIONS', value: 'IS 800:2007 // ASTM A653 // IS 2062 E350' },
   ],
@@ -501,7 +503,7 @@ export const PORTFOLIO_PROJECTS: readonly PortfolioProject[] = [
 
 export const STATS = [
   { value: '500+', label: 'COMPLETED PROJECTS', sub: 'Across 6 Southern States' },
-  { value: '25+', label: 'YEARS IN SERVICE', sub: 'Established Since 1999' },
+  { value: '30+', label: 'YEARS IN SERVICE', sub: 'Stated Industry Experience' },
   { value: '1.2M+', label: 'SQ. FT. CONSTRUCTED', sub: 'Industrial Clear Span Space' },
   { value: '100%', label: 'ZERO FAILURE RECORD', sub: 'Fully IS & ASTM Compliant' },
 ];
@@ -563,15 +565,20 @@ export const TESTIMONIALS: readonly TestimonialItem[] = [
 ];
 
 export const COMPANY_CONTACT = {
-  companyName: 'CRESCENT ENGINEERING INDUSTRIES',
+  companyName: 'Crescent Engineering Industries – Steel Fabricators',
+  businessCategory: 'Steel fabricator',
+  experience: 'More than 30 years',
   division: 'DIVISION: CRESCENT ROOFING',
-  address: '11, Ambasamudram Road, Near Bharath Petrol Bulk, Melapalayam, Tirunelveli – 627005, Tamil Nadu, India.',
+  address: 'Vaalan Complex, 11H, Ambai Road, Veeramanikapuram, Melapalayam, Tirunelveli, Tamil Nadu 627005, India.',
+  shortAddress: 'Vaalan Complex, 11H, Ambai Road, Melapalayam, Tirunelveli - 627005',
+  mapsUrl: 'https://maps.google.com/?q=Vaalan+Complex,+11H,+Ambai+Road,+Veeramanikapuram,+Melapalayam,+Tirunelveli,+Tamil+Nadu+627005',
   gstn: '33AAHFC8912C2ZS',
   compliance: 'GOVT. REGISTERED STRUCTURAL FABRICATOR',
-  mobile1: '+91 98430 60976',
-  mobile2: '+91 93603 35276',
-  whatsapp1Clean: '919843060976',
-  whatsapp2Clean: '919360335276',
+  primaryPhone: '+91 93603 35276',
+  mobile1: '+91 93603 35276',
+  mobile2: '+91 98430 60976',
+  whatsapp1Clean: '919360335276',
+  whatsapp2Clean: '919843060976',
   landlines: '0462-290 7277 / 290 8277',
   email: 'crescentfabs@gmail.com',
   website: 'https://www.crescentconstrution.com',

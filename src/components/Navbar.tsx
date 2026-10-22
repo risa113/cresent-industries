@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NAV_ITEMS, COMPANY_CONTACT, CAPABILITIES, CapabilityItem, getWhatsAppUrl } from '../data/mockData';
+import { useRouter } from '../context/RouterContext';
 
 export interface NavbarProps {
   readonly onRequestQuote: () => void;
@@ -48,16 +49,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
     };
   }, [mobileMenuOpen]);
 
-  // Smooth scroll handler for both desktop and mobile
+  const { navigate } = useRouter();
+
+  // Navigation handler for both desktop and mobile
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      setMobileMenuOpen(false);
-      const targetElement = document.querySelector(href);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    navigate(href);
   };
 
   return (
@@ -74,8 +72,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
           {/* 1. BRAND LOGO & TITLE CLUSTER             */}
           {/* ========================================= */}
           <a
-            href="#hero"
-            onClick={(e) => handleNavClick(e, '#hero')}
+            href="/"
+            onClick={(e) => handleNavClick(e, '/')}
             className="flex items-center gap-2 sm:gap-3 group focus:outline-none min-w-0 mr-2"
           >
             {/* Ultra-sharp 3D Golden Crescent Logo */}
@@ -140,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestQuote, onOpenCad, onSel
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-500/40 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 transition-all text-xs font-mono font-medium hover:border-emerald-500 shadow-xs"
-              title="Chat directly on WhatsApp (+91 98430 60976)"
+              title={`Chat directly on WhatsApp (${COMPANY_CONTACT.primaryPhone})`}
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>WhatsApp</span>

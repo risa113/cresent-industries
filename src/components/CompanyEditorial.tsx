@@ -1,5 +1,6 @@
 import React from 'react';
 import { COMPANY_DATA } from '../data/mockData';
+import { useRouter } from '../context/RouterContext';
 import { ArrowRight } from 'lucide-react';
 
 export interface CompanyEditorialProps {
@@ -7,6 +8,7 @@ export interface CompanyEditorialProps {
 }
 
 export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
+  const { navigate } = useRouter();
   return (
     <section
       className="relative py-24 sm:py-32 bg-white text-slate-900 border-b border-slate-200 overflow-hidden"
@@ -76,12 +78,16 @@ export const CompanyEditorial: React.FC<CompanyEditorialProps> = () => {
               ))}
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
-                href="#credentials"
-                className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 transition-colors text-xs font-bold uppercase tracking-widest group btn-luxury-bump"
+                href="/about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/about');
+                }}
+                className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 transition-colors text-xs font-bold uppercase tracking-widest group btn-luxury-bump cursor-pointer"
               >
-                <span>KNOW OUR STORY &amp; FOUNDATIONAL PHILOSOPHY</span>
+                <span>EXPLORE OUR 30+ YEARS HERITAGE &amp; CREDENTIALS</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
